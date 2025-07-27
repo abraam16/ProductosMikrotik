@@ -2,9 +2,70 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
+  <!-- CSS críticos primero para evitar FOUC -->
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/tailwind.output.css" />
+  <!-- Critical CSS inline para evitar FOUC -->
+  <style>
+    body { font-family: system-ui, -apple-system, sans-serif; }
+    .bg-gray-50 { background-color: #f9fafb; }
+    .bg-white { background-color: #ffffff; }
+    .bg-gray-50 { background-color: #eff6ff; }
+    .bg-gray-600 { background-color: #2563eb; }
+    .text-gray-600 { color: #2563eb; }
+    .text-gray-600 { color: #4b5563; }
+    .text-gray-700 { color: #374151; }
+    .text-gray-800 { color: #1f2937; }
+    .border { border-width: 1px; }
+    .border-gray-200 { border-color: #e5e7eb; }
+    .rounded-lg { border-radius: 0.5rem; }
+    .shadow-sm { box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); }
+    .p-2 { padding: 0.5rem; }
+    .p-4 { padding: 1rem; }
+    .px-4 { padding-left: 1rem; padding-right: 1rem; }
+    .py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+    .mb-4 { margin-bottom: 1rem; }
+    .flex { display: flex; }
+    .hidden { display: none; }
+    .max-w-7xl { max-width: 80rem; }
+    .mx-auto { margin-left: auto; margin-right: auto; }
+    .w-full { width: 100%; }
+    .h-12 { height: 3rem; }
+    .gap-4 { gap: 1rem; }
+    .items-center { align-items: center; }
+    .justify-center { justify-content: center; }
+    .object-contain { object-fit: contain; }
+    /* Animaciones esenciales */
+    .fade-in { animation: fadeIn 0.3s ease-in-out; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    .scale-hover:hover { transform: scale(1.05); transition: transform 0.2s ease; }
+    .border-hover:hover { border-color: #3b82f6; transition: border-color 0.2s ease; }
+    /* Scrollbar hide */
+    .scrollbar-hide::-webkit-scrollbar { display: none; }
+    .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+    /* Grid básico */
+    .grid { display: grid; }
+    .grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+    .grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .gap-2 { gap: 0.5rem; }
+    .gap-3 { gap: 0.75rem; }
+    /* Responsive básico */
+    @media (min-width: 1024px) {
+      .lg\:block { display: block; }
+      .lg\:flex-row { flex-direction: row; }
+      .lg\:w-1\/6 { width: 16.666667%; }
+      .lg\:w-4\/6 { width: 66.666667%; }
+      .lg\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (min-width: 768px) {
+      .md\:flex-row { flex-direction: row; }
+      .md\:w-1\/5 { width: 20%; }
+      .md\:text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
+    }
+  </style>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Lista de Precios SXT de MikroTik en Perú. SXT, modelos, características y precios actualizados. DS3 distribuidor oficial MikroTik." />
-  <meta name="keywords" content="SXT MikroTik Perú, precios SXT, Mikrotik SXT, DS3 comunicaciones distribuidor oficial MikroTik, SXT Lima, SXT Perú, SXT stock Lima" />
+  <meta name="description" content="Lista de Precios SXT de MikroTik en Perú. Modelos, características y precios actualizados. DS3 distribuidor oficial MikroTik." />
+  <meta name="keywords" content="SXT MikroTik Perú, precios sxt, Mikrotik sxt, DS3 comunicaciones distribuidor oficial MikroTik, sxt MikroTik Lima, sxt Perú, sxt stock Lima" />
   <meta name="author" content="DS3 Comunicaciones EIRL" />
   
   <!-- Meta Tags Adicionales para SEO -->
@@ -20,17 +81,17 @@
   
   <!-- Open Graph Meta Tags para Redes Sociales -->
   <meta property="og:title" content="Lista de Precios SXT de MikroTik | DS3 Comunicaciones" />
-  <meta property="og:description" content="Lista de Precios SXT de MikroTik en Perú. SXT, modelos, características y precios actualizados." />
-  <meta property="og:image" content="https://www.ds3comunicaciones.com/mikrotik/images/sxt.ico" />
-  <meta property="og:url" content="https://www.ds3comunicaciones.com/mikrotik/precios_sxt.html" />
+  <meta property="og:description" content="Lista de Precios SXT de MikroTik en Perú. Modelos, características y precios actualizados." />
+  <meta property="og:image" content="https://web.netperu100.com/mikrotik/images/sxt_front_medium.jpg" />
+  <meta property="og:url" content="https://www.ds3comunicaciones.com/mikrotik/sxt/precios_sxt.html" />
   <meta property="og:type" content="product" />
   <meta property="og:site_name" content="DS3 Comunicaciones" />
   
   <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Lista de Precios SXT de MikroTik" />
-  <meta name="twitter:description" content="Lista de Precios SXT de MikroTik en Perú. SXT, modelos, características y precios actualizados." />
-  <meta name="twitter:image" content="https://www.ds3comunicaciones.com/mikrotik/images/sxt.ico" />
+  <meta name="twitter:description" content="Lista de Precios SXT de MikroTik en Perú. Modelos, características y precios actualizados." />
+  <meta name="twitter:image" content="https://web.netperu100.com/mikrotik/images/sxt_front_medium.jpg" />
   
   <!-- Meta Tags para Productos -->
   <meta name="product:price:amount" content="89.00" />
@@ -46,7 +107,7 @@
   <meta name="ICBM" content="-12.0464,-77.0428" />
   
   <!-- Canonical URL -->
-  <link rel="canonical" href="https://www.ds3comunicaciones.com/mikrotik/precios_sxt.html" />
+  <link rel="canonical" href="https://www.ds3comunicaciones.com/mikrotik/sxt/precios_sxt.html" />
   
   <!-- Meta Robots para SEO MÁXIMO -->
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -63,8 +124,8 @@
   <meta name="google" content="notranslate" />
   
   <!-- Hreflang para SEO Internacional -->
-  <link rel="alternate" hreflang="es-pe" href="https://www.ds3comunicaciones.com/mikrotik/precios_sxt.html" />
-  <link rel="alternate" hreflang="es" href="https://www.ds3comunicaciones.com/mikrotik/precios_sxt.html" />
+  <link rel="alternate" hreflang="es-pe" href="https://www.ds3comunicaciones.com/mikrotik/sxt/precios_sxt.html" />
+  <link rel="alternate" hreflang="es" href="https://www.ds3comunicaciones.com/mikrotik/sxt/precios_sxt.html" />
   
   <!-- DNS Prefetch y Performance Optimizada -->
   <link rel="dns-prefetch" href="//www.ds3comunicaciones.com" />
@@ -81,59 +142,10 @@
   <meta http-equiv="content-language" content="es-PE" />
   
 
-  <!-- Enlace a Tailwind CSS compilado localmente -->
-  <!-- Enlace a Tailwind CSS compilado localmente se mueve al final del body -->
   <!-- FontAwesome CDN - CARGA NORMAL -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <!-- Todos los estilos (Tailwind + personalizados) -->
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <link rel="stylesheet" href="./assets/css/tailwind.output.css" />
-  <script type="application/ld+json">
-[
-  {
-    "@context": "https://schema.org/",
-    "@type": "Product",
-    "name": "RBSXT5nDr2",
-    "image": ["https://www.ds3comunicaciones.com/mikrotik/images/RBSXT5nDr2_small.jpg"],
-    "description": "AccessPoint CPE 5.8 GHz SXT 'Lite5' 500 mW, Antena de 16dBi Dual Chain 802.11a/n RouterOS L3, POE, PSU, pole mount, marca Mikrotik.",
-    "sku": "RBSXT5nDr2",
-    "mpn": "RBSXT5nDr2",
-    "brand": {"@type": "Brand", "name": "MikroTik"},
-    "offers": {
-      "@type": "Offer",
-      "url": "https://www.ds3comunicaciones.com/mikrotik/RBSXT5nDr2.html",
-      "priceCurrency": "USD",
-      "price": "99.00",
-      "availability": "https://schema.org/InStock",
-      "itemCondition": "https://schema.org/NewCondition",
-      "seller": {"@type": "Organization", "name": "DS3 Comunicaciones EIRL"}
-    }
-  },
-  {
-    "@context": "https://schema.org/",
-    "@type": "Product",
-    "name": "RBSXT-5HPnD",
-    "image": ["https://www.ds3comunicaciones.com/mikrotik/images/RBSXT-5HPnD_small.jpg"],
-    "description": "AccessPoint CPE 5.8 GHz SXT 'Lite5' 500 mW, Antena de 16dBi Dual Chain 802.11a/n RouterOS L3, POE, PSU, pole mount, marca Mikrotik.",
-    "sku": "RBSXT-5HPnD",
-    "mpn": "RBSXT-5HPnD",
-    "brand": {"@type": "Brand", "name": "MikroTik"},
-    "offers": {
-      "@type": "Offer",
-      "url": "https://www.ds3comunicaciones.com/mikrotik/RBSXT-5HPnD.html",
-      "priceCurrency": "USD",
-      "price": "95.00",
-      "availability": "https://schema.org/InStock",
-      "itemCondition": "https://schema.org/NewCondition",
-      "seller": {"@type": "Organization", "name": "DS3 Comunicaciones EIRL"}
-    }
-  }
-  // ...agrega aquí los demás productos SXT que aparecen en la grilla...
-]
-</script>
-  
 
   
   <!-- Favicon optimizado con logo DS3 -->
@@ -205,7 +217,7 @@
     }
   </style>
   
-  <title>Lista de Precios SXT de MikroTik | DS3 Comunicaciones Perú</title>
+  <title>Lista de Precios de SXT de MikroTik | DS3 Comunicaciones Perú</title>
 </head>
 
 <body class="bg-gris-muy-claro">
@@ -302,28 +314,33 @@
             <li class="py-2 border-b w-full sm:w-full md:w-72 lg:w-72 xl:w-72 px-3 text-negro font-bold rounded-md my-1">
                 <a href="https://www.ds3comunicaciones.com/index.html" class="hover:underline font-bold">Home</a>
             </li>
-            <li class="py-2 border-b w-full sm:w-full md:w-72 lg:w-72 xl:w-72 px-3 text-gris-oscuro">
-                <a href="https://www.ds3comunicaciones.com/mikrotik/precios_routerboard.html"
+<li class="py-2 border-b w-full sm:w-full md:w-72 lg:w-72 xl:w-72 px-3 text-gris-oscuro">
+                <a href="../routerboard/precios_routerboard.html"
                     class="hover:underline">Routerboard</a>
             </li>
             <li class="py-2 border-b w-full sm:w-full md:w-72 lg:w-72 xl:w-72 px-3 text-gris-oscuro">
-                <a href="https://www.ds3comunicaciones.com/mikrotik/precios_crr.html"
-                    class="hover:underline">Cloud Core Router</a>
-            </li>
-            <li class="py-2 border-b w-full sm:w-full md:w-72 lg:w-72 xl:w-72 px-3 text-gris-oscuro">
-                <a href="https://www.ds3comunicaciones.com/mikrotik/precios_wifi.html"
-                    class="hover:underline">WiFi</a>
-            </li>
-            <li class="py-2 border-b w-full sm:w-full md:w-72 lg:w-72 xl:w-72 px-3 text-gris-oscuro">
-                <a href="https://www.ds3comunicaciones.com/mikrotik/precios_crs.html"
+                <a href="../switch_crs/precios_switch_crs.html"
                     class="hover:underline">Switch CRS</a>
             </li>
             <li class="py-2 border-b w-full sm:w-full md:w-72 lg:w-72 xl:w-72 px-3 text-gris-oscuro">
-                <a href="https://www.ds3comunicaciones.com/mikrotik/precios_netmetal.html"
+                <a href="../WiFi/precios_wifi.html"
+                    class="hover:underline">WiFi</a>
+            </li>
+            <li class="py-2 border-b w-full sm:w-full md:w-72 lg:w-72 xl:w-72 px-3 text-gris-oscuro">
+                <a href="../crr/precios_ccr.html"
+                    class="hover:underline">Cloud Core Router</a>
+            </li>
+            <li class="py-2 border-b w-full sm:w-full md:w-72 lg:w-72 xl:w-72 px-3 text-gris-oscuro">
+                <a href="precios_sxt.html"
                     class="hover:underline">Net Metal</a>
             </li>
             <li class="py-2 border-b w-full sm:w-full md:w-72 lg:w-72 xl:w-72 px-3 text-gris-oscuro">
-                <a href="" class="hover:underline">Accesorios / Fibra</a>
+                <a href="../transceiver/precios_transceiver.html"
+                    class="hover:underline">Transceiver</a>
+            </li>
+            <li class="py-2 border-b w-full sm:w-full md:w-72 lg:w-72 xl:w-72 px-3 text-gris-oscuro">
+              <a href="../crr/precios_ccr.html"
+                    class="hover:underline">Cloud Core Router</a>
             </li>
             <li class="py-2 border-b w-full sm:w-full md:w-72 lg:w-72 xl:w-72 px-3 bg-gris-claro text-negro rounded-md my-1 check_btn">
                 <a href="" class="flex items-center gap-2 relative w-full justify-between">
@@ -520,40 +537,40 @@
   </section>
 
 
-<!-- SUBMENU DE MARCA DEPENDIENDO DEL PRODUCTO -->
+  <!-- SUBMENU DE MARCA DEPENDIENDO DEL PRODUCTO -->
   <nav class="bg-white border-b border-gray-200 shadow-sm">
     <div class="relative">
       <!-- Contenedor con scroll horizontal -->
       <div class="nav-container flex justify-evenly overflow-x-auto md:py-2 px-4 space-x-2 scrollbar-hide">
         <!-- Item 1 -->
-        <a href="https://www.ds3comunicaciones.com/mikrotik/precios_ccr.html"
+        <a href="../crr/precios_ccr.html"
           class="nav-item flex items-center p-1.5 rounded-lg min-w-fit flex-shrink-0 space-x-1.5">
           <div class="icon-container h-6 w-6 flex items-center justify-center">
-            <img src="./icons/ccr.ico" class="nav-icon max-h-full max-w-full" alt="CCR" />
+            <img src="../icons/ccr.ico" class="nav-icon max-h-full max-w-full" alt="CCR" />
           </div>
           <span class="text-xs font-medium text-gray-600 whitespace-nowrap">CCR</span>
         </a>
 
         <!-- Item 2 -->
-        <a href="https://www.ds3comunicaciones.com/mikrotik/precios_routerboard.html"
+        <a href="../routerboard/precios_routerboard.html"
           class="nav-item flex items-center p-1.5 rounded-lg min-w-fit flex-shrink-0 space-x-1.5">
           <div class="icon-container h-6 w-6 flex items-center justify-center">
-            <img src="./icons/RouterBoard.ico" class="nav-icon max-h-full max-w-full" alt="RouterBoard" />
+            <img src="../icons/RouterBoard.ico" class="nav-icon max-h-full max-w-full" alt="RouterBoard" />
           </div>
           <span class="text-xs font-medium text-gray-600 whitespace-nowrap">RouterBoard</span>
         </a>
 
         <!-- Item 3 -->
-        <a href="https://www.ds3comunicaciones.com/mikrotik/precios_switch_crs.html"
+        <a href="../switch_crs/precios_switch_crs.html"
           class="nav-item flex items-center p-1.5 rounded-lg min-w-fit flex-shrink-0 space-x-1.5">
           <div class="icon-container h-6 w-6 flex items-center justify-center">
-            <img src="./icons/crs.ico" class="nav-icon max-h-full max-w-full" alt="Switch CRS" />
+            <img src="../icons/crs.ico" class="nav-icon max-h-full max-w-full" alt="Switch CRS" />
           </div>
           <span class="text-xs font-medium text-gray-600 whitespace-nowrap">Switch CRS</span>
         </a>
 
         <!-- Item 4 -->
-        <a href="https://www.ds3comunicaciones.com/mikrotik/precios_wifi.html"
+        <a href="../WiFi/precios_wifi.html"
           class="nav-item flex items-center p-1.5 rounded-lg min-w-fit flex-shrink-0 space-x-1.5">
           <div class="icon-container h-6 w-6 flex items-center justify-center">
             <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -574,27 +591,27 @@
         </a>
 
         <!-- Item 5 -->
-        <a href="https://www.ds3comunicaciones.com/mikrotik/precios_sxt.html"
+        <a href="../sxt/precios_sxt.html"
           class="nav-item flex items-center p-1.5 rounded-lg min-w-fit flex-shrink-0 space-x-1.5">
           <div class="icon-container h-6 w-6 flex items-center justify-center">
-            <img src="./icons/sxt.ico" class="nav-icon max-h-full max-w-full" alt="Teléfono" />
+            <img src="../icons/sxt.ico" class="nav-icon max-h-full max-w-full" alt="Teléfono" />
           </div>
           <span class="text-xs font-medium text-gray-600 whitespace-nowrap">SXT</span>
         </a>
 
         <!-- Item 6 -->
-        <a href="https://www.ds3comunicaciones.com/mikrotik/precios_netmetal.html"
+        <a href="precios_sxt.html"
           class="nav-item flex items-center p-1.5 rounded-lg min-w-fit flex-shrink-0 space-x-1.5">
           <div class="icon-container h-6 w-6 flex items-center justify-center">
-            <img src="./icons/NetMetal.ico" class="nav-icon max-h-full max-w-full" alt="Meraki" />
+            <img src="../icons/sxt.ico" class="nav-icon max-h-full max-w-full" alt="SXT" />
           </div>
-          <span class="text-xs font-medium text-gray-600 whitespace-nowrap">NetMetal</span>
+          <span class="text-xs font-medium text-gray-600 whitespace-nowrap">SXT</span>
         </a>
 
         <!-- Item 7 -->
-        <a href="https://www.ds3comunicaciones.com/hp/precios_transceiver.html" class="nav-item flex items-center p-1.5 rounded-lg min-w-fit flex-shrink-0 space-x-1.5">
+        <a href="../transceiver/precios_transceiver.html" class="nav-item flex items-center p-1.5 rounded-lg min-w-fit flex-shrink-0 space-x-1.5">
           <div class="icon-container h-6 w-6 flex items-center justify-center">
-            <img src="./icons/Transceiver.ico" class="nav-icon max-h-full max-w-full" alt="Transceiver" />
+            <img src="../icons/Transceiver.ico" class="nav-icon max-h-full max-w-full" alt="Transceiver" />
           </div>
           <span class="text-xs font-medium text-gray-600 whitespace-nowrap">Transceiver</span>
         </a>
@@ -608,15 +625,16 @@
       <i class="fa-solid fa-house text-[0.9em]"></i>
     </a>
     <span class="text-gray-400 flex-shrink-0"><i class="fa-solid fa-angle-right text-[0.8em]"></i></span>
-    <a href="https://www.ds3comunicaciones.com/mikrotik/master.html"
-      class="flex-shrink-0 hover:underline hover:text-blue-600">
+    <a href="../master.html"
+      class="flex-shrink-0 hover:underline hover:text-gray-600">
       MikroTik
     </a>
     <span class="text-gray-400 flex-shrink-0"><i class="fa-solid fa-angle-right text-[0.8em]"></i></span>
-      <span class="text-slate-800 font-medium flex-shrink-0">
+    <a href="precios_antenas_sxt.html"
+      class="flex-shrink-0 hover:underline hover:text-gray-600">
       Antenas SXT
-      </span>
-       </div>
+    </a>
+    </div>
 
 
 <!-- PRODUCTOS CCR + SIDEBAR DERECHO EN LAYOUT FLEX -->
@@ -659,7 +677,7 @@
     <div class="flex-1">
       <div class="mb-4">
         <div class="w-full flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-          <div class="ds3-blue titulo-ds3" id="AirFiber">Lista de Precios de Antenas SXT MikroTik</div>
+          <div class="ds3-blue titulo-ds3" id="AirFiber">Lista de Precios de SXT de MikroTik</div>
           <div class="flex justify-center sm:justify-end w-full sm:w-auto mt-2 sm:mt-0">
             <select id="sortPrice" class="border border-gray-300 rounded px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 w-full sm:w-auto text-base sm:text-sm py-3 sm:py-1 mb-4 sm:mb-0">
               <option value="asc">Precio: menor a mayor</option>
@@ -669,20 +687,20 @@
         </div>
       </div>
       <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-<a href="https://www.ds3comunicaciones.com/mikrotik/RBSXT5nDr2.html" class="block" data-price="99">
+<a href="RBSXT5nDr2.html" class="block" data-price="99">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://www.ds3comunicaciones.com/mikrotik/images/RBSXT5nDr2_small.jpg" alt="RBSXT5nDr2" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/RBSXT5nDr2_side.jpg" alt="RBSXT5nDr2" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">RBSXT5nDr2</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 99</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
-      <p class="text-xs text-gray-600 text-center font-bold">AccessPoint CPE 5.8 GHz SXT "Lite5" 500 mW , Antena de 16dBi Dual Chain 802.11a/n RouterOS L3, POE, PSU, pole mount ,marca Mikrotik .</p>
+      <p class="text-xs text-gray-600 text-center font-bold">AccessPoint CPE 5.8 GHz SXT "Lite5" 500 mW , Antena de 16dBi Dual Chain 802.11a/n RouterOS L3, POE, PSU, pole mount ,,marca Mikrotik .</p>
     </div>
   </div>
 </a>
 
-<a href="https://www.ds3comunicaciones.com/mikrotik/RBSXT-5HPnD.html" class="block" data-price="95">
+<a href="RBSXT-5HPnD.html" class="block" data-price="95">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://www.ds3comunicaciones.com/mikrotik/images/RBSXT-5HPnD_small.jpg" alt="RBSXT-5HPnD" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/RBSXT-5HPnD_side.png" alt="RBSXT-5HPnD" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">RBSXT-5HPnD</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 95</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -691,9 +709,9 @@
   </div>
 </a>
 
-<a href="https://www.ds3comunicaciones.com/mikrotik/RBSXTG-5HPacD.html" class="block" data-price="183">
+<a href="RBSXTG-5HPacD.html" class="block" data-price="183">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://www.ds3comunicaciones.com/mikrotik/images/RBSXTG-5HPacD_small.jpg" alt="RBSXTG-5HPacD" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/RBSXTG-5HPacD_side.png" alt="RBSXTG-5HPacD" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">RBSXTG-5HPacD</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 183</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -702,20 +720,20 @@
   </div>
 </a>
 
-<a href="https://www.ds3comunicaciones.com/mikrotik/RBSXTG-5HPacD-SA.html" class="block" data-price="192">
+<a href="RBSXTG-5HPacD-SA.html" class="block" data-price="192">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://www.ds3comunicaciones.com/mikrotik/images/RBSXTG-5HPacD-SA_small.jpg" alt="RBSXTG-5HPacD-SA" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/RBSXTG-5HPacD-SA_front_small.png" alt="RBSXTG-5HPacD-SA" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">RBSXTG-5HPacD-SA</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 192</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
-      <p class="text-xs text-gray-600 text-center font-bold">RBSXTG-5HPacD-SA AccessPoint CPE 5.8 GHz 802.11ac de 866 Mbps , Modulación 256-QAM , SXT ac Antena Sectorial de 13 dBi 90° RouterOS Level 4, inc.Puerto Ethernet Gigabit , PoE Gigabit, PSU, abrazadera de montaje ,marca Mikrotik</p>
+      <p class="text-xs text-gray-600 text-center font-bold">RBSXTG-5HPacD-SA AccessPoint CPE 5.8 GHz 802.11ac de 866 Mbps , Modulación 256-QAM , SXT ac Antena Sectorial de 13 dBi 90° RouterOS Level 4, inc.Puerto Ethernet Gigabit , PoE Gigabit, PSU, abrazadera de montaje ,marca Mikrotik .</p>
     </div>
   </div>
 </a>
 
-<a href="https://www.ds3comunicaciones.com/mikrotik/RBSXT-LITE5.html" class="block" data-price="95">
+<a href="RBSXT-LITE5.html" class="block" data-price="95">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://www.ds3comunicaciones.com/mikrotik/images/RBSXT-LITE5_small.jpg" alt="RBSXT-LITE5" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/RBSXT-LITE5_side.png" alt="RBSXT-LITE5" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">RBSXT-LITE5</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 95</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -724,9 +742,9 @@
   </div>
 </a>
 
-<a href="https://www.ds3comunicaciones.com/mikrotik/RBSXG-5HPnD-Sar.html" class="block" data-price="166">
+<a href="RBSXG-5HPnD-Sar.html" class="block" data-price="166">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://www.ds3comunicaciones.com/mikrotik/images/RBSXG-5HPnD-Sar_small.jpg" alt="RBSXG-5HPnD-Sar" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/RBSXG-5HPnD-Sar_side.jpg" alt="RBSXG-5HPnD-Sar" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">RBSXG-5HPnD-Sar</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 166</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -735,9 +753,42 @@
   </div>
 </a>
 
-<a href="https://www.ds3comunicaciones.com/mikrotik/MikroBase_M2.html" class="block" data-price="143">
+<a href="MTAD-5G-30D3.html" class="block" data-price="165">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://www.ds3comunicaciones.com/mikrotik/images/MikrobaseM2.bmp" alt="MikroBase_M2" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/MTAD-5G-30D3_front.jpg" alt="MTAD-5G-30D3" class="h-32 object-contain mb-3 z-10">
+    <p class="font-bold text-center z-10">MTAD-5G-30D3</p>
+    <span class="font-medium text-sm mb-2 z-10">U$ 165</span>
+    <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
+      <p class="text-xs text-gray-600 text-center font-bold">Antena Dish de Plato sólido de doble polaridad MIMO de 30 dBi 5.8 GHz , con un soporte de tipo estándar, marca Mikrotik</p>
+    </div>
+  </div>
+</a>
+
+<a href="Sleeve30.html" class="block" data-price="135">
+  <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
+    <img src="https://web.netperu100.com/mikrotik/images/Sleeve30_front_small.jpg" alt="Sleeve30" class="h-32 object-contain mb-3 z-10">
+    <p class="font-bold text-center z-10">Sleeve30</p>
+    <span class="font-medium text-sm mb-2 z-10">U$ 135</span>
+    <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
+      <p class="text-xs text-gray-600 text-center font-bold">Proteccion para ruido compatible con antenas MANT 30, marca Mikrotik</p>
+    </div>
+  </div>
+</a>
+
+<a href="MTRADC.html" class="block" data-price="65">
+  <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
+    <img src="https://web.netperu100.com/mikrotik/images/MTRADC_front.png" alt="MTRADC" class="h-32 object-contain mb-3 z-10">
+    <p class="font-bold text-center z-10">MTRADC</p>
+    <span class="font-medium text-sm mb-2 z-10">U$ 65</span>
+    <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
+      <p class="text-xs text-gray-600 text-center font-bold">MTRADC RADOME para DISH de 30 dbi MANT 30, marca Mirkrotik</p>
+    </div>
+  </div>
+</a>
+
+<a href="MikroBase_M2.html" class="block" data-price="143">
+  <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
+    <img src="https://web.netperu100.com/mikrotik/images/MikroBase_M2_front.jpg" alt="MikroBase_M2" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">MikroBase_M2</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 143</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -746,9 +797,9 @@
   </div>
 </a>
 
-<a href="https://www.ds3comunicaciones.com/mikrotik/MIKROBASE_M5.html" class="block" data-price="180">
+<a href="MIKROBASE_M5.html" class="block" data-price="180">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://www.ds3comunicaciones.com/mikrotik/images/Mikrobase-M5-1.jpg" alt="MIKROBASE_M5" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/MIKROBASE_M5_front.jpg" alt="MIKROBASE_M5" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">MIKROBASE_M5</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 180</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -757,9 +808,9 @@
   </div>
 </a>
 
-<a href="https://www.ds3comunicaciones.com/mikrotik/STATIONBOX-XL.html" class="block" data-price="196">
+<a href="STATIONBOX-XL.html" class="block" data-price="196">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://www.ds3comunicaciones.com/mikrotik/images/STATIONBOX-XL_small.jpg" alt="STATIONBOX-XL" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/STATIONBOX-X_side.jpg" alt="STATIONBOX-XL" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">STATIONBOX-XL</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 196</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -768,9 +819,9 @@
   </div>
 </a>
 
-<a href="https://www.ds3comunicaciones.com/mikrotik/SECM590html" class="block" data-price="173">
+<a href="SECM590.html" class="block" data-price="173">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://www.ds3comunicaciones.com/mikrotik/images/SECM590_small.jpg" alt="SECM590" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/SECM590_front.jpg" alt="SECM590" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">SECM590</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 173</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -779,9 +830,9 @@
   </div>
 </a>
 
-<a href="https://www.ds3comunicaciones.com/mikrotik/SECM5120.html" class="block" data-price="169">
+<a href="SECM5120.html" class="block" data-price="169">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://www.ds3comunicaciones.com/mikrotik/images/SECM5120_small.jpg" alt="SECM5120" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/SECM5120_front.jpeg" alt="SECM5120" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">SECM5120</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 169</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -790,10 +841,10 @@
   </div>
 </a>
 
-<a href="https://www.ds3comunicaciones.com/mikrotik/SECTOR MIMO_2-120html" class="block" data-price="179">
+<a href="SECTOR_MIMO2-120.html" class="block" data-price="179">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://www.ds3comunicaciones.com/mikrotik/images/SECTOR_MIMO_2-120_small.jpg" alt="SECTOR MIMO_2-120" class="h-32 object-contain mb-3 z-10">
-    <p class="font-bold text-center z-10">SECTOR MIMO_2-120</p>
+    <img src="https://web.netperu100.com/mikrotik/images/SECTOR_MIMO2-120_front.jpg" alt="SECTOR_MIMO2-120" class="h-32 object-contain mb-3 z-10">
+    <p class="font-bold text-center z-10">SECTOR_MIMO2-120</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 179</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
       <p class="text-xs text-gray-600 text-center font-bold">Antena Sectorial mimo Base Station 2 de 15 dBi 120º 5.8 GHz MIMO marca RF-Elementts</p>
@@ -801,20 +852,20 @@
   </div>
 </a>
 
-<a href="https://www.ds3comunicaciones.com/mikrotik/MTAD-5G-30D3-PA.html" class="block" data-price="225">
+<a href="MTAD-5G-30D3-PA.html" class="block" data-price="289">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://www.ds3comunicaciones.com/mikrotik/images/MTAD-5G-30D3-PA_small.jpg" alt="MTAD-5G-30D3-PA" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/MTAD-5G-30D3-PA_front.png" alt="MTAD-5G-30D3-PA" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">MTAD-5G-30D3-PA</p>
-    <span class="font-medium text-sm mb-2 z-10">U$ 225</span>
+    <span class="font-medium text-sm mb-2 z-10">U$ 289</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
-      <p class="text-xs text-gray-600 text-center font-bold">Antena Dish de Plato sólido de doble polaridad MIMO de 30 dBi 5.8 GHz ,marca Mikrotik .</p>
+      <p class="text-xs text-gray-600 text-center font-bold">Antena Dish de Plato sólido de doble polaridad MIMO de 30 dBi 5.8 GHz , con montura de alineación de precisión, marca Mikrotik</p>
     </div>
   </div>
 </a>
 
-<a href="https://www.ds3comunicaciones.com/mikrotik/RBSEXTANTG5HPnD .html" class="block" data-price="166">
+<a href="RBSEXTANTG5HPnD.html" class="block" data-price="166">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://www.ds3comunicaciones.com/mikrotik/images/RBSEXTANTG5HPnD_small.jpg" alt="RBSEXTANTG5HPnD" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/RBSEXTAGNTG5HPnD_front.jpg" alt="RBSEXTANTG5HPnD" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">RBSEXTANTG5HPnD</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 166</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -832,14 +883,14 @@
           aside::-webkit-scrollbar { display: none; }
         </style>
         <div class="links-section bg-white">
-          <h3 class="text-base font-bold text-black mb-3 border-b pb-2">
+          <h3 class="text-base font-bold text-black mb-3 border-gray-200 pb-2">
             Listas de Precios de otras marcas
           </h3>
           <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 space-y-1">
             <!-- AMP -->
-              <li class="hover:bg-blue-50 rounded transition-colors">
+              <li class="hover:bg-gray-50 rounded transition-colors">
                 <a href="https://www.ds3comunicaciones.com/AMP/precios_amp.html" target="_blank"
-                  class="block px-3 py-1 text-xs md:text-sm text-blue-600 hover:underline font-medium">
+                  class="block px-3 py-1 text-xs md:text-sm text-gray-600 hover:underline font-medium">
                   Lista de precios AMP
                 </a>
               </li>
@@ -847,7 +898,7 @@
               <!-- Amphenol -->
               <li class="hover:bg-blue-50 rounded transition-colors">
                 <a href="https://www.ds3comunicaciones.com/amphenol/precios_amphenol.html" target="_blank"
-                  class="block px-3 py-1 text-xs md:text-sm text-blue-600 hover:underline font-medium">
+                  class="block px-3 py-1 text-xs md:text-sm text-gray-600 hover:underline font-medium">
                   Lista de precios Amphenol
                 </a>
               </li>
@@ -855,7 +906,7 @@
               <!-- Andrew -->
               <li class="hover:bg-blue-50 rounded transition-colors">
                 <a href="https://www.ds3comunicaciones.com/andrew/precios_andrew.html" target="_blank"
-                  class="block px-3 py-1 text-xs md:text-sm text-blue-600 hover:underline font-medium">
+                  class="block px-3 py-1 text-xs md:text-sm text-gray-600 hover:underline font-medium">
                   Lista de precios Andrew
                 </a>
               </li>
@@ -863,7 +914,7 @@
               <!-- APC -->
               <li class="hover:bg-blue-50 rounded transition-colors">
                 <a href="https://www.ds3comunicaciones.com/apc/precios_apc.html" target="_blank"
-                  class="block px-3 py-1 text-xs md:text-sm text-blue-600 hover:underline font-medium">
+                  class="block px-3 py-1 text-xs md:text-sm text-gray-600 hover:underline font-medium">
                   Lista de precios APC
                 </a>
               </li>
@@ -871,7 +922,7 @@
               <!-- CISCO -->
               <li class="hover:bg-blue-50 rounded transition-colors">
                 <a href="https://www.ds3comunicaciones.com/cisco/precios_cisco.html" target="_blank"
-                  class="block px-3 py-1 text-xs md:text-sm text-blue-600 hover:underline font-medium">
+                  class="block px-3 py-1 text-xs md:text-sm text-gray-600 hover:underline font-medium">
                   Lista de precios CISCO
                 </a>
               </li>
@@ -879,7 +930,7 @@
               <!-- D-Link -->
               <li class="hover:bg-blue-50 rounded transition-colors">
                 <a href="https://www.ds3comunicaciones.com/dlink/precios_dlink.html" target="_blank"
-                  class="block px-3 py-1 text-xs md:text-sm text-blue-600 hover:underline font-medium">
+                  class="block px-3 py-1 text-xs md:text-sm text-gray-600 hover:underline font-medium">
                   Lista de precios D-Link
                 </a>
               </li>
@@ -887,7 +938,7 @@
               <!-- Dixon -->
               <li class="hover:bg-blue-50 rounded transition-colors">
                 <a href="https://www.ds3comunicaciones.com/dixon/precios_dixon.html" target="_blank"
-                  class="block px-3 py-1 text-xs md:text-sm text-blue-600 hover:underline font-medium">
+                  class="block px-3 py-1 text-xs md:text-sm text-gray-600 hover:underline font-medium">
                   Lista de precios Dixon
                 </a>
               </li>
@@ -895,7 +946,7 @@
               <!-- Energit -->
               <li class="hover:bg-blue-50 rounded transition-colors">
                 <a href="https://www.ds3comunicaciones.com/Energit/precios_energit.html" target="_blank"
-                  class="block px-3 py-1 text-xs md:text-sm text-blue-600 hover:underline font-medium">
+                  class="block px-3 py-1 text-xs md:text-sm text-gray-600 hover:underline font-medium">
                   Lista de precios Energit
                 </a>
               </li>
@@ -903,7 +954,7 @@
               <!-- Fibra -->
               <li class="hover:bg-blue-50 rounded transition-colors">
                 <a href="https://www.ds3comunicaciones.com/FibreFab/precios_fibrefab.html" target="_blank"
-                  class="block px-3 py-1 text-xs md:text-sm text-blue-600 hover:underline font-medium">
+                  class="block px-3 py-1 text-xs md:text-sm text-gray-600 hover:underline font-medium">
                   Lista de precios Fibra
                 </a>
               </li>
@@ -911,7 +962,7 @@
               <!-- HP -->
               <li class="hover:bg-blue-50 rounded transition-colors">
                 <a href="https://www.ds3comunicaciones.com/hp/precios_hp.html" target="_blank"
-                  class="block px-3 py-1 text-xs md:text-sm text-blue-600 hover:underline font-medium">
+                  class="block px-3 py-1 text-xs md:text-sm text-gray-600 hover:underline font-medium">
                   Lista de precios HP
                 </a>
               </li>
@@ -919,7 +970,7 @@
               <!-- Mikrotik -->
               <li class="hover:bg-blue-50 rounded transition-colors">
                 <a href="https://www.ds3comunicaciones.com/mikrotik/precios_mikrotik.html" target="_blank"
-                  class="block px-3 py-1 text-xs md:text-sm text-blue-600 hover:underline font-medium">
+                  class="block px-3 py-1 text-xs md:text-sm text-gray-600 hover:underline font-medium">
                   Lista de precios Mikrotik
                 </a>
               </li>
@@ -927,7 +978,7 @@
               <!-- Nexxt Solutions -->
               <li class="hover:bg-blue-50 rounded transition-colors">
                 <a href="https://www.ds3comunicaciones.com/nexxt_solutions/precios_nexxt_solutions.html" target="_blank"
-                  class="block px-3 py-1 text-xs md:text-sm text-blue-600 hover:underline font-medium">
+                  class="block px-3 py-1 text-xs md:text-sm text-gray-600 hover:underline font-medium">
                   Lista de precios Nexxt Solutions
                 </a>
               </li>
@@ -935,7 +986,7 @@
               <!-- Panduit -->
               <li class="hover:bg-blue-50 rounded transition-colors">
                 <a href="https://www.ds3comunicaciones.com/panduit/precios_panduit.html" target="_blank"
-                  class="block px-3 py-1 text-xs md:text-sm text-blue-600 hover:underline font-medium">
+                  class="block px-3 py-1 text-xs md:text-sm text-gray-600 hover:underline font-medium">
                   Lista de precios Panduit
                 </a>
               </li>
@@ -943,7 +994,7 @@
               <!-- Siemon -->
               <li class="hover:bg-blue-50 rounded transition-colors">
                 <a href="https://www.ds3comunicaciones.com/siemon/precios_siemon.html" target="_blank"
-                  class="block px-3 py-1 text-xs md:text-sm text-blue-600 hover:underline font-medium">
+                  class="block px-3 py-1 text-xs md:text-sm text-gray-600 hover:underline font-medium">
                   Lista de precios Siemon
                 </a>
               </li>
@@ -951,7 +1002,7 @@
               <!-- Teldor -->
               <li class="hover:bg-blue-50 rounded transition-colors">
                 <a href="https://www.ds3comunicaciones.com/Teldor/precios_teldor.html" target="_blank"
-                  class="block px-3 py-1 text-xs md:text-sm text-blue-600 hover:underline font-medium">
+                  class="block px-3 py-1 text-xs md:text-sm text-gray-600 hover:underline font-medium">
                   Lista de precios Teldor
                 </a>
               </li>
@@ -959,7 +1010,7 @@
               <!-- TRENDnet -->
               <li class="hover:bg-blue-50 rounded transition-colors">
                 <a href="https://www.ds3comunicaciones.com/trendnet/precios_trendnet.html" target="_blank"
-                  class="block px-3 py-1 text-xs md:text-sm text-blue-600 hover:underline font-medium">
+                  class="block px-3 py-1 text-xs md:text-sm text-gray-600 hover:underline font-medium">
                   Lista de precios TRENDnet
                 </a>
               </li>
@@ -967,7 +1018,7 @@
               <!-- Ubiquiti -->
               <li class="hover:bg-blue-50 rounded transition-colors">
                 <a href="https://www.ds3comunicaciones.com/ubiquiti/precios_ubiquiti.html" target="_blank"
-                  class="block px-3 py-1 text-xs md:text-sm text-blue-600 hover:underline font-medium">
+                  class="block px-3 py-1 text-xs md:text-sm text-gray-600 hover:underline font-medium">
                   Lista de precios Ubiquiti
                 </a>
               </li>
@@ -1064,10 +1115,10 @@
   </script>
 
 
-    <script src="./assets/js/index.js"></script>
-    <script src="./assets/js/nav.js"></script>
-    <script src="./assets/js/search_mobile.js"></script>
+    <script src="../assets/js/index.js"></script>
+    <script src="../assets/js/nav.js"></script>
+    <script src="../assets/js/search_mobile.js"></script>
 
 </body>
-  <link rel="stylesheet" href="./assets/css/tailwind.output.css">
+  <link rel="stylesheet" href="../assets/css/tailwind.output.css">
 </html>
