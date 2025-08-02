@@ -360,88 +360,15 @@
 </head>
 
 <body class="bg-gris-muy-claro">
-    <!-- HEADER SUPERIOR CON LOGO Y CONTACTO -->
-  <!-- HEADER RESPONSIVE: Mobile y Desktop -->
-  <header class="bg-white border-b border-gris-claro shadow-sm">
-    <!-- Mobile header -->
-    <div class="max-w-7xl w-full mx-auto flex items-center justify-between p-4 md:hidden">
-      <div class="flex gap-3 items-center">
-        <i class="cursor-pointer fa-solid fa-bars text-2xl btn_navi"></i>
-        <div class="flex flex-col">
-          <div class="flex items-end gap-3">
-            <img src="http://www.ds3comunicaciones.com/mikrotik/images/Logo1.jpg" alt="DS3 Comunicaciones" class="max-w-[150px] h-16 object-contain" />
-            <img src="https://www.ds3comunicaciones.com/mikrotik/images/mikrotik_logo.jpg" alt="MikroTik" class="max-w-[120px] h-14 object-contain" />
-          </div>
-          <div class="flex flex-col gap-1 mt-2 text-xs text-gris-oscuro md:hidden">
-            <div class="flex items-center gap-4">
-              <span class="flex items-center gap-2"><i class="fa-solid fa-phone icon-ds3"></i> <span class="contacto-tel-ds3">994-428-965</span></span>
-              <span class="flex items-center gap-2"><i class="fa-solid fa-phone icon-ds3"></i> <span class="contacto-tel-ds3">996-533-223</span></span>
-            </div>
-            <div class="flex items-center gap-2"><i class="fa-solid fa-envelope icon-ds3"></i> <span>netperu100@hotmail.com</span></div>
-          </div>
-        </div>
-      </div>
-      <div>
-        <i class="cursor-pointer fa-solid fa-magnifying-glass p-3 bg-gris-muy-claro rounded-md border hover:bg-gris-claro text-xl" id="active_search"></i>
-      </div>
-    </div>
-
-    <!-- Buscador móvil oculto por defecto -->
-<div id="sec_search" class="fixed top-0 left-0 w-full h-full z-[9999] flex flex-col items-center" style="backdrop-filter: blur(12px); background: rgba(255,255,255,0.5); display:none !important; z-index:9999 !important;">
-      <div class="w-full max-w-xs px-4 pt-8 relative">
-        <form action="https://www.ds3comunicaciones.com/find.html" method="GET" target="_blank" class="w-full">
-          <div class="relative flex items-center">
-            <span class="absolute left-3 text-gris-medio"><i class="fas fa-search"></i></span>
-            <input 
-              type="search" 
-              name="q" 
-              placeholder="Buscar" 
-              class="w-full px-10 py-3 pr-12 text-gris-oscuro bg-white/80 border border-gris-claro rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-md"
-              required
-            />
-            <button type="button" id="desactive_search" class="absolute right-2 text-gris-medio hover:text-red-500 text-2xl cursor-pointer flex items-center justify-center bg-transparent border-none p-0 h-8 w-8"><i class="fa-solid fa-xmark"></i></button>
-          </div>
-          <input type="hidden" name="cx" value="partner-pub-9265252540298851:f2549i3fi60" />
-          <input type="hidden" name="cof" value="FORID:10" />
-          <input type="hidden" name="ie" value="ISO-8859-1" />
-          <input type="hidden" name="sa" value="Buscar" />
-        </form>
-      </div>
-    </div>
-    <!-- Desktop header -->
-    <div class="max-w-7xl mx-auto px-4 py-3 hidden md:flex flex-row justify-between items-center gap-4">
-      <div class="flex items-end" style="min-height:80px;">
-        <img src="http://www.ds3comunicaciones.com/mikrotik/images/Logo1.jpg" alt="DS3 Comunicaciones" class="h-20 w-auto mr-6" style="max-height:80px;" fetchpriority="high" loading="eager" />
-      </div>
-      <div class="flex items-end" style="min-height:80px; margin-left:32px;">
-        <img src="https://www.ds3comunicaciones.com/mikrotik/images/mikrotik_logo.jpg" alt="MikroTik" class="h-20 w-auto mr-6" style="max-height:80px;" fetchpriority="high" loading="eager" />
-      </div>
-      <div class="flex flex-wrap justify-center md:justify-end items-start gap-6 text-sm">
-        <div class="flex flex-col gap-1 text-gris-medio min-w-[120px]">
-          <div class="flex items-center gap-2">
-            <i class="fas fa-phone" style="color:#087ead"></i>
-            <span style="color:#087ead">99653-3223</span>
-          </div>
-          <div class="flex items-center gap-2 ml-6">
-            <span style="color:#087ead">994-428-965</span>
-          </div>
-        </div>
-        <div class="flex flex-col gap-1 text-gris-medio min-w-[120px]">
-          <div class="flex items-center gap-2">
-            <i class="fas fa-envelope" style="color:#087ead"></i>
-            <span style="color:#087ead">netperu100@hotmail.com</span>
-          </div>
-        </div>
-        <div class="flex items-center gap-2 text-gris-medio">
-          <i class="fas fa-map-marker-alt" style="color:#087ead"></i>
-          <span style="color:#087ead">Lima, PERÚ</span>
-        </div>
-        <div class="flex items-center ml-4 order-last" style="margin-left:auto;">
-          <i class="cursor-pointer fa-solid fa-magnifying-glass p-3 bg-gris-muy-claro rounded-md border hover:bg-gris-claro text-xl" id="active_search"></i>
-        </div>
-      </div>
-    </div>
-  </header>
+  <!-- HEADER DINÁMICO -->
+  <div id="header-container"></div>
+  <script>
+    fetch('../header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('header-container').innerHTML = data;
+      });
+  </script>
 
    <!-- Nav Mobile lateral -->
   <section id="nav_mobile" class="fixed top-0 left-0 right-0 bg-gris-muy-claro h-screen w-full container-nav-mobile flex justify-between p-5 flex-col z-50 shadow-lg md:hidden" style="overflow-y: scroll; display:none;">
@@ -820,7 +747,7 @@
       <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-6">
 <a href="RB931-2nD.html" class="block" data-price="35">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/RB931-2nD_front_small.jpg" alt="RB931-2nD" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/RB931-2nD_front_medium_1.png" alt="RB931-2nD" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">RB931-2nD</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 35</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -831,7 +758,7 @@
 
 <a href="RB941-2nD-TC.html" class="block" data-price="37">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/RB941-2nD-TC_front.jpg" alt="RB941-2nD-TC" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/RB941-2nD-TC_front1_1.png" alt="RB941-2nD-TC" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">RB941-2nD-TC</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 37</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -842,7 +769,7 @@
 
 <a href="RB952Ui-5ac2nD.html" class="block" data-price="75">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/RB952Ui-5ac2nD_front_2.jpg" alt="RB952Ui-5ac2nD" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/RB952Ui-5ac2nD_front_2_1.png" alt="RB952Ui-5ac2nD" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">RB952Ui-5ac2nD</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 75</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -853,7 +780,7 @@
 
 <a href="RB952Ui-5ac2nD-TC.html" class="block" data-price="73">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/RB952Ui-5ac2nD-TC_front.jpg" alt="RB952Ui-5ac2nD-TC" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/RB952Ui-5ac2nD-TC_front1_1.png" alt="RB952Ui-5ac2nD-TC" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">RB952Ui-5ac2nD-TC</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 73</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -864,7 +791,7 @@
 
 <a href="RB962UiGS-5HacT2HnT.html" class="block" data-price="175">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/RB962UiGS-5HacT2HnT_front.jpg" alt="RB962UiGS-5HacT2HnT" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/RB962UiGS-5HacT2HnT_front_1.png" alt="RB962UiGS-5HacT2HnT" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">RB962UiGS-5HacT2HnT</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 175</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -875,7 +802,7 @@
 
 <a href="RBD52G-5HacD2HnD-TC.html" class="block" data-price="105">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/RBD52G-5HacD2HnD-TC_front.jpg" alt="RBD52G-5HacD2HnD-TC" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/RBD52G-5HacD2HnD-TC_front_1.png" alt="RBD52G-5HacD2HnD-TC" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">RBD52G-5HacD2HnD-TC</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 105</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -886,7 +813,7 @@
 
 <a href="RB951Ui-2nD.html" class="block" data-price="69">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/RB951Ui-2nD_top.png" alt="RB951Ui-2nD" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/RB951Ui-2nD_top_1.png" alt="RB951Ui-2nD" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">RB951Ui-2nD</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 69</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -897,7 +824,7 @@
 
 <a href="RBwAPR-2nD&R11e-LTE.html" class="block" data-price="163">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/RBwAPR-2nD&R11e-LTE_front.jpg" alt="RBwAPR-2nD&R11e-LTE" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/RBwAPR-2nD&R11e-LTE_front_1.png" alt="RBwAPR-2nD&R11e-LTE" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">RBwAPR-2nD&R11e-LTE</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 163</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -908,7 +835,7 @@
 
 <a href="RBwAPR-2nD_&_R11e-4G.html" class="block" data-price="179">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/RBwAPR-2nD & R11e-4G_front.jpg" alt="RBwAPR-2nD_&_R11e-4G" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/RBwAPR-2nD & R11e-4G_front_1.png" alt="RBwAPR-2nD_&_R11e-4G" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">RBwAPR-2nD_&_R11e-4G</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 179</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -919,7 +846,7 @@
 
 <a href="RB912R-2nD-LTm&R11e-LTE-US.html" class="block" data-price="175">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/RB912R-2nD-LTm&R11eLTE_front.png" alt="RB912R-2nD-LTm&R11e-LTE-US" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/RB912R-2nD-LTm&R11eLTE_front_1.png" alt="RB912R-2nD-LTm&R11e-LTE-US" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">RB912R-2nD-LTm&R11e-LTE-US</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 175</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -929,7 +856,7 @@
 </a>
 <a href="RBCAPL-2ND.html" class="block" data-price="45">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/RBcAPL-2nD_front.png" alt="RBCAPL-2ND" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/RBcAPL-2nD_front_1.png" alt="RBCAPL-2ND" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">RBCAPL-2ND</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 45</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -940,7 +867,7 @@
 
 <a href="RBCAP2ND.html" class="block" data-price="79">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/RBcAP2nD_front.png" alt="RBCAP2ND" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/RBcAP2nD_front_1.png" alt="RBCAP2ND" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">RBCAP2ND</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 79</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -951,7 +878,7 @@
 
 <a href="RbcAPGi-5acD2ND.html" class="block" data-price="98">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/RBcAPGi-5acD2nD_front.jpg" alt="RbcAPG-5acD2ND" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/RBcAPGi-5acD2nD_front_1.png" alt="RbcAPG-5acD2ND" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">RbcAPG-5acD2ND</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 98</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -962,7 +889,7 @@
 
 <a href="RBSXTsq2ND.html" class="block" data-price="59">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/RBSXTsq2nD_front_small.png" alt="RBSXTsq2ND" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/RBSXTsq2nD_front_large_1.png" alt="RBSXTsq2ND" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">RBSXTsq2ND</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 59</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -973,7 +900,7 @@
 
 <a href="RBSXTsq5ND.html" class="block" data-price="65">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/RBSXTsq5nD_front_large.png" alt="RBSXTsq5ND" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/RBSXTsq5nD_front_large_1.png" alt="RBSXTsq5ND" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">RBSXTsq5ND</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 65</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -984,7 +911,7 @@
 
 <a href="RBSXTsq5HPnD.html" class="block" data-price="77">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/RBSXTsq5HPnD_front_small.jpg" alt="RBSXTsq5HPnD" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/RBSXTsq5HPnD_front_large_1.png" alt="RBSXTsq5HPnD" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">RBSXTsq5HPnD</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 77</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -995,7 +922,7 @@
 
 <a href="RBSXTsqG-5acD.html" class="block" data-price="79">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/RBSXTsqG-5acD_front_small.jpg" alt="RBSXTsqG-5acD" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/RBSXTsqG-5acD_front_large_1.png" alt="RBSXTsqG-5acD" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">RBSXTsqG-5acD</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 79</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -1006,7 +933,7 @@
 
 <a href="RBLDF-5ND.html" class="block" data-price="59">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/RBLDF-5nD_front_small.jpg" alt="RBLDF-5ND" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/RBLDF-5nD_front_1.png" alt="RBLDF-5ND" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">RBLDF-5ND</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 59</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -1016,7 +943,7 @@
 </a>
 <a href="RBDisc-5ND.html" class="block" data-price="73">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/RBDisc-5nD_front_small.png" alt="RBDisc-5ND" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/RBDisc-5nD_front_large_1.png" alt="RBDisc-5ND" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">RBDisc-5ND</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 73</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -1027,7 +954,7 @@
 
 <a href="RBDiscG-5acD.html" class="block" data-price="75">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/RBDiscG-5acD_front.png" alt="RBDiscG-5acD" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/RBDiscG-5acD_front_1.png" alt="RBDiscG-5acD" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">RBDiscG-5acD</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 75</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -1038,7 +965,7 @@
 
 <a href="RBLHG-5ND.html" class="block" data-price="95">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/RBLHG-5nD_front_small.jpg" alt="RBLHG-5ND" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/RBLHG-5nD_front_1.png" alt="RBLHG-5ND" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">RBLHG-5ND</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 95</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -1049,7 +976,7 @@
 
 <a href="RBLHG5Kit.html" class="block" data-price="225">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/RBLHG5Kit_front_small.jpg" alt="RBLHG5Kit" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/RBLHG5Kit_front_1.png" alt="RBLHG5Kit" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">RBLHG5Kit</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 225</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -1060,7 +987,7 @@
 
 <a href="RBLHG-5HPnD.html" class="block" data-price="115">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/RBLHG-5HPnD_front_small.jpg" alt="RBLHG-5HPnD" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/RBLHG-5HPnD_front_1.png" alt="RBLHG-5HPnD" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">RBLHG-5HPnD</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 115</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -1071,7 +998,7 @@
 
 <a href="RBLHGG-5acD.html" class="block" data-price="125">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/RBLHGG-5acD_front.png" alt="RBLHGG-5acD" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/RBLHGG-5acD_front_1.png" alt="RBLHGG-5acD" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">RBLHGG-5acD</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 125</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -1082,7 +1009,7 @@
 
 <a href="RBCube-60ad.html" class="block" data-price="125">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/RBCube-60ad_front.png" alt="RBCube-60ad" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/RBCube-60ad_front_1.png" alt="RBCube-60ad" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">RBCube-60ad</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 125</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -1093,7 +1020,7 @@
 
 <a href="RBLHGG-60ad.html" class="block" data-price="199">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/RBLHGG-60ad_front.png" alt="RBLHGG-60ad" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/RBLHGG-60ad_front_1.png" alt="RBLHGG-60ad" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">RBLHGG-60ad</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 199</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -1103,7 +1030,7 @@
 </a>
 <a href="RbWAPG-60ad-A.html" class="block" data-price="175">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/RBwAPG-60ad-A_front.png" alt="RbWAPG-60ad-A" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/RBwAPG-60ad-A_front_1.png" alt="RbWAPG-60ad-A" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">RbWAPG-60ad-A</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 175</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -1114,7 +1041,7 @@
 
 <a href="RB912R-2ND-LTM&R11eLTE.html" class="block" data-price="179">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/RB912R-2nD-LTm&R11eLTE_front.png" alt="RB912R-2ND-LTM&R11eLTE" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/RB912R-2nD-LTm&R11eLTE_front_1.png" alt="RB912R-2ND-LTM&R11eLTE" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">RB912R-2ND-LTM&R11eLTE</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 179</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -1125,7 +1052,7 @@
 
 <a href="RBGroove52HPn.html" class="block" data-price="89">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/RBGroove52HPn_front.png" alt="RBGroove52HPn" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/RBGroove52HPn_front_1.png" alt="RBGroove52HPn" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">RBGroove52HPn</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 89</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -1136,7 +1063,7 @@
 
 <a href="RBGrooveA-52HPn.html" class="block" data-price="125">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/RBGrooveA-52HPn_top.jpg" alt="RBGrooveA-52HPn" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/RBGrooveA-52HPn_front1_1.png" alt="RBGrooveA-52HPn" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">RBGrooveA-52HPn</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 125</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -1147,7 +1074,7 @@
 
 <a href="RB921GS-5HPacD-15S.html" class="block" data-price="189">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/RB921GS-5HPacD-15S_front.png" alt="RB921GS-5HPacD-15S" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/RB921GS-5HPacD-15S_front_1.png" alt="RB921GS-5HPacD-15S" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">RB921GS-5HPacD-15S</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 189</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -1158,7 +1085,7 @@
 
 <a href="RB921GS-5HPacD-19S.html" class="block" data-price="269">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/RB921GS-5HPacD-19s_front.png" alt="RB921GS-5HPacD-19S" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/RB921GS-5HPacD-19s_front_1.png" alt="RB921GS-5HPacD-19S" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">RB921GS-5HPacD-19S</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 269</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -1169,7 +1096,7 @@
 
 <a href="MTAO-LTE-5D-SQ.html" class="block" data-price="29">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/MTAO-LTE-5D-SQ_front.jpg" alt="MTAO-LTE-5D-SQ" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/MTAO-LTE-5D-SQ_front_1.png" alt="MTAO-LTE-5D-SQ" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">MTAO-LTE-5D-SQ</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 29</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -1180,7 +1107,7 @@
 
 <a href="RBMetalG-52SHPacn.html" class="block" data-price="159">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/RBMetalG-52SHPacn_top.png" alt="RBMetalG-52SHPacn" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/RBMetalG-52SHPacn_top_1.png" alt="RBMetalG-52SHPacn" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">RBMetalG-52SHPacn</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 159</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -1191,7 +1118,7 @@
 
 <a href="RB921UAGS-5SHPacD-NM.html" class="block" data-price="210">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/RB921UAGS-5SHPacD-NM_front.png" alt="RB921UAGS-5SHPacD-NM" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/RB921UAGS-5SHPacD-NM_front_1.png" alt="RB921UAGS-5SHPacD-NM" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">RB921UAGS-5SHPacD-NM</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 210</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -1202,7 +1129,7 @@
 
 <a href="RB921UAGS-5SHPacT-NM.html" class="block" data-price="225">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/RB921UAGS-5SHPacT-NM_front_small.jpg" alt="RB921UAGS-5SHPacT-NM" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/RB921UAGS-5SHPacT-NM_front_1.png" alt="RB921UAGS-5SHPacT-NM" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">RB921UAGS-5SHPacT-NM</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 225</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -1213,7 +1140,7 @@
 
 <a href="RB922UAGS-5HPacD-NM.html" class="block" data-price="195">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/RB922UAGS-5HPacD-NM_front.png" alt="RB922UAGS-5HPacD-NM" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/RB922UAGS-5HPacD-NM_front_1.png" alt="RB922UAGS-5HPacD-NM" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">RB922UAGS-5HPacD-NM</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 195</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -1224,7 +1151,7 @@
 
 <a href="RBOmniTikG-5HacD.html" class="block" data-price="149">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/RBOmniTikG-5HacD_side.png" alt="RBOmniTikG-5HacD" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/RBOmniTikG-5HacD_side_1.png" alt="RBOmniTikG-5HacD" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">RBOmniTikG-5HacD</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 149</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -1235,7 +1162,7 @@
 
 <a href="RBOmniTikUPA-5HnD.html" class="block" data-price="139">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/RBOmniTikUPA-5HnD_front_small.jpg" alt="RBOmniTikUPA-5HnD" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/RBOmniTikUPA-5HnD_front_1.png" alt="RBOmniTikUPA-5HnD" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">RBOmniTikUPA-5HnD</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 139</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -1246,7 +1173,7 @@
 
 <a href="RBOmniTikPG-5HacD.html" class="block" data-price="165">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/RBOmniTikPG-5HacD_front.png" alt="RBOmniTikPG-5HacD" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/RBOmniTikPG-5HacD_front_1.png" alt="RBOmniTikPG-5HacD" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">RBOmniTikPG-5HacD</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 165</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -1257,7 +1184,7 @@
 
 <a href="RB911G-5HPacD-QRT.html" class="block" data-price="259">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/RB911G-5HPacD-QRT_front.png" alt="RB911G-5HPacD-QRT" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/RB911G-5HPacD-QRT_front_1.png" alt="RB911G-5HPacD-QRT" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">RB911G-5HPacD-QRT</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 259</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -1267,7 +1194,7 @@
 </a>
 <a href="RB911G-5HPacD-NB.html" class="block" data-price="159">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/RB911G-5HPacD-NB_front.png" alt="RB911G-5HPacD-NB" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/RB911G-5HPacD-NB_front_1.png" alt="RB911G-5HPacD-NB" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">RB911G-5HPacD-NB</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 159</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -1278,7 +1205,7 @@
 
 <a href="RB912UAG-2HPnD.html" class="block" data-price="125">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/RB912UAG-2HPnD-OUT_front.jpg" alt="RB912UAG-2HPnD" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/RB912UAG-2HPnD-OUT_front_1.png" alt="RB912UAG-2HPnD" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">RB912UAG-2HPnD</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 125</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -1289,7 +1216,7 @@
 
 <a href="RB912UAG-2HPnD-OUT.html" class="block" data-price="110">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/RB912UAG-2HPnD_front.png" alt="RB912UAG-2HPnD-OUT" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/RB912UAG-2HPnD_front_1.png" alt="RB912UAG-2HPnD-OUT" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">RB912UAG-2HPnD-OUT</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 110</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -1300,7 +1227,7 @@
 
 <a href="RB912UAG-5HPnD.html" class="block" data-price="129">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/RB912UAG-5HPnD_front.jpg" alt="RB912UAG-5HPnD" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/RB912UAG-5HPnD_front_1.png" alt="RB912UAG-5HPnD" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">RB912UAG-5HPnD</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 129</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -1311,7 +1238,7 @@
 
 <a href="RB912UAG-5HPnD-OUT.html" class="block" data-price="115">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/RB912UAG-5HPnD-OUT_front.jpg" alt="RB912UAG-5HPnD-OUT" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/RB912UAG-5HPnD-OUT_front1_1.png" alt="RB912UAG-5HPnD-OUT" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">RB912UAG-5HPnD-OUT</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 115</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -1322,7 +1249,7 @@
 
 <a href="MTAS-5G-15D120.html" class="block" data-price="95">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/MTAS-5G-15D120_side.png" alt="MTAS-5G-15D120" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/MTAS-5G-15D120_front_1.png" alt="MTAS-5G-15D120" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">MTAS-5G-15D120</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 95</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -1333,7 +1260,7 @@
 
 <a href="MTAS-5G-19D120.html" class="block" data-price="145">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/MTAS-5G-19D120_side.png" alt="MTAS-5G-19D120" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/MTAS-5G-19D120_front_1.png" alt="MTAS-5G-19D120" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">MTAS-5G-19D120</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 145</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -1344,7 +1271,7 @@
 
 <a href="RBDynaDishG-5HacD.html" class="block" data-price="237">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/RBDynaDishG-5HacD_front.png" alt="RBDynaDishG-5HacD" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/RBDynaDishG-5HacD_front_1.png" alt="RBDynaDishG-5HacD" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">RBDynaDishG-5HacD</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 237</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -1354,7 +1281,7 @@
 </a>
 <a href="RBwAPG-60adkit.html" class="block" data-price="280">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/RBwAPG-60adkit_front.png" alt="RBwAPG-60adkit" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/RBwAPG-60adkit_front_1.png" alt="RBwAPG-60adkit" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">RBwAPG-60adkit</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 280</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -1365,7 +1292,7 @@
 
 <a href="RBLHGG-60adkit.html" class="block" data-price="415">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/RBLHGG-60adkit_front.jpg" alt="RBLHGG-60adkit" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/RBLHGG-60adkit_front_1.png" alt="RBLHGG-60adkit" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">RBLHGG-60adkit</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 415</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">

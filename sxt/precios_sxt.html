@@ -221,88 +221,15 @@
 </head>
 
 <body class="bg-gris-muy-claro">
-    <!-- HEADER SUPERIOR CON LOGO Y CONTACTO -->
-  <!-- HEADER RESPONSIVE: Mobile y Desktop -->
-  <header class="bg-white border-b border-gris-claro shadow-sm">
-    <!-- Mobile header -->
-    <div class="max-w-7xl w-full mx-auto flex items-center justify-between p-4 md:hidden">
-      <div class="flex gap-3 items-center">
-        <i class="cursor-pointer fa-solid fa-bars text-2xl btn_navi"></i>
-        <div class="flex flex-col">
-          <div class="flex items-end gap-3">
-            <img src="http://www.ds3comunicaciones.com/mikrotik/images/Logo1.jpg" alt="DS3 Comunicaciones" class="max-w-[150px] h-16 object-contain" />
-            <img src="https://www.ds3comunicaciones.com/mikrotik/images/mikrotik_logo.jpg" alt="MikroTik" class="max-w-[120px] h-14 object-contain" />
-          </div>
-          <div class="flex flex-col gap-1 mt-2 text-xs text-gris-oscuro md:hidden">
-            <div class="flex items-center gap-4">
-              <span class="flex items-center gap-2"><i class="fa-solid fa-phone icon-ds3"></i> <span class="contacto-tel-ds3">994-428-965</span></span>
-              <span class="flex items-center gap-2"><i class="fa-solid fa-phone icon-ds3"></i> <span class="contacto-tel-ds3">996-533-223</span></span>
-            </div>
-            <div class="flex items-center gap-2"><i class="fa-solid fa-envelope icon-ds3"></i> <span>netperu100@hotmail.com</span></div>
-          </div>
-        </div>
-      </div>
-      <div>
-        <i class="cursor-pointer fa-solid fa-magnifying-glass p-3 bg-gris-muy-claro rounded-md border hover:bg-gris-claro text-xl" id="active_search"></i>
-      </div>
-    </div>
-
-    <!-- Buscador móvil oculto por defecto -->
-<div id="sec_search" class="fixed top-0 left-0 w-full h-full z-[9999] flex flex-col items-center" style="backdrop-filter: blur(12px); background: rgba(255,255,255,0.5); display:none !important; z-index:9999 !important;">
-      <div class="w-full max-w-xs px-4 pt-8 relative">
-        <form action="https://www.ds3comunicaciones.com/find.html" method="GET" target="_blank" class="w-full">
-          <div class="relative flex items-center">
-            <span class="absolute left-3 text-gris-medio"><i class="fas fa-search"></i></span>
-            <input 
-              type="search" 
-              name="q" 
-              placeholder="Buscar" 
-              class="w-full px-10 py-3 pr-12 text-gris-oscuro bg-white/80 border border-gris-claro rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-md"
-              required
-            />
-            <button type="button" id="desactive_search" class="absolute right-2 text-gris-medio hover:text-red-500 text-2xl cursor-pointer flex items-center justify-center bg-transparent border-none p-0 h-8 w-8"><i class="fa-solid fa-xmark"></i></button>
-          </div>
-          <input type="hidden" name="cx" value="partner-pub-9265252540298851:f2549i3fi60" />
-          <input type="hidden" name="cof" value="FORID:10" />
-          <input type="hidden" name="ie" value="ISO-8859-1" />
-          <input type="hidden" name="sa" value="Buscar" />
-        </form>
-      </div>
-    </div>
-    <!-- Desktop header -->
-    <div class="max-w-7xl mx-auto px-4 py-3 hidden md:flex flex-row justify-between items-center gap-4">
-      <div class="flex items-end" style="min-height:80px;">
-        <img src="http://www.ds3comunicaciones.com/mikrotik/images/Logo1.jpg" alt="DS3 Comunicaciones" class="h-20 w-auto mr-6" style="max-height:80px;" fetchpriority="high" loading="eager" />
-      </div>
-      <div class="flex items-end" style="min-height:80px; margin-left:32px;">
-        <img src="https://www.ds3comunicaciones.com/mikrotik/images/mikrotik_logo.jpg" alt="MikroTik" class="h-20 w-auto mr-6" style="max-height:80px;" fetchpriority="high" loading="eager" />
-      </div>
-      <div class="flex flex-wrap justify-center md:justify-end items-start gap-6 text-sm">
-        <div class="flex flex-col gap-1 text-gris-medio min-w-[120px]">
-          <div class="flex items-center gap-2">
-            <i class="fas fa-phone" style="color:#087ead"></i>
-            <span style="color:#087ead">99653-3223</span>
-          </div>
-          <div class="flex items-center gap-2 ml-6">
-            <span style="color:#087ead">994-428-965</span>
-          </div>
-        </div>
-        <div class="flex flex-col gap-1 text-gris-medio min-w-[120px]">
-          <div class="flex items-center gap-2">
-            <i class="fas fa-envelope" style="color:#087ead"></i>
-            <span style="color:#087ead">netperu100@hotmail.com</span>
-          </div>
-        </div>
-        <div class="flex items-center gap-2 text-gris-medio">
-          <i class="fas fa-map-marker-alt" style="color:#087ead"></i>
-          <span style="color:#087ead">Lima, PERÚ</span>
-        </div>
-        <div class="flex items-center ml-4 order-last" style="margin-left:auto;">
-          <i class="cursor-pointer fa-solid fa-magnifying-glass p-3 bg-gris-muy-claro rounded-md border hover:bg-gris-claro text-xl" id="active_search"></i>
-        </div>
-      </div>
-    </div>
-  </header>
+  <!-- HEADER DINÁMICO -->
+  <div id="header-container"></div>
+  <script>
+    fetch('../header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('header-container').innerHTML = data;
+      });
+  </script>
 
    <!-- Nav Mobile lateral -->
   <section id="nav_mobile" class="fixed top-0 left-0 right-0 bg-gris-muy-claro h-screen w-full container-nav-mobile flex justify-between p-5 flex-col z-50 shadow-lg md:hidden" style="overflow-y: scroll; display:none;">
@@ -687,192 +614,192 @@
         </div>
       </div>
       <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-<a href="RBSXT5nDr2.html" class="block" data-price="99">
-  <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/RBSXT5nDr2_side.jpg" alt="RBSXT5nDr2" class="h-32 object-contain mb-3 z-10">
-    <p class="font-bold text-center z-10">RBSXT5nDr2</p>
-    <span class="font-medium text-sm mb-2 z-10">U$ 99</span>
-    <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
-      <p class="text-xs text-gray-600 text-center font-bold">AccessPoint CPE 5.8 GHz SXT "Lite5" 500 mW , Antena de 16dBi Dual Chain 802.11a/n RouterOS L3, POE, PSU, pole mount ,,marca Mikrotik .</p>
-    </div>
-  </div>
-</a>
+        <a href="RBSXT5nDr2.html" class="block" data-price="99">
+          <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
+            <img src="https://web.netperu100.com/mikrotik/images/RBSXT5nDr2_side_1.png" alt="RBSXT5nDr2" class="h-32 object-contain mb-3 z-10">
+            <p class="font-bold text-center z-10">RBSXT5nDr2</p>
+            <span class="font-medium text-sm mb-2 z-10">U$ 99</span>
+            <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
+              <p class="text-xs text-gray-600 text-center font-bold">AccessPoint CPE 5.8 GHz SXT "Lite5" 500 mW , Antena de 16dBi Dual Chain 802.11a/n RouterOS L3, POE, PSU, pole mount ,,marca Mikrotik .</p>
+            </div>
+          </div>
+        </a>
 
-<a href="RBSXT-5HPnD.html" class="block" data-price="95">
-  <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/RBSXT-5HPnD_side.png" alt="RBSXT-5HPnD" class="h-32 object-contain mb-3 z-10">
-    <p class="font-bold text-center z-10">RBSXT-5HPnD</p>
-    <span class="font-medium text-sm mb-2 z-10">U$ 95</span>
-    <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
-      <p class="text-xs text-gray-600 text-center font-bold">AccessPoint CPE 5.8 GHz SXT "Lite5" 500 mW , Antena de 16dBi Dual Chain 802.11a/n RouterOS L3, POE, PSU, pole mount ,marca Mikrotik .</p>
-    </div>
-  </div>
-</a>
+        <a href="RBSXT-5HPnD.html" class="block" data-price="95">
+          <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
+            <img src="https://web.netperu100.com/mikrotik/images/RBSXT-5HPnD_side_1.png" alt="RBSXT-5HPnD" class="h-32 object-contain mb-3 z-10">
+            <p class="font-bold text-center z-10">RBSXT-5HPnD</p>
+            <span class="font-medium text-sm mb-2 z-10">U$ 95</span>
+            <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
+              <p class="text-xs text-gray-600 text-center font-bold">AccessPoint CPE 5.8 GHz SXT "Lite5" 500 mW , Antena de 16dBi Dual Chain 802.11a/n RouterOS L3, POE, PSU, pole mount ,marca Mikrotik .</p>
+            </div>
+          </div>
+        </a>
 
-<a href="RBSXTG-5HPacD.html" class="block" data-price="183">
-  <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/RBSXTG-5HPacD_side.png" alt="RBSXTG-5HPacD" class="h-32 object-contain mb-3 z-10">
-    <p class="font-bold text-center z-10">RBSXTG-5HPacD</p>
-    <span class="font-medium text-sm mb-2 z-10">U$ 183</span>
-    <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
-      <p class="text-xs text-gray-600 text-center font-bold">AccessPoint CPE 5.8 GHz 802.11ac de 866 Mbps potencia 1300 mW, SXT ac , Antena de 16dBi Dual Chain RouterOS L4, inc. PoE Gigabit, PSU, abrazadera de montaje ,marca Mikrotik .</p>
-    </div>
-  </div>
-</a>
+        <a href="RBSXTG-5HPacD.html" class="block" data-price="183">
+          <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
+            <img src="https://web.netperu100.com/mikrotik/images/RBSXTG-5HPacD_side_1.png" alt="RBSXTG-5HPacD" class="h-32 object-contain mb-3 z-10">
+            <p class="font-bold text-center z-10">RBSXTG-5HPacD</p>
+            <span class="font-medium text-sm mb-2 z-10">U$ 183</span>
+            <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
+              <p class="text-xs text-gray-600 text-center font-bold">AccessPoint CPE 5.8 GHz 802.11ac de 866 Mbps potencia 1300 mW, SXT ac , Antena de 16dBi Dual Chain RouterOS L4, inc. PoE Gigabit, PSU, abrazadera de montaje ,marca Mikrotik .</p>
+            </div>
+          </div>
+        </a>
 
-<a href="RBSXTG-5HPacD-SA.html" class="block" data-price="192">
-  <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/RBSXTG-5HPacD-SA_front_small.png" alt="RBSXTG-5HPacD-SA" class="h-32 object-contain mb-3 z-10">
-    <p class="font-bold text-center z-10">RBSXTG-5HPacD-SA</p>
-    <span class="font-medium text-sm mb-2 z-10">U$ 192</span>
-    <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
-      <p class="text-xs text-gray-600 text-center font-bold">RBSXTG-5HPacD-SA AccessPoint CPE 5.8 GHz 802.11ac de 866 Mbps , Modulación 256-QAM , SXT ac Antena Sectorial de 13 dBi 90° RouterOS Level 4, inc.Puerto Ethernet Gigabit , PoE Gigabit, PSU, abrazadera de montaje ,marca Mikrotik .</p>
-    </div>
-  </div>
-</a>
+        <a href="RBSXTG-5HPacD-SA.html" class="block" data-price="192">
+          <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
+            <img src="https://web.netperu100.com/mikrotik/images/RBSXTG-5HPacD-SA_front_small.png" alt="RBSXTG-5HPacD-SA" class="h-32 object-contain mb-3 z-10">
+            <p class="font-bold text-center z-10">RBSXTG-5HPacD-SA</p>
+            <span class="font-medium text-sm mb-2 z-10">U$ 192</span>
+            <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
+              <p class="text-xs text-gray-600 text-center font-bold">RBSXTG-5HPacD-SA AccessPoint CPE 5.8 GHz 802.11ac de 866 Mbps , Modulación 256-QAM , SXT ac Antena Sectorial de 13 dBi 90° RouterOS Level 4, inc.Puerto Ethernet Gigabit , PoE Gigabit, PSU, abrazadera de montaje ,marca Mikrotik .</p>
+            </div>
+          </div>
+        </a>
 
-<a href="RBSXT-LITE5.html" class="block" data-price="95">
-  <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/RBSXT-LITE5_side.png" alt="RBSXT-LITE5" class="h-32 object-contain mb-3 z-10">
-    <p class="font-bold text-center z-10">RBSXT-LITE5</p>
-    <span class="font-medium text-sm mb-2 z-10">U$ 95</span>
-    <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
-      <p class="text-xs text-gray-600 text-center font-bold">SXT Lite5 AccessPoint CPE 5.8 GHz SXT "Lite5" , Antena de polaridad 16dBi Dual Chain 802.11a/n RouterOS L3, Incluye t, PoE injector, 24V power adapter, Abrazadera de montaje,marca Mikrotik .</p>
-    </div>
-  </div>
-</a>
+        <a href="RBSXT-LITE5.html" class="block" data-price="95">
+          <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
+            <img src="https://web.netperu100.com/mikrotik/images/RBSXT-LITE5_side_1.png" alt="RBSXT-LITE5" class="h-32 object-contain mb-3 z-10">
+            <p class="font-bold text-center z-10">RBSXT-LITE5</p>
+            <span class="font-medium text-sm mb-2 z-10">U$ 95</span>
+            <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
+              <p class="text-xs text-gray-600 text-center font-bold">SXT Lite5 AccessPoint CPE 5.8 GHz SXT "Lite5" , Antena de polaridad 16dBi Dual Chain 802.11a/n RouterOS L3, Incluye t, PoE injector, 24V power adapter, Abrazadera de montaje,marca Mikrotik .</p>
+            </div>
+          </div>
+        </a>
 
-<a href="RBSXG-5HPnD-Sar.html" class="block" data-price="166">
-  <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/RBSXG-5HPnD-Sar_side.jpg" alt="RBSXG-5HPnD-Sar" class="h-32 object-contain mb-3 z-10">
-    <p class="font-bold text-center z-10">RBSXG-5HPnD-Sar</p>
-    <span class="font-medium text-sm mb-2 z-10">U$ 166</span>
-    <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
-      <p class="text-xs text-gray-600 text-center font-bold">Antena de doble polaridad ,de 18dBi un puerto LAN, 10/100/1000 ,Level 3 ,marca Mikrotik .</p>
-    </div>
-  </div>
-</a>
+        <a href="RBSXG-5HPnD-Sar.html" class="block" data-price="166">
+          <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
+            <img src="https://web.netperu100.com/mikrotik/images/RBSXG-5HPnD-Sar_side_1.png" alt="RBSXG-5HPnD-Sar" class="h-32 object-contain mb-3 z-10">
+            <p class="font-bold text-center z-10">RBSXG-5HPnD-Sar</p>
+            <span class="font-medium text-sm mb-2 z-10">U$ 166</span>
+            <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
+              <p class="text-xs text-gray-600 text-center font-bold">Antena de doble polaridad ,de 18dBi un puerto LAN, 10/100/1000 ,Level 3 ,marca Mikrotik .</p>
+            </div>
+          </div>
+        </a>
 
-<a href="MTAD-5G-30D3.html" class="block" data-price="165">
-  <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/MTAD-5G-30D3_front.jpg" alt="MTAD-5G-30D3" class="h-32 object-contain mb-3 z-10">
-    <p class="font-bold text-center z-10">MTAD-5G-30D3</p>
-    <span class="font-medium text-sm mb-2 z-10">U$ 165</span>
-    <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
-      <p class="text-xs text-gray-600 text-center font-bold">Antena Dish de Plato sólido de doble polaridad MIMO de 30 dBi 5.8 GHz , con un soporte de tipo estándar, marca Mikrotik</p>
-    </div>
-  </div>
-</a>
+        <a href="MTAD-5G-30D3.html" class="block" data-price="165">
+          <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
+            <img src="https://web.netperu100.com/mikrotik/images/MTAD-5G-30D3_front_1.png" alt="MTAD-5G-30D3" class="h-32 object-contain mb-3 z-10">
+            <p class="font-bold text-center z-10">MTAD-5G-30D3</p>
+            <span class="font-medium text-sm mb-2 z-10">U$ 165</span>
+            <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
+              <p class="text-xs text-gray-600 text-center font-bold">Antena Dish de Plato sólido de doble polaridad MIMO de 30 dBi 5.8 GHz , con un soporte de tipo estándar, marca Mikrotik</p>
+            </div>
+          </div>
+        </a>
 
-<a href="Sleeve30.html" class="block" data-price="135">
-  <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/Sleeve30_front_small.jpg" alt="Sleeve30" class="h-32 object-contain mb-3 z-10">
-    <p class="font-bold text-center z-10">Sleeve30</p>
-    <span class="font-medium text-sm mb-2 z-10">U$ 135</span>
-    <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
-      <p class="text-xs text-gray-600 text-center font-bold">Proteccion para ruido compatible con antenas MANT 30, marca Mikrotik</p>
-    </div>
-  </div>
-</a>
+        <a href="Sleeve30.html" class="block" data-price="135">
+          <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
+            <img src="https://web.netperu100.com/mikrotik/images/Sleeve30_front_1.png" alt="Sleeve30" class="h-32 object-contain mb-3 z-10">
+            <p class="font-bold text-center z-10">Sleeve30</p>
+            <span class="font-medium text-sm mb-2 z-10">U$ 135</span>
+            <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
+              <p class="text-xs text-gray-600 text-center font-bold">Proteccion para ruido compatible con antenas MANT 30, marca Mikrotik</p>
+            </div>
+          </div>
+        </a>
 
-<a href="MTRADC.html" class="block" data-price="65">
-  <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/MTRADC_front.png" alt="MTRADC" class="h-32 object-contain mb-3 z-10">
-    <p class="font-bold text-center z-10">MTRADC</p>
-    <span class="font-medium text-sm mb-2 z-10">U$ 65</span>
-    <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
-      <p class="text-xs text-gray-600 text-center font-bold">MTRADC RADOME para DISH de 30 dbi MANT 30, marca Mirkrotik</p>
-    </div>
-  </div>
-</a>
+        <a href="MTRADC.html" class="block" data-price="65">
+          <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
+            <img src="https://web.netperu100.com/mikrotik/images/MTRADC_front_1.png" alt="MTRADC" class="h-32 object-contain mb-3 z-10">
+            <p class="font-bold text-center z-10">MTRADC</p>
+            <span class="font-medium text-sm mb-2 z-10">U$ 65</span>
+            <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
+              <p class="text-xs text-gray-600 text-center font-bold">MTRADC RADOME para DISH de 30 dbi MANT 30, marca Mirkrotik</p>
+            </div>
+          </div>
+        </a>
 
-<a href="MikroBase_M2.html" class="block" data-price="143">
-  <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/MikroBase_M2_front.jpg" alt="MikroBase_M2" class="h-32 object-contain mb-3 z-10">
-    <p class="font-bold text-center z-10">MikroBase_M2</p>
-    <span class="font-medium text-sm mb-2 z-10">U$ 143</span>
-    <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
-      <p class="text-xs text-gray-600 text-center font-bold">MikroBase M2 AccessPoint MIMO de 300 Mbps para exteriores de doble polaridad potencia 1,000 mW RouterOS L4 marca MikroTik</p>
-    </div>
-  </div>
-</a>
+        <a href="MikroBase_M2.html" class="block" data-price="143">
+          <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
+            <img src="https://web.netperu100.com/mikrotik/images/MikroBase_M2_front.jpg" alt="MikroBase_M2" class="h-32 object-contain mb-3 z-10">
+            <p class="font-bold text-center z-10">MikroBase_M2</p>
+            <span class="font-medium text-sm mb-2 z-10">U$ 143</span>
+            <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
+              <p class="text-xs text-gray-600 text-center font-bold">MikroBase M2 AccessPoint MIMO de 300 Mbps para exteriores de doble polaridad potencia 1,000 mW RouterOS L4 marca MikroTik</p>
+            </div>
+          </div>
+        </a>
 
-<a href="MIKROBASE_M5.html" class="block" data-price="180">
-  <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/MIKROBASE_M5_front.jpg" alt="MIKROBASE_M5" class="h-32 object-contain mb-3 z-10">
-    <p class="font-bold text-center z-10">MIKROBASE_M5</p>
-    <span class="font-medium text-sm mb-2 z-10">U$ 180</span>
-    <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
-      <p class="text-xs text-gray-600 text-center font-bold">AccessPoint de 300 Mbps 802.11a/n MIKROBASE M5 5.8 GHz MIMO de doble polaridad potencia 1000 mW , 02 conectores SMA, puerto USB para 3G, soporta PoE, Router OS Level 4 marca MIKROBase</p>
-    </div>
-  </div>
-</a>
+        <a href="MIKROBASE_M5.html" class="block" data-price="180">
+          <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
+            <img src="https://web.netperu100.com/mikrotik/images/MIKROBASE_M5_front.jpg" alt="MIKROBASE_M5" class="h-32 object-contain mb-3 z-10">
+            <p class="font-bold text-center z-10">MIKROBASE_M5</p>
+            <span class="font-medium text-sm mb-2 z-10">U$ 180</span>
+            <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
+              <p class="text-xs text-gray-600 text-center font-bold">AccessPoint de 300 Mbps 802.11a/n MIKROBASE M5 5.8 GHz MIMO de doble polaridad potencia 1000 mW , 02 conectores SMA, puerto USB para 3G, soporta PoE, Router OS Level 4 marca MIKROBase</p>
+            </div>
+          </div>
+        </a>
 
-<a href="STATIONBOX-XL.html" class="block" data-price="196">
-  <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/STATIONBOX-X_side.jpg" alt="STATIONBOX-XL" class="h-32 object-contain mb-3 z-10">
-    <p class="font-bold text-center z-10">STATIONBOX-XL</p>
-    <span class="font-medium text-sm mb-2 z-10">U$ 196</span>
-    <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
-      <p class="text-xs text-gray-600 text-center font-bold">Access Point para exteriores StationBox XL , potencia 1000 mW , antena 5.8 GHz de 19 dBi MIMO , 01 puerto Gigabit, 300Mbps de velocidad ,CPU 600MHz, Memoria 64MB DDR2, RouterOS Level 4,marca Mikrotik .</p>
-    </div>
-  </div>
-</a>
+        <a href="STATIONBOX-XL.html" class="block" data-price="196">
+          <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
+            <img src="https://web.netperu100.com/mikrotik/images/STATIONBOX-X_side_1.png" alt="STATIONBOX-XL" class="h-32 object-contain mb-3 z-10">
+            <p class="font-bold text-center z-10">STATIONBOX-XL</p>
+            <span class="font-medium text-sm mb-2 z-10">U$ 196</span>
+            <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
+              <p class="text-xs text-gray-600 text-center font-bold">Access Point para exteriores StationBox XL , potencia 1000 mW , antena 5.8 GHz de 19 dBi MIMO , 01 puerto Gigabit, 300Mbps de velocidad ,CPU 600MHz, Memoria 64MB DDR2, RouterOS Level 4,marca Mikrotik .</p>
+            </div>
+          </div>
+        </a>
 
-<a href="SECM590.html" class="block" data-price="173">
-  <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/SECM590_front.jpg" alt="SECM590" class="h-32 object-contain mb-3 z-10">
-    <p class="font-bold text-center z-10">SECM590</p>
-    <span class="font-medium text-sm mb-2 z-10">U$ 173</span>
-    <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
-      <p class="text-xs text-gray-600 text-center font-bold">Antena Sectorial Base Station 5 de 18 dBi 90º 5.8 GHz MIMO marca RF-Elementts</p>
-    </div>
-  </div>
-</a>
+        <a href="SECM590.html" class="block" data-price="173">
+          <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
+            <img src="https://web.netperu100.com/mikrotik/images/SECM590_front.jpg" alt="SECM590" class="h-32 object-contain mb-3 z-10">
+            <p class="font-bold text-center z-10">SECM590</p>
+            <span class="font-medium text-sm mb-2 z-10">U$ 173</span>
+            <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
+              <p class="text-xs text-gray-600 text-center font-bold">Antena Sectorial Base Station 5 de 18 dBi 90º 5.8 GHz MIMO marca RF-Elementts</p>
+            </div>
+          </div>
+        </a>
 
-<a href="SECM5120.html" class="block" data-price="169">
-  <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/SECM5120_front.jpeg" alt="SECM5120" class="h-32 object-contain mb-3 z-10">
-    <p class="font-bold text-center z-10">SECM5120</p>
-    <span class="font-medium text-sm mb-2 z-10">U$ 169</span>
-    <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
-      <p class="text-xs text-gray-600 text-center font-bold">Antena Sectorial Base Station 5 de 18 dBi 120º 5.8 GHz MIMO marca RF-Elementts</p>
-    </div>
-  </div>
-</a>
+        <a href="SECM5120.html" class="block" data-price="169">
+          <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
+            <img src="https://web.netperu100.com/mikrotik/images/SECM5120_front_1.png" alt="SECM5120" class="h-32 object-contain mb-3 z-10">
+            <p class="font-bold text-center z-10">SECM5120</p>
+            <span class="font-medium text-sm mb-2 z-10">U$ 169</span>
+            <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
+              <p class="text-xs text-gray-600 text-center font-bold">Antena Sectorial Base Station 5 de 18 dBi 120º 5.8 GHz MIMO marca RF-Elementts</p>
+            </div>
+          </div>
+        </a>
 
-<a href="SECTOR_MIMO2-120.html" class="block" data-price="179">
-  <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/SECTOR_MIMO2-120_front.jpg" alt="SECTOR_MIMO2-120" class="h-32 object-contain mb-3 z-10">
-    <p class="font-bold text-center z-10">SECTOR_MIMO2-120</p>
-    <span class="font-medium text-sm mb-2 z-10">U$ 179</span>
-    <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
-      <p class="text-xs text-gray-600 text-center font-bold">Antena Sectorial mimo Base Station 2 de 15 dBi 120º 5.8 GHz MIMO marca RF-Elementts</p>
-    </div>
-  </div>
-</a>
+        <a href="SECTOR_MIMO2-120.html" class="block" data-price="179">
+          <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
+            <img src="https://web.netperu100.com/mikrotik/images/SECTOR_MIMO2-120_front_1.png" alt="SECTOR_MIMO2-120" class="h-32 object-contain mb-3 z-10">
+            <p class="font-bold text-center z-10">SECTOR_MIMO2-120</p>
+            <span class="font-medium text-sm mb-2 z-10">U$ 179</span>
+            <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
+              <p class="text-xs text-gray-600 text-center font-bold">Antena Sectorial mimo Base Station 2 de 15 dBi 120º 5.8 GHz MIMO marca RF-Elementts</p>
+            </div>
+          </div>
+        </a>
 
-<a href="MTAD-5G-30D3-PA.html" class="block" data-price="289">
-  <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/MTAD-5G-30D3-PA_front.png" alt="MTAD-5G-30D3-PA" class="h-32 object-contain mb-3 z-10">
-    <p class="font-bold text-center z-10">MTAD-5G-30D3-PA</p>
-    <span class="font-medium text-sm mb-2 z-10">U$ 289</span>
-    <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
-      <p class="text-xs text-gray-600 text-center font-bold">Antena Dish de Plato sólido de doble polaridad MIMO de 30 dBi 5.8 GHz , con montura de alineación de precisión, marca Mikrotik</p>
-    </div>
-  </div>
-</a>
+        <a href="MTAD-5G-30D3-PA.html" class="block" data-price="289">
+          <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
+            <img src="https://web.netperu100.com/mikrotik/images/MTAD-5G-30D3-PA_front_1.png" alt="MTAD-5G-30D3-PA" class="h-32 object-contain mb-3 z-10">
+            <p class="font-bold text-center z-10">MTAD-5G-30D3-PA</p>
+            <span class="font-medium text-sm mb-2 z-10">U$ 289</span>
+            <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
+              <p class="text-xs text-gray-600 text-center font-bold">Antena Dish de Plato sólido de doble polaridad MIMO de 30 dBi 5.8 GHz , con montura de alineación de precisión, marca Mikrotik</p>
+            </div>
+          </div>
+        </a>
 
-<a href="RBSEXTANTG5HPnD.html" class="block" data-price="166">
-  <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/RBSEXTAGNTG5HPnD_front.jpg" alt="RBSEXTANTG5HPnD" class="h-32 object-contain mb-3 z-10">
-    <p class="font-bold text-center z-10">RBSEXTANTG5HPnD</p>
-    <span class="font-medium text-sm mb-2 z-10">U$ 166</span>
-    <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
-      <p class="text-xs text-gray-600 text-center font-bold">Antena de doble polaridad ,de 18dBi un puerto LAN, 10/100/1000 ,Level 3 ,marca Mikrotik .</p>
-    </div>
-  </div>
-</a>
+        <a href="RBSEXTANTG5HPnD.html" class="block" data-price="166">
+          <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
+            <img src="https://web.netperu100.com/mikrotik/images/RBSEXTAGNTG5HPnD_front_1.png" alt="RBSEXTANTG5HPnD" class="h-32 object-contain mb-3 z-10">
+            <p class="font-bold text-center z-10">RBSEXTANTG5HPnD</p>
+            <span class="font-medium text-sm mb-2 z-10">U$ 166</span>
+            <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
+              <p class="text-xs text-gray-600 text-center font-bold">Antena de doble polaridad ,de 18dBi un puerto LAN, 10/100/1000 ,Level 3 ,marca Mikrotik .</p>
+            </div>
+          </div>
+        </a>
       </div>
     </div>
 

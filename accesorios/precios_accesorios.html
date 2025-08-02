@@ -221,88 +221,15 @@
 </head>
 
 <body class="bg-gris-muy-claro">
-    <!-- HEADER SUPERIOR CON LOGO Y CONTACTO -->
-  <!-- HEADER RESPONSIVE: Mobile y Desktop -->
-  <header class="bg-white border-b border-gris-claro shadow-sm">
-    <!-- Mobile header -->
-    <div class="max-w-7xl w-full mx-auto flex items-center justify-between p-4 md:hidden">
-      <div class="flex gap-3 items-center">
-        <i class="cursor-pointer fa-solid fa-bars text-2xl btn_navi"></i>
-        <div class="flex flex-col">
-          <div class="flex items-end gap-3">
-            <img src="http://www.ds3comunicaciones.com/mikrotik/images/Logo1.jpg" alt="DS3 Comunicaciones" class="max-w-[150px] h-16 object-contain" />
-            <img src="https://www.ds3comunicaciones.com/mikrotik/images/mikrotik_logo.jpg" alt="MikroTik" class="max-w-[120px] h-14 object-contain" />
-          </div>
-          <div class="flex flex-col gap-1 mt-2 text-xs text-gris-oscuro md:hidden">
-            <div class="flex items-center gap-4">
-              <span class="flex items-center gap-2"><i class="fa-solid fa-phone icon-ds3"></i> <span class="contacto-tel-ds3">994-428-965</span></span>
-              <span class="flex items-center gap-2"><i class="fa-solid fa-phone icon-ds3"></i> <span class="contacto-tel-ds3">996-533-223</span></span>
-            </div>
-            <div class="flex items-center gap-2"><i class="fa-solid fa-envelope icon-ds3"></i> <span>netperu100@hotmail.com</span></div>
-          </div>
-        </div>
-      </div>
-      <div>
-        <i class="cursor-pointer fa-solid fa-magnifying-glass p-3 bg-gris-muy-claro rounded-md border hover:bg-gris-claro text-xl" id="active_search"></i>
-      </div>
-    </div>
-
-    <!-- Buscador móvil oculto por defecto -->
-<div id="sec_search" class="fixed top-0 left-0 w-full h-full z-[9999] flex flex-col items-center" style="backdrop-filter: blur(12px); background: rgba(255,255,255,0.5); display:none !important; z-index:9999 !important;">
-      <div class="w-full max-w-xs px-4 pt-8 relative">
-        <form action="https://www.ds3comunicaciones.com/find.html" method="GET" target="_blank" class="w-full">
-          <div class="relative flex items-center">
-            <span class="absolute left-3 text-gris-medio"><i class="fas fa-search"></i></span>
-            <input 
-              type="search" 
-              name="q" 
-              placeholder="Buscar" 
-              class="w-full px-10 py-3 pr-12 text-gris-oscuro bg-white/80 border border-gris-claro rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-md"
-              required
-            />
-            <button type="button" id="desactive_search" class="absolute right-2 text-gris-medio hover:text-red-500 text-2xl cursor-pointer flex items-center justify-center bg-transparent border-none p-0 h-8 w-8"><i class="fa-solid fa-xmark"></i></button>
-          </div>
-          <input type="hidden" name="cx" value="partner-pub-9265252540298851:f2549i3fi60" />
-          <input type="hidden" name="cof" value="FORID:10" />
-          <input type="hidden" name="ie" value="ISO-8859-1" />
-          <input type="hidden" name="sa" value="Buscar" />
-        </form>
-      </div>
-    </div>
-    <!-- Desktop header -->
-    <div class="max-w-7xl mx-auto px-4 py-3 hidden md:flex flex-row justify-between items-center gap-4">
-      <div class="flex items-end" style="min-height:80px;">
-        <img src="http://www.ds3comunicaciones.com/mikrotik/images/Logo1.jpg" alt="DS3 Comunicaciones" class="h-20 w-auto mr-6" style="max-height:80px;" fetchpriority="high" loading="eager" />
-      </div>
-      <div class="flex items-end" style="min-height:80px; margin-left:32px;">
-        <img src="https://www.ds3comunicaciones.com/mikrotik/images/mikrotik_logo.jpg" alt="MikroTik" class="h-20 w-auto mr-6" style="max-height:80px;" fetchpriority="high" loading="eager" />
-      </div>
-      <div class="flex flex-wrap justify-center md:justify-end items-start gap-6 text-sm">
-        <div class="flex flex-col gap-1 text-gris-medio min-w-[120px]">
-          <div class="flex items-center gap-2">
-            <i class="fas fa-phone" style="color:#087ead"></i>
-            <span style="color:#087ead">99653-3223</span>
-          </div>
-          <div class="flex items-center gap-2 ml-6">
-            <span style="color:#087ead">994-428-965</span>
-          </div>
-        </div>
-        <div class="flex flex-col gap-1 text-gris-medio min-w-[120px]">
-          <div class="flex items-center gap-2">
-            <i class="fas fa-envelope" style="color:#087ead"></i>
-            <span style="color:#087ead">netperu100@hotmail.com</span>
-          </div>
-        </div>
-        <div class="flex items-center gap-2 text-gris-medio">
-          <i class="fas fa-map-marker-alt" style="color:#087ead"></i>
-          <span style="color:#087ead">Lima, PERÚ</span>
-        </div>
-        <div class="flex items-center ml-4 order-last" style="margin-left:auto;">
-          <i class="cursor-pointer fa-solid fa-magnifying-glass p-3 bg-gris-muy-claro rounded-md border hover:bg-gris-claro text-xl" id="active_search"></i>
-        </div>
-      </div>
-    </div>
-  </header>
+  <!-- HEADER DINÁMICO -->
+  <div id="header-container"></div>
+  <script>
+    fetch('../header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('header-container').innerHTML = data;
+      });
+  </script>
 
    <!-- Nav Mobile lateral -->
   <section id="nav_mobile" class="fixed top-0 left-0 right-0 bg-gris-muy-claro h-screen w-full container-nav-mobile flex justify-between p-5 flex-col z-50 shadow-lg md:hidden" style="overflow-y: scroll; display:none;">
@@ -689,7 +616,7 @@
       <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-6">
 <a href="K-79.html" class="block" data-price="13">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/K-79_1.png" alt="K-79" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/K-79_1_1.png" alt="K-79" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">K-79</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 13</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -700,7 +627,7 @@
 
 <a href="CA800.html" class="block" data-price="29">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/CA800_front.png" alt="CA800" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/CA800_front_1.png" alt="CA800" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">CA800</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 29</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -733,7 +660,7 @@
 
 <a href="RBGPOE.html" class="block" data-price="13">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/RBGPOE.png" alt="RBGPOE" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/RBGPOE_1_1.png" alt="RBGPOE" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">RBGPOE</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 13</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -744,7 +671,7 @@
 
 <a href="ACGPSA.html" class="block" data-price="14">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/ACGPSA_1.png" alt="ACGPSA" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/ACGPSA_1_1.png" alt="ACGPSA" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">ACGPSA</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 14</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -755,7 +682,7 @@
 
 <a href="ACSMAUFL.html" class="block" data-price="14">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/ACSMAUFL_2.png" alt="ACSMAUFL" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/ACSMAUFL_2_1.png" alt="ACSMAUFL" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">ACSMAUFL</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 14</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -777,7 +704,7 @@
 
 <a href="ACRPSMA.html" class="block" data-price="16">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/ACRPSMA_1.png" alt="ACRPSMA" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/ACRPSMA_front_1.png" alt="ACRPSMA" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">ACRPSMA</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 16</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -788,7 +715,7 @@
 
 <a href="QMP.html" class="block" data-price="12">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/QMP_1.png" alt="QMP" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/QMP_1_1.png" alt="QMP" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">QMP</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 12</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -809,7 +736,7 @@
 </a>
 <a href="RBFTC11.html" class="block" data-price="53">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/RBFTC11_front.png" alt="RBFTC11" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/RBFTC11_front_1.png" alt="RBFTC11" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">RBFTC11</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 53</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
@@ -820,7 +747,7 @@
 
 <a href="CRS105-5S-FB.html" class="block" data-price="103">
   <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://web.netperu100.com/mikrotik/images/CRS105-5S-FB_front.jpg" alt="CRS105-5S-FB" class="h-32 object-contain mb-3 z-10">
+    <img src="https://web.netperu100.com/mikrotik/images/CRS105-5S-FB_front_1.png" alt="CRS105-5S-FB" class="h-32 object-contain mb-3 z-10">
     <p class="font-bold text-center z-10">CRS105-5S-FB</p>
     <span class="font-medium text-sm mb-2 z-10">U$ 103</span>
     <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">

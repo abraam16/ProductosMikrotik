@@ -267,88 +267,15 @@
 </head>
 
 <body class="bg-gray-50">
-  <!-- HEADER SUPERIOR CON LOGO Y CONTACTO -->
-  <!-- HEADER RESPONSIVE: Mobile y Desktop -->
-  <header class="bg-white border-b border-gris-claro shadow-sm">
-    <!-- Mobile header -->
-    <div class="max-w-7xl w-full mx-auto flex items-center justify-between p-4 md:hidden">
-      <div class="flex gap-3 items-center">
-        <i class="cursor-pointer fa-solid fa-bars text-2xl btn_navi"></i>
-        <div class="flex flex-col">
-          <div class="flex items-end gap-3">
-            <img src="http://www.ds3comunicaciones.com/mikrotik/images/Logo1.jpg" alt="DS3 Comunicaciones" class="max-w-[150px] h-16 object-contain" />
-            <img src="https://www.ds3comunicaciones.com/mikrotik/images/mikrotik_logo.jpg" alt="MikroTik" class="max-w-[120px] h-14 object-contain" />
-          </div>
-          <div class="flex flex-col gap-1 mt-2 text-xs text-gris-oscuro md:hidden">
-            <div class="flex items-center gap-4">
-              <span class="flex items-center gap-2"><i class="fa-solid fa-phone icon-ds3"></i> <span class="contacto-tel-ds3">994-428-965</span></span>
-              <span class="flex items-center gap-2"><i class="fa-solid fa-phone icon-ds3"></i> <span class="contacto-tel-ds3">996-533-223</span></span>
-            </div>
-            <div class="flex items-center gap-2"><i class="fa-solid fa-envelope icon-ds3"></i> <span>netperu100@hotmail.com</span></div>
-          </div>
-        </div>
-      </div>
-      <div>
-        <i class="cursor-pointer fa-solid fa-magnifying-glass p-3 bg-gris-muy-claro rounded-md border hover:bg-gris-claro text-xl" id="active_search"></i>
-      </div>
-    </div>
-
-    <!-- Buscador móvil oculto por defecto -->
-<div id="sec_search" class="fixed top-0 left-0 w-full h-full z-[9999] flex flex-col items-center" style="backdrop-filter: blur(12px); background: rgba(255,255,255,0.5); display:none !important; z-index:9999 !important;">
-      <div class="w-full max-w-xs px-4 pt-8 relative">
-        <form action="https://www.ds3comunicaciones.com/find.html" method="GET" target="_blank" class="w-full">
-          <div class="relative flex items-center">
-            <span class="absolute left-3 text-gris-medio"><i class="fas fa-search"></i></span>
-            <input 
-              type="search" 
-              name="q" 
-              placeholder="Buscar" 
-              class="w-full px-10 py-3 pr-12 text-gris-oscuro bg-white/80 border border-gris-claro rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-gray-500 shadow-md"
-              required
-            />
-            <button type="button" id="desactive_search" class="absolute right-2 text-gris-medio hover:text-red-500 text-2xl cursor-pointer flex items-center justify-center bg-transparent border-none p-0 h-8 w-8"><i class="fa-solid fa-xmark"></i></button>
-          </div>
-          <input type="hidden" name="cx" value="partner-pub-9265252540298851:f2549i3fi60" />
-          <input type="hidden" name="cof" value="FORID:10" />
-          <input type="hidden" name="ie" value="ISO-8859-1" />
-          <input type="hidden" name="sa" value="Buscar" />
-        </form>
-      </div>
-    </div>
-    <!-- Desktop header -->
-    <div class="max-w-7xl mx-auto px-4 py-3 hidden md:flex flex-row justify-between items-center gap-4">
-      <div class="flex items-end" style="min-height:80px;">
-        <img src="http://www.ds3comunicaciones.com/mikrotik/images/Logo1.jpg" alt="DS3 Comunicaciones" class="h-20 w-auto mr-6" style="max-height:80px;" fetchpriority="high" loading="eager" />
-      </div>
-      <div class="flex items-end" style="min-height:80px; margin-left:32px;">
-        <img src="https://www.ds3comunicaciones.com/mikrotik/images/mikrotik_logo.jpg" alt="MikroTik" class="h-20 w-auto mr-6" style="max-height:80px;" fetchpriority="high" loading="eager" />
-      </div>
-      <div class="flex flex-wrap justify-center md:justify-end items-start gap-6 text-sm">
-        <div class="flex flex-col gap-1 text-gris-medio min-w-[120px]">
-          <div class="flex items-center gap-2">
-            <i class="fas fa-phone" style="color:#087ead"></i>
-            <span style="color:#087ead">99653-3223</span>
-          </div>
-          <div class="flex items-center gap-2 ml-6">
-            <span style="color:#087ead">994-428-965</span>
-          </div>
-        </div>
-        <div class="flex flex-col gap-1 text-gris-medio min-w-[120px]">
-          <div class="flex items-center gap-2">
-            <i class="fas fa-envelope" style="color:#087ead"></i>
-            <span style="color:#087ead">netperu100@hotmail.com</span>
-          </div>
-        </div>
-        <div class="flex items-center gap-2 text-gris-medio">
-          <i class="fas fa-map-marker-alt" style="color:#087ead"></i>
-          <span style="color:#087ead">Lima, PERÚ</span>
-        </div>
-        <div class="flex items-center ml-4 order-last" style="margin-left:auto;">
-          <i class="cursor-pointer fa-solid fa-magnifying-glass p-3 bg-gris-muy-claro rounded-md border hover:bg-gris-claro text-xl" id="active_search"></i>
-        </div>
-      </div>
-    </div>
-  </header>
+  <!-- HEADER DINÁMICO -->
+  <div id="header-container"></div>
+  <script>
+    fetch('../header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('header-container').innerHTML = data;
+      });
+  </script>
   <style>
     /* Forzar el modal de búsqueda a mostrarse correctamente en desktop */
     #sec_search[style*="display: flex"], #sec_search.show {
@@ -703,7 +630,7 @@
               <div class="grid grid-cols-2 gap-3">
                 <div class="bg-white rounded-lg shadow-sm p-2 border cursor-pointer border-hover transition-all duration-200"
                   onclick="changeMainImage('https://web.netperu100.com/mikrotik/images/CRS309-1G-8S+IN_front.png')">
-                  <img src="https://web.netperu100.com/mikrotik/images/CRS309-1G-8S+IN_front.png" 
+                  <img src="https://web.netperu100.com/mikrotik/images/CRS309-1G-8S+IN_front_1.png" 
                     alt="CRS309-1G-8S+IN vista frontal" 
                     class="w-full h-24 object-contain scale-hover" 
                     loading="eager" 
@@ -712,7 +639,7 @@
                 </div>
                 <div class="bg-white rounded-lg shadow-sm p-2 border cursor-pointer border-hover transition-all duration-200"
                   onclick="changeMainImage('https://web.netperu100.com/mikrotik/images/CRS309-1G-8S+IN_back.png')">
-                  <img src="https://web.netperu100.com/mikrotik/images/CRS309-1G-8S+IN_back.png" 
+                  <img src="https://web.netperu100.com/mikrotik/images/CRS309-1G-8S+IN_back_1.png" 
                     alt="CRS309-1G-8S+IN vista posterior" 
                     class="w-full h-24 object-contain scale-hover" 
                     loading="eager" 
@@ -721,7 +648,7 @@
                 </div>
                 <div class="bg-white rounded-lg shadow-sm p-2 border cursor-pointer border-hover transition-all duration-200"
                   onclick="changeMainImage('https://web.netperu100.com/mikrotik/images/CRS309-1G-8S+IN_top.jpg')">
-                  <img src="https://web.netperu100.com/mikrotik/images/CRS309-1G-8S+IN_top.jpg" 
+                  <img src="https://web.netperu100.com/mikrotik/images/CRS309-1G-8S+IN_top_1.png" 
                     alt="CRS309-1G-8S+IN vista superior" 
                     class="w-full h-24 object-contain scale-hover" 
                     loading="eager" 
@@ -793,14 +720,14 @@
                 <div>
                   <h2 class="text-lg font-bold text-gray-600 mb-3">Documentación Técnica</h2>
                   <div class="flex flex-wrap gap-3">
-                    <a href="https://web.netperu100.com/mikrotik/files/CRS309-1G-8S+IN_manual.pdf"
+                    <a href="https://web.netperu100.com/mikrotik/files/CRS309-1G-8S+IN_manual1.pdf"
                       class="flex items-center gap-2 text-gray-600 hover:text-gray-800 border border-gray-200 rounded-md px-4 py-2 hover:bg-gray-50 transition"
                       target="_blank"
                       aria-label="Descargar manual del CRS309-1G-8S+IN en PDF">
                       <i class="fas fa-file-pdf text-red-500"></i>
                       <span>Manual de Usuario</span>
                     </a>
-                    <a href="https://web.netperu100.com/mikrotik/files/CRS309-1G-8S+IN_ds.pdf"
+                    <a href="https://web.netperu100.com/mikrotik/files/CRS309-1G-8S+IN_ds1.pdf"
                       class="flex items-center gap-2 text-gray-600 hover:text-gray-800 border border-gray-200 rounded-md px-4 py-2 hover:bg-gray-50 transition"
                       target="_blank"
                       aria-label="Descargar datos técnicos del CRS309-1G-8S+IN">
@@ -831,7 +758,7 @@
                 <div class="grid grid-cols-2 gap-3 mt-6">
                   <div class="bg-white rounded-lg shadow-sm p-2 border cursor-pointer border-hover transition-all duration-200"
                     onclick="changeMainImage('https://web.netperu100.com/mikrotik/images/CRS309-1G-8S+IN_front.png')">
-                    <img src="https://web.netperu100.com/mikrotik/images/CRS309-1G-8S+IN_front.png" 
+                    <img src="https://web.netperu100.com/mikrotik/images/CRS309-1G-8S+IN_front_1.png" 
                       alt="CRS309-1G-8S+IN vista frontal" 
                       class="w-full h-24 object-contain scale-hover" 
                       loading="eager" 
@@ -840,7 +767,7 @@
                   </div>
                   <div class="bg-white rounded-lg shadow-sm p-2 border cursor-pointer border-hover transition-all duration-200"
                     onclick="changeMainImage('https://web.netperu100.com/mikrotik/images/CRS309-1G-8S+IN_back.png')">
-                    <img src="https://web.netperu100.com/mikrotik/images/CRS309-1G-8S+IN_back.png" 
+                    <img src="https://web.netperu100.com/mikrotik/images/CRS309-1G-8S+IN_back_1.png" 
                       alt="CRS309-1G-8S+IN vista posterior" 
                       class="w-full h-24 object-contain scale-hover" 
                       loading="eager" 
@@ -849,7 +776,7 @@
                   </div>
                   <div class="bg-white rounded-lg shadow-sm p-2 border cursor-pointer border-hover transition-all duration-200"
                     onclick="changeMainImage('https://web.netperu100.com/mikrotik/images/CRS309-1G-8S+IN_top.jpg')">
-                    <img src="https://web.netperu100.com/mikrotik/images/CRS309-1G-8S+IN_top.jpg" 
+                    <img src="https://web.netperu100.com/mikrotik/images/CRS309-1G-8S+IN_top_1.png" 
                       alt="CRS309-1G-8S+IN vista superior" 
                       class="w-full h-24 object-contain scale-hover" 
                       loading="eager" 
@@ -1113,7 +1040,7 @@
                 <!-- Producto 1 -->
                 <div class="bg-white rounded-lg shadow p-4 flex flex-col items-center">
                     <a href="CRS304-4XG-IN.html" target="_blank">
-                        <img src="https://web.netperu100.com/mikrotik/images/CRS304-4XG-IN_front.png" alt="CRS304-4XG-IN" class="h-24 mb-2">
+                        <img src="https://web.netperu100.com/mikrotik/images/CRS304-4XG-IN_front_1.png" alt="CRS304-4XG-IN" class="h-24 mb-2">
                     </a>
                     <h3 class="font-semibold text-lg text-gray-700 mb-1">CRS304-4XG-IN</h3>
                     <p class="text-sm text-gray-600 mb-2">Switch 10G, 4 puertos Ethernet 10G, 1 Gigabit, RAM 512MB, riel DIN.</p>
@@ -1124,7 +1051,7 @@
                 <!-- Producto 2 -->
                 <div class="bg-white rounded-lg shadow p-4 flex flex-col items-center">
                     <a href="CRS510-8XS-2XQ-IN.html" target="_blank">
-                        <img src="https://web.netperu100.com/mikrotik/images/CRS510-8XS-2XQ-IN_front.png" alt="CRS510-8XS-2XQ-IN" class="h-24 mb-2">
+                        <img src="https://web.netperu100.com/mikrotik/images/CRS510-8XS-2XQ-IN_front_1.png" alt="CRS510-8XS-2XQ-IN" class="h-24 mb-2">
                     </a>
                     <h3 class="font-semibold text-lg text-gray-700 mb-1">CRS510-8XS-2XQ-IN</h3>
                     <p class="text-sm text-gray-600 mb-2">Switch 100G, 2 puertos QSFP28, 8 puertos SFP28, fuentes redundantes.</p>
@@ -1135,7 +1062,7 @@
                 <!-- Producto 3 -->
                 <div class="bg-white rounded-lg shadow p-4 flex flex-col items-center">
                     <a href="CRS518-16XS-2XQ-RM.html" target="_blank">
-                        <img src="https://web.netperu100.com/mikrotik/images/CRS518-16XS-2XQ-RM_front.png" alt="CRS518-16XS-2XQ-RM" class="h-24 mb-2">
+                        <img src="https://web.netperu100.com/mikrotik/images/CRS518-16XS-2XQ-RM_front_1.png" alt="CRS518-16XS-2XQ-RM" class="h-24 mb-2">
                     </a>
                     <h3 class="font-semibold text-lg text-gray-700 mb-1">CRS518-16XS-2XQ-RM</h3>
                     <p class="text-sm text-gray-600 mb-2">Switch 100G, 2 puertos QSFP28, 16 puertos SFP28, capacidad 1.2 Tbps.</p>
@@ -1146,7 +1073,7 @@
                 <!-- Producto 4 -->
                 <div class="bg-white rounded-lg shadow p-4 flex flex-col items-center">
                     <a href="CSS610-1Gi-7R-2S+OUT.html" target="_blank">
-                        <img src="https://web.netperu100.com/mikrotik/images/CSS610-1Gi-7R-2S+OUT_side.png" alt="CSS610-1Gi-7R-2S+OUT" class="h-24 mb-2">
+                        <img src="https://web.netperu100.com/mikrotik/images/CSS610-1Gi-7R-2S+OUT_side_1.png" alt="CSS610-1Gi-7R-2S+OUT" class="h-24 mb-2">
                     </a>
                     <h3 class="font-semibold text-lg text-gray-700 mb-1">CSS610-1Gi-7R-2S+OUT</h3>
                     <p class="text-sm text-gray-600 mb-2">Switch outdoor, 7 puertos PoE inversos, 1 puerto PoE out, 2 SFP+, SwitchOS Lite.</p>

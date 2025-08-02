@@ -354,94 +354,78 @@
       .md\:w-1\/5 { width: 20%; }
       .md\:text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
     }
+
+    .encabezado-principal {
+  background: #fff;
+  border-radius: 0.5rem;
+  box-shadow: none;
+  padding: 1rem 0.8rem;
+  margin-bottom: 1.2rem;
+  border: 1px solid #d1d5db;
+}
+.encabezado-principal h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #374151;
+  text-align: center;
+  letter-spacing: 0.02em;
+  margin: 0;
+  text-shadow: none;
+}
+@media (min-width: 768px) {
+  .encabezado-principal h1 {
+    font-size: 2.1rem;
+  }
+}
+.categoria-titulo {
+  color: #087ead;
+  border-bottom: 2px solid #b6d4fe;
+  font-weight: bold;
+  font-size: 1.35rem;
+  text-align: left;
+  letter-spacing: 0.02em;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.btn-ver-lista {
+  background: #e3f0ff;
+  color: #087ead;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.4em 1.2em;
+  border-radius: 0.5em;
+  box-shadow: 0 1px 4px 0 rgb(0 0 0 / 0.04);
+  border: 1px solid #b6d4fe;
+  margin-left: 2.5em;
+  transition: background 0.2s, color 0.2s;
+  text-decoration: none;
+  display: inline-block;
+}
+.btn-ver-lista:hover {
+  background: #d0e6ff;
+  color: #087ead;
+}
   </style>
   
   <title>Lista de Precios WiFi de MikroTik | DS3 Comunicaciones Perú</title>
 </head>
 
 <body class="bg-gris-muy-claro">
-    <!-- HEADER SUPERIOR CON LOGO Y CONTACTO -->
-  <!-- HEADER RESPONSIVE: Mobile y Desktop -->
-  <header class="bg-white border-b border-gris-claro shadow-sm">
-    <!-- Mobile header -->
-    <div class="max-w-7xl w-full mx-auto flex items-center justify-between p-4 md:hidden">
-      <div class="flex gap-3 items-center">
-        <i class="cursor-pointer fa-solid fa-bars text-2xl btn_navi"></i>
-        <div class="flex flex-col">
-          <div class="flex items-end gap-3">
-            <img src="http://www.ds3comunicaciones.com/mikrotik/images/Logo1.jpg" alt="DS3 Comunicaciones" class="max-w-[150px] h-16 object-contain" />
-            <img src="https://www.ds3comunicaciones.com/mikrotik/images/mikrotik_logo.jpg" alt="MikroTik" class="max-w-[120px] h-14 object-contain" />
-          </div>
-          <div class="flex flex-col gap-1 mt-2 text-xs text-gris-oscuro md:hidden">
-            <div class="flex items-center gap-4">
-              <span class="flex items-center gap-2"><i class="fa-solid fa-phone icon-ds3"></i> <span class="contacto-tel-ds3">994-428-965</span></span>
-              <span class="flex items-center gap-2"><i class="fa-solid fa-phone icon-ds3"></i> <span class="contacto-tel-ds3">996-533-223</span></span>
-            </div>
-            <div class="flex items-center gap-2"><i class="fa-solid fa-envelope icon-ds3"></i> <span>netperu100@hotmail.com</span></div>
-          </div>
-        </div>
-      </div>
-      <div>
-        <i class="cursor-pointer fa-solid fa-magnifying-glass p-3 bg-gris-muy-claro rounded-md border hover:bg-gris-claro text-xl" id="active_search"></i>
-      </div>
-    </div>
-
-    <!-- Buscador móvil oculto por defecto -->
-<div id="sec_search" class="fixed top-0 left-0 w-full h-full z-[9999] flex flex-col items-center" style="backdrop-filter: blur(12px); background: rgba(255,255,255,0.5); display:none !important; z-index:9999 !important;">
-      <div class="w-full max-w-xs px-4 pt-8 relative">
-        <form action="https://www.ds3comunicaciones.com/find.html" method="GET" target="_blank" class="w-full">
-          <div class="relative flex items-center">
-            <span class="absolute left-3 text-gris-medio"><i class="fas fa-search"></i></span>
-            <input 
-              type="search" 
-              name="q" 
-              placeholder="Buscar" 
-              class="w-full px-10 py-3 pr-12 text-gris-oscuro bg-white/80 border border-gris-claro rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-md"
-              required
-            />
-            <button type="button" id="desactive_search" class="absolute right-2 text-gris-medio hover:text-red-500 text-2xl cursor-pointer flex items-center justify-center bg-transparent border-none p-0 h-8 w-8"><i class="fa-solid fa-xmark"></i></button>
-          </div>
-          <input type="hidden" name="cx" value="partner-pub-9265252540298851:f2549i3fi60" />
-          <input type="hidden" name="cof" value="FORID:10" />
-          <input type="hidden" name="ie" value="ISO-8859-1" />
-          <input type="hidden" name="sa" value="Buscar" />
-        </form>
-      </div>
-    </div>
-    <!-- Desktop header -->
-    <div class="max-w-7xl mx-auto px-4 py-3 hidden md:flex flex-row justify-between items-center gap-4">
-      <div class="flex items-end" style="min-height:80px;">
-        <img src="http://www.ds3comunicaciones.com/mikrotik/images/Logo1.jpg" alt="DS3 Comunicaciones" class="h-20 w-auto mr-6" style="max-height:80px;" fetchpriority="high" loading="eager" />
-      </div>
-      <div class="flex items-end" style="min-height:80px; margin-left:32px;">
-        <img src="https://www.ds3comunicaciones.com/mikrotik/images/mikrotik_logo.jpg" alt="MikroTik" class="h-20 w-auto mr-6" style="max-height:80px;" fetchpriority="high" loading="eager" />
-      </div>
-      <div class="flex flex-wrap justify-center md:justify-end items-start gap-6 text-sm">
-        <div class="flex flex-col gap-1 text-gris-medio min-w-[120px]">
-          <div class="flex items-center gap-2">
-            <i class="fas fa-phone" style="color:#087ead"></i>
-            <span style="color:#087ead">99653-3223</span>
-          </div>
-          <div class="flex items-center gap-2 ml-6">
-            <span style="color:#087ead">994-428-965</span>
-          </div>
-        </div>
-        <div class="flex flex-col gap-1 text-gris-medio min-w-[120px]">
-          <div class="flex items-center gap-2">
-            <i class="fas fa-envelope" style="color:#087ead"></i>
-            <span style="color:#087ead">netperu100@hotmail.com</span>
-          </div>
-        </div>
-        <div class="flex items-center gap-2 text-gris-medio">
-          <i class="fas fa-map-marker-alt" style="color:#087ead"></i>
-          <span style="color:#087ead">Lima, PERÚ</span>
-        </div>
-        <div class="flex items-center ml-4 order-last" style="margin-left:auto;">
-          <i class="cursor-pointer fa-solid fa-magnifying-glass p-3 bg-gris-muy-claro rounded-md border hover:bg-gris-claro text-xl" id="active_search"></i>
-        </div>
-      </div>
-    </div>
-  </header>
+  <!-- HEADER DINÁMICO -->
+  <div id="header-container"></div>
+  <script>
+    fetch('../header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('header-container').innerHTML = data;
+      });
+  </script>
 
    <!-- Nav Mobile lateral -->
   <section id="nav_mobile" class="fixed top-0 left-0 right-0 bg-gris-muy-claro h-screen w-full container-nav-mobile flex justify-between p-5 flex-col z-50 shadow-lg md:hidden" style="overflow-y: scroll; display:none;">
@@ -615,7 +599,8 @@
 
                     <img onclick="chageURL('https://www.ds3comunicaciones.com/lanpro/index.html')"
                         src="http://www.ds3comunicaciones.com/lanpro/images/lanpro_logo.jpg" alt="img_marca"
-                        class="w-[110px]" />
+                        class="w-[110px] cursor-pointer" />
+
                     <img onclick="chageURL('https://www.ds3comunicaciones.com/l-com/')"
                         src="http://www.ds3comunicaciones.com/sitebuilder/images/lcom_logo-100x23.jpg" alt="img_marca"
                         class="w-[110px] cursor-pointer" />
@@ -626,7 +611,7 @@
 
                     <img onclick="chageURL('https://www.ds3comunicaciones.com/panduit/index.html')"
                         src="http://www.ds3comunicaciones.com/panduit/images/panduit_logo.jpg" alt="img_marca"
-                        class="w-[110px]" />
+                        class="w-[110px] cursor-pointer" />
 
                     <img onclick="chageURL('https://www.ds3comunicaciones.com/satra/index.html')"
                         src="http://www.ds3comunicaciones.com/satra/images/satra.JPG" alt=""
@@ -767,177 +752,1475 @@
 <!-- PRODUCTOS CCR + SIDEBAR DERECHO EN LAYOUT FLEX -->
 <section class="max-w-7xl mx-auto px-2 sm:px-4 py-6">
   <div class="flex flex-col lg:flex-row gap-6">
-    <aside class="hidden lg:block w-full md:w-1/5 lg:w-1/6 bg-white p-4 rounded-lg shadow-md h-fit sticky top-4">
-        <h2 class="text-lg font-bold text-gray-800 mb-4 pb-2 border-b">
-          Nuestras Marcas
-        </h2>
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-1 gap-2">
-          <a href="https://www.ds3comunicaciones.com/alfa/index.html" class="flex items-center justify-center p-2 rounded-md hover:bg-gray-100 transition-all"><img src="https://www.ds3comunicaciones.com/belden/images/ALFA_logo1.gif" alt="ALFA" class="max-w-[80px] max-h-6 w-auto h-auto object-contain" loading="eager" /></a>
-          <a href="https://www.ds3comunicaciones.com/airlive/index.html" class="flex items-center justify-center p-2 rounded-md hover:bg-gray-100 transition-all"><img src="https://www.ds3comunicaciones.com/belden/images/airlivelogo.gif" alt="AIR LIVE" class="max-w-[80px] max-h-6 w-auto h-auto object-contain" loading="eager" /></a>
-          <a href="https://www.ds3comunicaciones.com/andrew/index.html" class="flex items-center justify-center p-2 rounded-md hover:bg-gray-100 transition-all"><img src="https://www.ds3comunicaciones.com/andrew/images/logo_andrew.jpg" alt="ANDREW" class="max-w-[80px] max-h-6 w-auto h-auto object-contain" loading="eager" /></a>
-          <a href="https://www.ds3comunicaciones.com/AMP/index.html" class="flex items-center justify-center p-2 rounded-md hover:bg-gray-100 transition-all"><img src="https://www.ds3comunicaciones.com/belden/images/amp_logo2-91x20.jpg" alt="AMP" class="max-w-[80px] max-h-6 w-auto h-auto object-contain" loading="eager" /></a>
-          <a href="https://www.ds3comunicaciones.com/amphenol/index.html" class="flex items-center justify-center p-2 rounded-md hover:bg-gray-100 transition-all"><img src="https://www.ds3comunicaciones.com/belden/images/amphenol_logo-100x21.jpg" alt="AMPHENOL" class="max-w-[80px] max-h-6 w-auto h-auto object-contain" loading="eager" /></a>
-          <a href="https://www.ds3comunicaciones.com/belden/index.html" class="flex items-center justify-center p-2 rounded-md hover:bg-gray-100 transition-all"><img src="https://www.ds3comunicaciones.com/belden/images/Belden-Logo-93x15.jpg" alt="BELDEN" class="max-w-[80px] max-h-6 w-auto h-auto object-contain" loading="eager" /></a>
-          <a href="https://ds3comunicaciones.com/cisco/index.html" class="flex items-center justify-center p-2 rounded-md hover:bg-gray-100 transition-all"><img src="https://www.ds3comunicaciones.com/cisco/images/logo-cisco.gif" alt="CISCO" class="max-w-[80px] max-h-6 w-auto h-auto object-contain" loading="eager" /></a>
-          <a href="https://www.ds3comunicaciones.com/dahua/index.html" class="flex items-center justify-center p-2 rounded-md hover:bg-gray-100 transition-all"><img src="https://www.ds3comunicaciones.com/dahua/images/dahua_logo.jpg" alt="DAHUA" class="max-w-[80px] max-h-6 w-auto h-auto object-contain" loading="eager" /></a>
-          <a href="https://www.ds3comunicaciones.com/dlink/index.html" class="flex items-center justify-center p-2 rounded-md hover:bg-gray-100 transition-all"><img src="https://www.ds3comunicaciones.com/belden/images/D-Link_Logo-100x26.jpg" alt="DLINK" class="max-w-[80px] max-h-6 w-auto h-auto object-contain" loading="eager" /></a>
-          <a href="https://www.ds3comunicaciones.com/dixon/index.html" class="flex items-center justify-center p-2 rounded-md hover:bg-gray-100 transition-all"><img src="https://www.ds3comunicaciones.com/belden/images/dixon_logo-100x19.jpg" alt="DIXON" class="max-w-[80px] max-h-6 w-auto h-auto object-contain" loading="eager" /></a>
-          <a href="https://www.ds3comunicaciones.com/edimax/ew-7209APG.html" class="flex items-center justify-center p-2 rounded-md hover:bg-gray-100 transition-all"><img src="https://www.ds3comunicaciones.com/belden/images/edimax_logo2-100x28.jpg" alt="EDIMAX" class="max-w-[80px] max-h-6 w-auto h-auto object-contain" loading="eager" /></a>
-          <a href="https://www.ds3comunicaciones.com/Energit/index.html" class="flex items-center justify-center p-2 rounded-md hover:bg-gray-100 transition-all"><img src="https://www.ds3comunicaciones.com/Energit/images/energit_logo.jpeg" alt="ENERGIT" class="max-w-[80px] max-h-6 w-auto h-auto object-contain" loading="eager" /></a>
-          <a href="https://www.ds3comunicaciones.com/senao/index.html" class="flex items-center justify-center p-2 rounded-md hover:bg-gray-100 transition-all"><img src="https://www.ds3comunicaciones.com/belden/images/engenius_logo-100x30.jpg" alt="ENGENIUS" class="max-w-[80px] max-h-6 w-auto h-auto object-contain" loading="eager" /></a>
-          <a href="https://www.ds3comunicaciones.com/FibreFab/index.html" class="flex items-center justify-center p-2 rounded-md hover:bg-gray-100 transition-all"><img src="https://www.ds3comunicaciones.com/FibreFab/images/logo_fibrefab.png" alt="FIBREFAB" class="max-w-[80px] max-h-6 w-auto h-auto object-contain" loading="eager" /></a>
-          <a href="https://www.ds3comunicaciones.com/lanpro/index.html" class="flex items-center justify-center p-2 rounded-md hover:bg-gray-100 transition-all"><img src="https://www.ds3comunicaciones.com/lanpro/images/lanpro_logo.jpg" alt="LANPRO" class="max-w-[80px] max-h-6 w-auto h-auto object-contain" loading="eager" /></a>
-          <a href="https://www.ds3comunicaciones.com/l-com/" class="flex items-center justify-center p-2 rounded-md hover:bg-gray-100 transition-all"><img src="https://www.ds3comunicaciones.com/sitebuilder/images/lcom_logo-100x23.jpg" alt="L-COM" class="max-w-[80px] max-h-6 w-auto h-auto object-contain" loading="eager" /></a>
-          <a href="https://www.ds3comunicaciones.com/lenovo/index.html" class="flex items-center justify-center p-2 rounded-md hover:bg-gray-100 transition-all"><img src="https://www.ds3comunicaciones.com/belden/images/lenovo_bar-100x18.jpg" alt="LENOVO" class="max-w-[80px] max-h-6 w-auto h-auto object-contain" loading="eager" /></a>
-          <a href="https://www.ds3comunicaciones.com/mikrotik/index.html" class="flex items-center justify-center p-2 rounded-md bg-blue-50 border border-blue-200 hover:bg-blue-100 transition-all duration-200"><img src="https://www.ds3comunicaciones.com/belden/images/mikrotik_logo-100x24.png" alt="MIKROTIK" class="max-w-[80px] max-h-6 w-auto h-auto object-contain" loading="eager" fetchpriority="high" /></a>
-          <a href="https://www.ds3comunicaciones.com/panduit/index.html" class="flex items-center justify-center p-2 rounded-md hover:bg-gray-100 transition-all"><img src="https://www.ds3comunicaciones.com/panduit/images/panduit_logo.jpg" alt="PANDUIT" class="max-w-[80px] max-h-6 w-auto h-auto object-contain" loading="eager" /></a>
-          <a href="https://www.ds3comunicaciones.com/satra/index.html" class="flex items-center justify-center p-2 rounded-md hover:bg-gray-100 transition-all"><img src="https://www.ds3comunicaciones.com/satra/images/satra.JPG" alt="SATRA" class="max-w-[80px] max-h-6 w-auto h-auto object-contain" loading="eager" /></a>
-          <a href="https://www.ds3comunicaciones.com/siemon/index.html" class="flex items-center justify-center p-2 rounded-md hover:bg-gray-100 transition-all"><img src="https://www.ds3comunicaciones.com/siemon/images/siemon_logo1.GIF" alt="SIEMON" class="max-w-[80px] max-h-6 w-auto h-auto object-contain" loading="eager" /></a>
-          <a href="https://www.ds3comunicaciones.com/Teldor/index.html" class="flex items-center justify-center p-2 rounded-md hover:bg-gray-100 transition-all"><img src="https://www.ds3comunicaciones.com/Teldor/images/logo_Teldor1.jpg" alt="TELDOR" class="max-w-[80px] max-h-6 w-auto h-auto object-contain" loading="eager" /></a>
-          <a href="https://www.ds3comunicaciones.com/tplink/" class="flex items-center justify-center p-2 rounded-md hover:bg-gray-100 transition-all"><img src="https://www.ds3comunicaciones.com/belden/images/tp-link_logo-100x13.jpg" alt="TPLINK" class="max-w-[80px] max-h-6 w-auto h-auto object-contain" loading="eager" /></a>
-          <a href="https://www.ds3comunicaciones.com/trendnet/" class="flex items-center justify-center p-2 rounded-md hover:bg-gray-100 transition-all"><img src="https://www.ds3comunicaciones.com/belden/images/trendnet_logo-100x20.jpg" alt="TRENDNET" class="max-w-[80px] max-h-6 w-auto h-auto object-contain" loading="eager" /></a>
-          <a href="https://www.ds3comunicaciones.com/ubiquiti/index.html" class="flex items-center justify-center p-2 rounded-md hover:bg-gray-100 transition-all"><img src="https://www.ds3comunicaciones.com/belden/images/ubnt_logo-100x47.png" alt="UBIQUITI" class="max-w-[80px] max-h-6 w-auto h-auto object-contain" loading="eager" /></a>
-          <a href="https://www.ds3comunicaciones.com/vertical/index.html" class="flex items-center justify-center p-2 rounded-md hover:bg-gray-100 transition-all"><img src="https://www.ds3comunicaciones.com/vertical/images/vertical_logo1.jpg" alt="VERTICAL" class="max-w-[80px] max-h-6 w-auto h-auto object-contain" loading="eager" /></a>
-        </div>
-      </aside>
     <!-- GRID DE PRODUCTOS -->
     <div class="flex-1">
-<div class="mb-10 flex flex-col items-center">
-  <div class="w-full max-w-3xl mx-auto mb-6 rounded-2xl shadow-lg flex flex-col items-center justify-center"
-    style="padding: 0.5rem 0 1.2rem 0; background: none; border-bottom: none; box-shadow: none;">
-    <div class="bg-ds3-blue rounded-none shadow-md py-4 px-6 w-full">
-      <h1 class="text-4xl md:text-8xl font-bold text-white text-center m-0 uppercase tracking-wide">CATEGORIAS DE MIKROTIK</h1>
+    <div class="mb-10 flex flex-col items-center">
+      <div class="w-full max-w-3xl mx-auto mb-6">
+        <div class="encabezado-principal">
+          <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; height: 100%;">
+            <h1 style="width: 100%; text-align: center;">PRODUCTOS DE MIKROTIK</h1>
+            <div style="margin-top: 1rem;">
+              <div style="display: flex; align-items: center; gap: 0.7rem;">
+                <span style="font-weight: 500; color: #1e293b; font-size: 1rem;">Categorías:</span>
+                <select id="categoryMenu" class="border border-gray-300 rounded px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 w-full sm:w-auto text-base sm:text-sm py-3 sm:py-1 mb-4 sm:mb-0" style="max-width:220px;">
+                  <option value="wifi">WiFi MikroTik</option>
+                  <option value="transceiver">Transceiver MikroTik</option>
+                  <option value="sxt">Antenas SXT MikroTik</option>
+                  <option value="crs">Switch CRS MikroTik</option>
+                  <option value="routerboard">RouterBOARD MikroTik</option>
+                  <option value="netmetal">NetMetal MikroTik</option>
+                  <option value="ccr">Cloud Core Router (CCR)</option>
+                  <option value="accesorios">Accesorios y Fibra MikroTik</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+    <div class="rounded-2xl shadow-lg bg-white border border-gray-200 py-6 px-6 w-full">
+      <h2 id="wifi" class="categoria-titulo">WiFi MikroTik <a href="./WiFi/precios_wifi.html" class="btn-ver-lista">VER PRECIOS</a></h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        <!-- PRODUCTOS WIFI -->
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/RBwAPG-60ad-A_front_1.png" alt="RbWAPG-60ad-A" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">RbWAPG-60ad-A</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">wAP 60G AP. Estación base de 60 GHz con antena integrada Phase array 60° beamforming, CPU de 716 Mhz, 256 MB de RAM, PSU y PoE, RouterOS L4, marca MIKROTIK</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/RB912R-2nD-LTm&R11eLTE_front.png" alt="RB912R-2ND-LTM&R11eLTE" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">RB912R-2ND-LTM&R11eLTE</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">LtAP mini LTE kit, access point para exteriores con modem 2 slots SIMM y GPS, 01 puerto Ethernet 10/100, CPU 650 MHz, RAM 64 MB, marca MIKROTIK</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/RBGroove52HPn_front.png" alt="RBGroove52HPn" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">RBGroove52HPn</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">RBGroove52HPn, Backbone/CPE de 2,4 GHz/5GHz, 802.11a/b/g/n, CPU 600MHz, RAM 64 MB, almacenamiento 16 MB, 01 puertoLAN, PoE, conector N-Macho, plastic case, RouterOS L3 (No incluye antena), marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/RBGrooveA-52HPn_top.jpg" alt="RBGrooveA-52HPn" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">RBGrooveA-52HPn</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">RBGrooveA-52HPn- Backbone/AP/CPE de 2,4 GHz/5 GHz, 802.11b/g/n, 802.11a/n, CPU 600MHz,RAM 64 MB, almacenamiento 16 MB, 01 puerto LAN, PoE, conector N-Macho, plastic case, RouterOS L4 (Incluye antena omnidireccional de 6 dBi de 2,4 GHz/5 GHz), marca MIKROTIK</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/RB921GS-5HPacD-15S_front.png" alt="RB921GS-5HPacD-15S" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">RB921GS-5HPacD-15S</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">Antena Sectorial, 5GHz, 15dBi, 120°, mANTBox 15s , MIMO 2x2 incluye router RB921 802.11 ac/a/n wireless, potencia 1.3W (31 dBm) , RouterOS Level 4 marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/RB921GS-5HPacD-19s_front.png" alt="RB921GS-5HPacD-19S" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">RB921GS-5HPacD-19S</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">Antena Sectorial, 5GHz, 19dBi, 120°, mANTBox 19s , MIMO 2x2 incluye router RB921 802.11 ac/a/n wireless, potencia 1.3W (31 dBm) , RouterOS Level 4 marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/MTAO-LTE-5D-SQ_front.jpg" alt="MTAO-LTE-5D-SQ" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">MTAO-LTE-5D-SQ</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">mANT LTE 5o,Antena LTE de 5dBi con 2 conectores SMA marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/RBMetalG-52SHPacn_top.png" alt="RBMetalG-52SHPacn" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">RBMetalG-52SHPacn</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">AccessPoint Metal 52 AC Doble Banda 2.4 GHz/5GHz , 802.11ac 802.11a/b/g/n , incluye antena Omni de 8 dBi y PoE, Metal 5 RouterBOARD y RouterOS , potencia 1,300m W , Level 4, marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/RB921UAGS-5SHPacD-NM_front.png" alt="RB921UAGS-5SHPacD-NM" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">RB921UAGS-5SHPacD-NM</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">NetMetal 5 AccessPoint para exteriores 802.11ac 2x2 5.8 GHz , 866 Mbps, potencia 1300 mW (31 dBm) , 01 puerto Gigabit , 01 puerto para fibra SFP, RouterOS Level 4 , soporta PoE , carcasa de aluminio resistente, marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/RB921UAGS-5SHPacT-NM_front_small.jpg" alt="RB921UAGS-5SHPacT-NM" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">RB921UAGS-5SHPacT-NM</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">NetMetal 5 triple AccessPoint para exteriores con carcasa de aluminio IP66 802.11ac de 3 cadenas (three Chains) potencia 2000 mW CPU 720MHz , RAM 128MB , 01 puerto Gigabit Ethernet , 01 puerto para fibra SFP. RouterOS L4, incluye fuente PoE, marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/RB922UAGS-5HPacD-NM_front.png" alt="RB922UAGS-5HPacD-NM" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">RB922UAGS-5HPacD-NM</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">NetMetal 5 AP/Backbone/CPE 802.11a/n/ac integrado de doble cadena de 5 GHz, CPU 720MHz, RAM 128MB, Licencia de enrutador OS 4, 802.11AC, conectores RPSMA, 01puerto Gigabit Ethernet, 01 puerto SFP, carcasa metálica resistente al agua, marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/RBOmniTikG-5HacD_side.png" alt="RBOmniTikG-5HacD" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">RBOmniTikG-5HacD</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">OmniTIK 5 ac, Punto de acceso integrado de 7,5 dBi, doble cadena de 5 GHz con compatibilidad con 802.11ac, 05 puertos Gigabit Ethernet, 01 puerto USB, marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/RBOmniTikUPA-5HnD_front_small.jpg" alt="RBOmniTikUPA-5HnD" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">RBOmniTikUPA-5HnD</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">OmniTIK 5 PoE, Punto de acceso integrado de 7,5 dBi, doble cadena de 5 GHz, con 05 puertos 10/100 Ethernet con salida PoE, RAM 128 MB, almacenamiento 16 MB, RouterOS 5, marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/RBOmniTikPG-5HacD_front.png" alt="RBOmniTikPG-5HacD" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">RBOmniTikPG-5HacD</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">OmniTIK 5 PoE ac, Punto de acceso integrado de 7,5 dBi, doble cadena de 5 GHz compatible con 802.11ac, 05 puertos Gigabit Ethernet con salida PoE, RAM 128 MB, almacenamiento 16 MB, CPU de 720 MHz, enrutadorOS 4, marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/RB911G-5HPacD-QRT_front.png" alt="RB911G-5HPacD-QRT" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">RB911G-5HPacD-QRT</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">QRT 5 ac, Antena de panel plano resistente para exteriores, con un RouterBOARD incorporado, con doble cadena 5 GHz 802.11a/n/ac QCA9882, 128 MB de RAM, CPU de 720 MHz, ganancia de antena de 24 dBi, marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/RB911G-5HPacD-NB_front.png" alt="RB911G-5HPacD-NB" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">RB911G-5HPacD-NB</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">NetBox 5, Backbone - PTP built-in 5GHz 802.11ac 2x2 Dual Chain wireless, outdoor enclosure, CPU 720MHz, RAM 128MB, 01 puerto Gigabit LAN, USB, y miniPCIe, con 02 conectores SMA, , POE, PSU, carcasa resistente al agua, alto rendimiento, marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/RB912UAG-2HPnD-OUT_front.jpg" alt="RB912UAG-2HPnD" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">RB912UAG-2HPnD</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">BaseBox2, AP/Backbone/CPE integrado de 2,4 Ghz para exteriores, 30dB, MIMO 2x2, 02 conectores RPSMA, ranura miniPCI-e, 01 puerto Gigabit Ethernet, RouterOS Level 4, marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/RB912UAG-2HPnD_front.png" alt="RB912UAG-2HPnD-OUT" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">RB912UAG-2HPnD-OUT</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">BaseBox2, AP/Backbone/CPE integrado de 2,4 Ghz para exteriores, 30dB, MIMO 2x2, 02 conectores RPSMA, ranura miniPCI-e, 01 puerto Gigabit Ethernet, RouterOS Level 4, marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/RB912UAG-5HPnD_front.jpg" alt="RB912UAG-5HPnD" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">RB912UAG-5HPnD</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">BaseBox 5 AP/Backbone/CPE integrado de 5.8 GHz para exteriores , 802.11a/n, 800 Mbps, potencia 1000 mW (30 dBm), 01 puerto Gigabit , RouterOS Level 4, soporta PoE, marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/RB912UAG-5HPnD-OUT_front.jpg" alt="RB912UAG-5HPnD-OUT" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">RB912UAG-5HPnD-OUT</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">BaseBox 5 AP/Backbone/CPE integrado de 5.8 GHz para exteriores , 802.11a/n, 800 Mbps, potencia 1000 mW (30 dBm), 01 puerto Gigabit , RouterOS Level 4 , soporta PoE, incluye fuente de alimentación , inyector PoE, bucle de montaje, montaje en carril DIN, montaje para montaje en torre/poste, marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/MTAS-5G-15D120_side.png" alt="MTAS-5G-15D120" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">MTAS-5G-15D120</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">mANT 15s 5GHz 120 degree, 15dBi, Dual-polarization, para enlaces multipunto corta distancia, para uso con BaseBox5, no incluye pigtail 2xRP-SMA, marca MikroTik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/MTAS-5G-19D120_side.png" alt="MTAS-5G-19D120" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">MTAS-5G-19D120</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">mANT 19s 5GHz 120 degree 19dBi, Dual-polarization, para enlaces multipunto corta distancia, para uso con BaseBox5, no incluye pigtail 2xRP-SMA, marca MikroTik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/RBDynaDishG-5HacD_front.png" alt="RBDynaDishG-5HacD" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">RBDynaDishG-5HacD</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">Antena Mikrotik DynaDish, 5GHz, de25 dBi, Wireless Built-in 802.11ac, dual-chain,Antenna beam width 8°, wireless chip model QCA9882-BR4A-R, ROW para exteriores, CPU de 720MHz de Qualcomm, 300MHz DDR2, Sistema operativo RouterOS, L3, 01 puerto 10/100/1000, RAM: 128 MB, Max Power consumption: 16 W, PoE 802.3af / at, marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/RBwAPG-60adkit_front.png" alt="RBwAPG-60adkit" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">RBwAPG-60adkit</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">Kit de enlace inalambrico 60GHZ ideal para 200 metros, incluye 2 unidades para punto a punto preconfigurados, 4 cores 716MHz CPU, 256MB RAM, 01 puerto Gigabit LAN, soporta poe 802.3af, capacidad full duplex 1 Gigabit, PoE, PSU, mounting kit, marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/RBLHGG-60adkit_front.jpg" alt="RBLHGG-60adkit" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">RBLHGG-60adkit</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">Kit de enlace inalambrico 60GHZ ideal para 1.5 km, incluye 2 unidades para punto a punto preconfigurados, 4 cores 716.8MHz CPU, 256MB RAM, 01 puerto Gigabit LAN, soporta poe 802.3af, capacidad full duplex 2 Gigabit, PSU, mounting kit, marca Mikrotik</p>
+          </div>
+        </div>
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/RB931-2nD_front_small.jpg" alt="RB931-2nD" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">RB931-2nD</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">hAP mini Wifi 2.4Ghz 802.11b/g/n mimo 2x2, con 03 puertos ethernet 10/100, RouterOS license 4, RAM 32 MB, Storage size 16 MB, CPU 650 MHz, diseño de torre, incluye fuente, marca MIKROTIK</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/RB941-2nD-TC_front.jpg" alt="RB941-2nD-TC" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">RB941-2nD-TC</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">HAP-LITE-TC con 04 puertos 10/100 Ethernet RJ-45, 650MHz CPU, 32MB RAM, Wifi 2.4 GHz 802.11b/g/n mimo 2x2, cuenta con 2 antenas integradas , RouterOS L4, diseño de torre, incluye fuente, marca MIKROTIK</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/RB952Ui-5ac2nD_front_2.jpg" alt="RB952Ui-5ac2nD" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">RB952Ui-5ac2nD</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">HAP AC LITE Dual chain wireless 2.4 GHz/5 GHz 802.11a/b/g/n/ac con 05 puertos Gigabit Ethernet, Passive PoE output on port 5, 650 MHz CPU, 64 MB of RAM, RouterO, marca MIKROTIK</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/RB952Ui-5ac2nD-TC_front.jpg" alt="RB952Ui-5ac2nD-TC" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">RB952Ui-5ac2nD-TC</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">hAP ac lite TC con 02 antenas integras en doble banda 2.4Ghz y 5.8 Ghz, 802.11ac, con 05 puertos ethernet 10/100 (salida PoE puerto ),USB para compatibilidad con 3G/4G, 650MHz CPU, 64MB RAM, RouterOS 4, caja de torre universal, marca MIKROTIK</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/RB962UiGS-5HacT2HnT_front.jpg" alt="RB962UiGS-5HacT2HnT" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">RB962UiGS-5HacT2HnT</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">hAP ac de doble banda de 2,4/5 GHz con triple cadena, 802.11ac/a/n/b/g, 05 puertos Gigabit, 01 puerto para fibra SFP, USB para soporte o almacenamiento 3G/4G, 720MHz CPU, 128MB RAM, RouterOS Level 4,marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/RBD52G-5HacD2HnD-TC_front.jpg" alt="RBD52G-5HacD2HnD-TC" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">RBD52G-5HacD2HnD-TC</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">HAP AC² con doble banda de 2.4 GHz/5 GHz, 802.11a/b/g/n/ac con 05 puertos Gigabit Ethernet, 716 MHz CPU, 128 MB RAM, SB para compatibilidad con 3G/4G, RouterOS Level 4, IPsec Hardware encryption, marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/RB951Ui-2nD_top.png" alt="RB951Ui-2nD" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">RB951Ui-2nD</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">hAP AP inalámbrico 802.11 b/g/n de 2.4GHz, con 05 puertos Ethernet 10/100 (salida PoE en el puerto 5),USB para compatibilidad con 3G/4G, CPU 650 MHz, RouterOS 4, RAM 64 MB, Storage size 16 MB, marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/RBwAPR-2nD&R11e-LTE_front.jpg" alt="RBwAPR-2nD&R11e-LTE" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">RBwAPR-2nD&R11e-LTE</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">wAP LTE Kit, Pequeño Wireless Access Point resistente a la intemperie con módem LTE internacional con un módem celular integrado admite conectividad 2G, 3G y 4G (LTE) y además soporta bandas LTE 1,2,3,7,8,20,38 y 40, 2.4Ghz 802.11b/g/n Dual Chain, 01 puerto 10/100, RouterOS license 4, Operating System RouterOS, Size of RAM 64 MB, Storage size 16 MB, marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/RBwAPR-2nD & R11e-4G_front.jpg" alt="RBwAPR-2nD_&_R11e-4G" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">RBwAPR-2nD_&_R11e-4G</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">wAP 4G Kit, Pequeño Wireless Access Point resistente a la intemperie con módem LTE para las bandas 3, 7, 20, 31, 41n, 42 y 43, incluye un módem LTE que admite bandas LTE FDD 3 (1800MHz), 7 (2600MHz), 20 (800MHz) y 31 (450MHz), así como bandas LTE TDD 41n (2500MHz), 42 (3500MHz) y 43 (3700MHz), 2.4Ghz 802.11b/g/n Dual Chain, 01 puerto 10/100, RouterOS license 4, Operating System RouterOS, Size of RAM 64 MB, Storage size 16 MB, marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/RB912R-2nD-LTm&R11eLTE_front.png" alt="RB912R-2nD-LTm&R11e-LTE-US" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">RB912R-2nD-LTm&R11e-LTE-US</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">LtAP mini LTE kit US, Pequeño Wireless Access Point resistente a la intemperie con módem LTE con dos ranuras SIM y GPS, con un módem celular incorporado que admite conectividad 3G y 4G (LTE) en las bandas LTE 2,4,5 y 12 US, 650MHz CPU, 64MB RAM, 1xLAN, built-in 2.4Ghz 802.11b/g/n Dual Chain wireless, LTE FDD bandas 2 (1900MHz) / 4 (1700MHz) / 5 (850MHz) / 12 (700MHz) with internal LTE, antenna, GPS, Dual-SIM,RouterOS L4, outdoor enclosure, marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/RBcAPL-2nD_front.png" alt="RBCAPL-2ND" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">RBCAPL-2ND</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">Access point Wifi 2.4GHz 802.11b/g/n 2 antenas integradas de 1.5dBi, 650MHz CPU, 64MB RAM, 01 puerto Ethernet 10/100, marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/RBcAP2nD_front.png" alt="RBCAP2ND" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">RBCAP2ND</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">Access point Wifi 2.4Ghz 802.11b/g/n 2 antenas de 02 dBi integrada, RouterOS L4, soporta PoE 802.3af/at (no incluido), 01 puerto Ethernet 10/100, 650MHz CPU, 64MB RAM, marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/RBcAPGi-5acD2nD_front.jpg" alt="RbcAPG-5acD2ND" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">RbcAPG-5acD2ND</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">cAP ac Access point Wifi doble banda de 2.4/5 GHz con 02 puertos Gigabit Ethernet (uno con salida PoE), compatibilidad con 802.11ac y compatibilidad con cifrado de hardware IPsec, 716MHz CPU, 128MB RAM, para montaje en techo o pared, marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/RBSXTsq2nD_front_small.png" alt="RBSXTsq2ND" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">RBSXTsq2ND</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">SXTsq Lite2 CPE/Backbone con atena integrada de 10 dBi 2.4GHz dual chain velocidad 300 Mbps 802.11b/g/n , resistente para exteriores , liviano y compacto CPU 650 MHz , memoria RAM 64 MB , incluye PoE y abrazaderas de montaje marca MIKROTIK</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/RBSXTsq5nD_front_large.png" alt="RBSXTsq5ND" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">RBSXTsq5ND</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">SXTsq Lite5, CPE potencia 25 dBm (320 mW) velocidad 300 Mbps , antena integrada 16 dBi , dual chain , CPU 600 MHz , memoria RAM 64 MB, 01 puertos LAN 10/100, Licencia Level 3 , incluye fuente PoE , abrazadera de montaje , marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/RBSXTsq5HPnD_front_small.jpg" alt="RBSXTsq5HPnD" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">RBSXTsq5HPnD</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">SXTsq 5 High Power, CPE potencia 28 dBm (630 mW) velocidad 300 Mbps , antena integrada 16 dBi , dual chain , CPU 600 MHz, memoria RAM 64MB, 01 puertos LAN 10/100, Licencia L4 , incluye fuente PoE , abrazadera de montaje , marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/RBSXTsqG-5acD_front_small.jpg" alt="RBSXTsqG-5acD" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">RBSXTsqG-5acD</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">SXTsq 5 ac 16dBi 5GHz Dual Chain Integrated CPE/Backbone with AC Support and Gigabit Ethernet, ARM 32 bits, IPQ-4018, 716 MHz, RouterOS Level 3, RAM 256 MB, almacenamiento 16 MB, Pasivo PoE, marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/RBLDF-5nD_front_small.jpg" alt="RBLDF-5ND" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">RBLDF-5ND</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">LDF 5 Antena con 9dBi integrado 5GHz, Dual Chain 802.11an wireless, 600MHz CPU, 64MB RAM, 01 puerto Ethernet 10/100, POE, outdoor case, marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/RBDisc-5nD_front_small.png" alt="RBDisc-5ND" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">RBDisc-5ND</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">DISC Lite 5 de 5 GHz 802.11a/n Cadena Dual, RouterOS Licencia Nivel 3, con antena tipo backfire de 21 dBi, uso como CPE o en enlaces PtP, Procesador: AR9344 600 Mhz, 01 puerto 10/100,incluye un adaptador eléctrico, un inyector PoE y un kit de montaje, marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/RBDiscG-5acD_front.png" alt="RBDiscG-5acD" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">RBDiscG-5acD</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">DISC Lite5 ac / CPE, 5 GHz para exteriores con una antena integrada de 21 dBi tipo backfire, Dual Chain 802.11a/n/ac wireless, 01 puerto Gigabit Ethernet LAN para distancias más largas, 716MHz CPU, 256MB RAM, PoE, marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/RBLHG-5nD_front_small.jpg" alt="RBLHG-5ND" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">RBLHG-5ND</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">LHG 5 CPE/Access point de doble banda de 24.5 dBi , 5GHz, Dual Chain 802.11an wireless, CPU de 600MHz, 64MB de RAM, 01 puerto Gigabit Ethernet LAN, PoE , RouterOS 3, marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/RBLHG5Kit_front_small.jpg" alt="RBLHG5Kit" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">RBLHG5Kit</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">Tri pack LHG 5 CPE/Access point de doble banda de 24.5 dBi , 5GHz, CPU de 600MHz, 64MB de RAM, RouterOS 3, marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/RBLHG-5HPnD_front_small.jpg" alt="RBLHG-5HPnD" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">RBLHG-5HPnD</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">LHG XL HP5 CPE/Antena integrada punto a punto/CPE de alta potencia de cadena dual de 24.5 dBi 5 GHz, dual Chain High Power 802.11an wireless, CPU 600MHz, RAM 64MB, 01 puerto LAN, PoE, marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/RBLHGG-5acD_front.png" alt="RBLHGG-5acD" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">RBLHGG-5acD</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">LHG 5 ac CPE /Point-to-Point antena integrada doble polaridad de 24.5 dBi Dual chain 5GHz soporta velocidad 802.11ac , CPU 716 MHz , RAM 256 MB , puerto Gigabit Ethernet 10/100/1000 Licencia L3 , incluye PoE Gigabit , kit de montaje, marca MIKROTIK</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/RBCube-60ad_front.png" alt="RBCube-60ad" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">RBCube-60ad</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">Cube Lite60, CPE 60GHz, RAM 64MB, 01 puerto 10/100 ethernet, CPU 650 MHz, RAM 64 MB, RouterOS 3, marca MIKROTIK</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/RBLHGG-60ad_front.png" alt="RBLHGG-60ad" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">RBLHGG-60ad</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">LHG 60G, CPE 60GHz, configuraciones punto a multipunto para conexiones de hasta 800 m, hasta 1Gbps, 256MB de RAM, 01 puerto Gigabit Ethernet, RouterOS license 3, marca MIKROTIK</p>
+          </div>
+        </div>
+        <!-- FIN BLOQUE AUTOGENERADO -->
+      </div>
     </div>
-  </div>
-    <span class="text-base md:text-lg text-blue-900 text-center font-medium leading-relaxed max-w-4xl mx-auto mb-8 block">Explora nuestras principales categorías de productos. Haz clic en ver más para ver modelos, precios y detalles específicos.</span>
-</div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-8">
-        <!-- Categoría: WiFi -->
-        <div class="bg-white border border-blue-100 rounded-xl shadow-sm p-3 flex flex-col items-center h-full">
-<span class="text-lg font-bold ds3-blue-text mb-2">WiFi</span>
-          <ul class="text-gray-700 text-sm mb-2 text-center">
-            <li>hAP ac²</li>
-            <li>hAP ax²</li>
-            <li>wAP LTE kit</li>
-            <li>cAP XL ac</li>
-          </ul>
-          <div class="mt-auto w-full flex justify-center">
-            <a href="./WiFi/precios_wifi.html" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white text-blue-800 font-bold text-base shadow-lg hover:bg-blue-50 transition border-2 border-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2">
-              <span class="drop-shadow">Ver más</span>
-            </a>
+    <!-- INICIO SECCIÓN TRANSCEIVER -->
+    <div class="rounded-2xl shadow-lg bg-white border border-gray-200 py-6 px-6 w-full mt-10">
+      <h2 id="transceiver" class="categoria-titulo">Transceiver MikroTik <a href="./transceiver/precios_transceiver.html" class="btn-ver-lista">VER PRECIOS</a></h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        <!-- PRODUCTOS TRANSCEIVER -->
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/S-RJ01_top.jpg" alt="S-RJ01" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">S-RJ01</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">Módulo de cobre SFP RJ45 10/100/1000M, compatible con la mayoría de los puertos Gigabit SFP, marca Mikrotik</p>
           </div>
         </div>
-        <!-- Categoría: RouterBoard -->
-        <div class="bg-white border border-blue-100 rounded-xl shadow-sm p-5 flex flex-col items-center h-full">
-<span class="text-lg font-bold ds3-blue-text mb-2">RouterBoard</span>
-          <ul class="text-gray-700 text-sm mb-2 text-center">
-            <li>RB4011iGS+RM</li>
-            <li>RB3011UiAS-RM</li>
-            <li>RB5009UG+S+IN</li>
-            <li>RB1100AHx4</li>
-          </ul>
-          <div class="mt-auto w-full flex justify-center">
-            <a href="./routerboard/precios_routerboard.html" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white text-blue-800 font-bold text-base shadow-lg hover:bg-blue-50 transition border-2 border-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2">
-              <span class="drop-shadow">Ver más</span>
-            </a>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/S+RJ10_front.png" alt="S+RJ10" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">S+RJ10</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">Módulo RJ-45 de 6 velocidades (10/100/1000M/2.5G/5G/10G), marca Mikrotik</p>
           </div>
         </div>
-        <!-- Categoría: CCR -->
-        <div class="bg-white border border-blue-100 rounded-xl shadow-sm p-5 flex flex-col items-center h-full">
-<span class="text-lg font-bold ds3-blue-text mb-2">Cloud Core Router (CCR)</span>
-          <ul class="text-gray-700 text-sm mb-2 text-center">
-            <li>CCR1009-7G-1C-1S+</li>
-            <li>CCR2004-16G-2S+</li>
-            <li>CCR2116-12G-4S+</li>
-            <li>CCR2216-1G-12XS-2XQ</li>
-          </ul>
-          <div class="mt-auto w-full flex justify-center">
-            <a href="./crr/precios_ccr.html" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white text-blue-800 font-bold text-base shadow-lg hover:bg-blue-50 transition border-2 border-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2">
-              <span class="drop-shadow">Ver más</span>
-            </a>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/S+2332LC10D_front.png" alt="S+2332LC10D" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">S+2332LC10D</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">Pack de 2 módulos de transcevier SFP+ (10G), Monomodo, distancia 10 km, para un solo cable óptico, (S+23LC10D Longitud de onda TX: 1270nm, Longitud de onda RX: 1330nm - S-32LC10D con Longitud de onda TX: 1330nm, Longitud de onda RX: 1270nm), marca Mikrotik</p>
           </div>
         </div>
-        <!-- Categoría: Switch CRS -->
-        <div class="bg-white border border-blue-100 rounded-xl shadow-sm p-5 flex flex-col items-center h-full">
-<span class="text-lg font-bold ds3-blue-text mb-2">Switch CRS</span>
-          <ul class="text-gray-700 text-sm mb-2 text-center">
-            <li>CRS326-24G-2S+RM</li>
-            <li>CRS328-24P-4S+RM</li>
-            <li>CRS354-48G-4S+2Q+RM</li>
-            <li>CRS305-1G-4S+OUT</li>
-          </ul>
-          <div class="mt-auto w-full flex justify-center">
-            <a href="./switch_crs/precios_switch_crs.html" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white text-blue-800 font-bold text-base shadow-lg hover:bg-blue-50 transition border-2 border-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2">
-              <span class="drop-shadow">Ver más</span>
-            </a>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/S+31DLC10D_front.png" alt="S+31DLC10D" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">S+31DLC10D</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">Módulo transcever para Fibra SFP+ 10G Monomodo 10 KM 1310nm conector LC duplex , marca Mikrotik</p>
           </div>
         </div>
-        <!-- Categoría: SXT -->
-        <div class="bg-white border border-blue-100 rounded-xl shadow-sm p-5 flex flex-col items-center h-full">
-<span class="text-lg font-bold ds3-blue-text mb-2">Antenas SXT</span>
-          <ul class="text-gray-700 text-sm mb-2 text-center">
-            <li>RBSXTsq5ND</li>
-            <li>RBSXTsqG-5acD</li>
-            <li>RBSXTG-5HPnD</li>
-            <li>RBSXT5nDr2</li>
-          </ul>
-          <div class="mt-auto w-full flex justify-center">
-            <a href="./sxt/precios_sxt.html" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white text-blue-800 font-bold text-base shadow-lg hover:bg-blue-50 transition border-2 border-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2">
-              <span class="drop-shadow">Ver más</span>
-            </a>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/S-31DLC20D_top.png" alt="S-31DLC20D" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">S-31DLC20D</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">Módulo transcever para Fibra SFP 1.25G Monomodo para enlace 20 KM, 1310nm, marca Mikrotik</p>
           </div>
         </div>
-        <!-- Categoría: NetMetal -->
-        <div class="bg-white border border-blue-100 rounded-xl shadow-sm p-5 flex flex-col items-center h-full">
-<span class="text-lg font-bold ds3-blue-text mb-2">NetMetal</span>
-          <ul class="text-gray-700 text-sm mb-2 text-center">
-            <li>RB921UAGS-5SHPacT-NM</li>
-            <li>RB922UAGS-5HPacD-NM</li>
-            <li>RBMetalG-52SHPacn</li>
-            <li>RBMetal2SHPn</li>
-          </ul>
-          <div class="mt-auto w-full flex justify-center">
-            <a href="./netmetal/precios_netmetal.html" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white text-blue-800 font-bold text-base shadow-lg hover:bg-blue-50 transition border-2 border-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2">
-              <span class="drop-shadow">Ver más</span>
-            </a>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/S-3553LC20D_front.jpg" alt="S-3553LC20D" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">S-3553LC20D</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">Pack de 2 módulo de transceiver de fibra Monomodo de 1 solo hilo WDM, (S-35LC20D Longitud de onda TX: 1310nm, Longitud de onda RX: 1550nm - S-53LC20D Longitud de onda TX: 1550nm, Longitud de onda RX: 1310nm), marca Mikrotik</p>
           </div>
         </div>
-        <!-- Categoría: Transceiver -->
-        <div class="bg-white border border-blue-100 rounded-xl shadow-sm p-5 flex flex-col items-center h-full">
-<span class="text-lg font-bold ds3-blue-text mb-2">Transceiver</span>
-          <ul class="text-gray-700 text-sm mb-2 text-center">
-            <li>S+RJ10</li>
-            <li>S-85DLC05D</li>
-            <li>S-31DLC20D</li>
-            <li>S+85DLC03D</li>
-          </ul>
-          <div class="mt-auto w-full flex justify-center">
-            <a href="./transceiver/precios_transceiver.html" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white text-blue-800 font-bold text-base shadow-lg hover:bg-blue-50 transition border-2 border-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2">
-              <span class="drop-shadow">Ver más</span>
-            </a>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/S-55DLC80D_top.png" alt="S-55DLC80D" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">S-55DLC80D</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">Módulo transcever LC dual SFP 1.25G para enlaces de 80KM, 1310nm, marca Mikrotik</p>
           </div>
         </div>
-        <!-- Categoría: Accesorios / Fibra -->
-        <div class="bg-white border border-blue-100 rounded-xl shadow-sm p-5 flex flex-col items-center h-full">
-<span class="text-lg font-bold ds3-blue-text mb-2">Accesorios / Fibra</span>
-          <ul class="text-gray-700 text-sm mb-2 text-center">
-            <li>CA800</li>
-            <li>RBGPOE</li>
-            <li>QMP</li>
-            <li>ACRPSMA</li>
-          </ul>
-          <div class="mt-auto w-full flex justify-center">
-            <a href="./accesorios/precios_accesorios.html" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white text-blue-800 font-bold text-base shadow-lg hover:bg-blue-50 transition border-2 border-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2">
-              <span class="drop-shadow">Ver más</span>
-            </a>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/S+85DLC03D_top.jpeg" alt="S+85DLC03D" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">S+85DLC03D</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">Módulo transcever para Fibra SFP+ 10G Multimodo, distancia 300m, 850nm, marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/S-85DLC05D_top.png" alt="S-85DLC05D" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">S-85DLC05D</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">Módulo transcever para Fibra SFP 1.25G distancia 550 metros, 850nm Multimodo , Dual LC, marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/XS+31LC10D_top.png" alt="XS+31LC10D" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">XS+31LC10D</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">Módulo transcever combinado de SFP/SFP+/SFP28 y 1/10/25G Monomodo, distancia 10km, 1310nm, marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/XQ+31LC02D_top.png" alt="XQ+31LC02D" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">XQ+31LC02D</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">Módulo transcever QSFP28 para distancias de hasta 2km en tus configuraciones de 100 Gigabit, 1271, 1291, 1311, 1331 millas náuticas, marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/XQ+31LC10D_front.jpg" alt="XQ+31LC10D" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">XQ+31LC10D</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">Módulo transcever QSFP28 de 100 Gigabit para distancias impresionantes de hasta 10 km, ofrece cuatro canales full-duplex independientes con hasta 25 Gbps por ancho de banda de canal y un ancho de banda agregado de 100 Gbps, marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/XS+DA0003_front.png" alt="XS+DA0003" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">XS+DA0003</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">Cable de conexión directa de 3 metros admite SFP, 1G/SFP+ 10G/25G SFP28, marca Mikrotik</p>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+    <!-- FIN SECCIÓN TRANSCEIVER -->
+    <!-- INICIO SECCIÓN ANTENAS SXT -->
+    <div class="rounded-2xl shadow-lg bg-white border border-gray-200 py-6 px-6 w-full mt-10">
+      <h2 id="sxt" class="categoria-titulo">Antenas SXT MikroTik <a href="./sxt/precios_sxt.html" class="btn-ver-lista">VER PRECIOS</a></h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        <!-- PRODUCTOS ANTENAS SXT -->
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/RBSXT5nDr2_side.jpg" alt="RBSXT5nDr2" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">RBSXT5nDr2</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">AccessPoint CPE 5.8 GHz SXT "Lite5" 500 mW , Antena de 16dBi Dual Chain 802.11a/n RouterOS L3, POE, PSU, pole mount ,,marca Mikrotik .</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/RBSXT-5HPnD_side.png" alt="RBSXT-5HPnD" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">RBSXT-5HPnD</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">AccessPoint CPE 5.8 GHz SXT "Lite5" 500 mW , Antena de 16dBi Dual Chain 802.11a/n RouterOS L3, POE, PSU, pole mount ,marca Mikrotik .</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/RBSXTG-5HPacD_side.png" alt="RBSXTG-5HPacD" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">RBSXTG-5HPacD</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">AccessPoint CPE 5.8 GHz 802.11ac de 866 Mbps potencia 1300 mW, SXT ac , Antena de 16dBi Dual Chain RouterOS L4, inc. PoE Gigabit, PSU, abrazadera de montaje ,marca Mikrotik .</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/RBSXTG-5HPacD-SA_front_small.png" alt="RBSXTG-5HPacD-SA" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">RBSXTG-5HPacD-SA</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">RBSXTG-5HPacD-SA AccessPoint CPE 5.8 GHz 802.11ac de 866 Mbps , Modulación 256-QAM , SXT ac Antena Sectorial de 13 dBi 90° RouterOS Level 4, inc.Puerto Ethernet Gigabit , PoE Gigabit, PSU, abrazadera de montaje ,marca Mikrotik .</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/RBSXT-LITE5_side.png" alt="RBSXT-LITE5" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">RBSXT-LITE5</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">SXT Lite5 AccessPoint CPE 5.8 GHz SXT "Lite5" , Antena de polaridad 16dBi Dual Chain 802.11a/n RouterOS L3, Incluye t, PoE injector, 24V power adapter, Abrazadera de montaje,marca Mikrotik .</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/RBSXG-5HPnD-Sar_side.jpg" alt="RBSXG-5HPnD-Sar" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">RBSXG-5HPnD-Sar</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">Antena de doble polaridad ,de 18dBi un puerto LAN, 10/100/1000 ,Level 3 ,marca Mikrotik .</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/MTAD-5G-30D3_front.jpg" alt="MTAD-5G-30D3" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">MTAD-5G-30D3</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">Antena Dish de Plato sólido de doble polaridad MIMO de 30 dBi 5.8 GHz , con un soporte de tipo estándar, marca Mikrotik</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/Sleeve30_front_small.jpg" alt="Sleeve30" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">Sleeve30</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">Proteccion para ruido compatible con antenas MANT 30, marca Mikrotik</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/MTRADC_front.png" alt="MTRADC" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">MTRADC</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">MTRADC RADOME para DISH de 30 dbi MANT 30, marca Mirkrotik</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/MikroBase_M2_front.jpg" alt="MikroBase_M2" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">MikroBase_M2</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">MikroBase M2 AccessPoint MIMO de 300 Mbps para exteriores de doble polaridad potencia 1,000 mW RouterOS L4 marca MikroTik</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/MIKROBASE_M5_front.jpg" alt="MIKROBASE_M5" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">MIKROBASE_M5</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">AccessPoint de 300 Mbps 802.11a/n MIKROBASE M5 5.8 GHz MIMO de doble polaridad potencia 1000 mW , 02 conectores SMA, puerto USB para 3G, soporta PoE, Router OS Level 4 marca MIKROBase</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/STATIONBOX-X_side.jpg" alt="STATIONBOX-XL" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">STATIONBOX-XL</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">Access Point para exteriores StationBox XL , potencia 1000 mW , antena 5.8 GHz de 19 dBi MIMO , 01 puerto Gigabit, 300Mbps de velocidad ,CPU 600MHz, Memoria 64MB DDR2, RouterOS Level 4,marca Mikrotik .</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/SECM590_front.jpg" alt="SECM590" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">SECM590</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">Antena Sectorial Base Station 5 de 18 dBi 90º 5.8 GHz MIMO marca RF-Elementts</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/SECM5120_front.jpeg" alt="SECM5120" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">SECM5120</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">Antena Sectorial Base Station 5 de 18 dBi 120º 5.8 GHz MIMO marca RF-Elementts</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/SECTOR_MIMO2-120_front.jpg" alt="SECTOR_MIMO2-120" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">SECTOR_MIMO2-120</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">Antena Sectorial mimo Base Station 2 de 15 dBi 120º 5.8 GHz MIMO marca RF-Elementts</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/MTAD-5G-30D3-PA_front.png" alt="MTAD-5G-30D3-PA" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">MTAD-5G-30D3-PA</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">Antena Dish de Plato sólido de doble polaridad MIMO de 30 dBi 5.8 GHz , con montura de alineación de precisión, marca Mikrotik</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/RBSEXTAGNTG5HPnD_front.jpg" alt="RBSEXTANTG5HPnD" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">RBSEXTANTG5HPnD</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">Antena de doble polaridad ,de 18dBi un puerto LAN, 10/100/1000 ,Level 3 ,marca Mikrotik .</p>
+        </div>
+      </div>
+      </div>
     </div>
-  </main>
+    <!-- FIN SECCIÓN ANTENAS SXT -->
+    <!-- INICIO SECCIÓN SWITCH CRS -->
+    <div class="rounded-2xl shadow-lg bg-white border border-gray-200 py-6 px-6 w-full mt-10">
+      <h2 id="crs" class="categoria-titulo">Switch CRS MikroTik <a href="./switch_crs/precios_switch_crs.html" class="btn-ver-lista">VER PRECIOS</a></h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        <!-- PRODUCTOS SWITCH CRS -->
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/RB260GS_front_1.png" alt="RB260GS" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">RB260GS</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">Cloud Smart Switch CSS106-5G-1S con 05 puertos Gigabit , 01 puerto SFP, 128 KB, plastic case, SwOS, marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/RB260GSP_front_large_1.png" alt="RB260GSP" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">RB260GSP</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">Cloud Smart Switch CSS106-1G-4P-1S con 05 puertos Gigabit PoE, 01 puerto SFP, 128 KB, plastic case, SwOS, marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/CRS106-1C-5S_front_1.png" alt="CRS106-1C-5S" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">CRS106-1C-5S</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">Cloud Router Switch 106-1C-5S con 05 puertos SFP , 01 puerto SFP o Gigabit Ethernet , QCA8511 400MHz CPU, 128MB RAM, RouterOS L5, desktop case, marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/CRS112-8G-4S-IN_large_1.png" alt="CRS112-8G-4S-IN" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">CRS112-8G-4S-IN</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">Cloud Router Switch 112-8G-4S, con 08 puertos Gigabit Ethernet, 04 puertos para fibra SFP, CPU de 400 MHz, 128 MB de RAM, caja de escritorio, RouterOS L5, marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/CRS112-8P-4S-IN_large_1.png" alt="CRS112-8P-4S-IN" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">CRS112-8P-4S-IN</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">Cloud Router Switch 112-8P-4S, con 08 puertos PoE 802.3af/at Gigabit Ethernet, 04 puertos para fibra SFP, CPU de 400 MHz, 128 MB de RAM, caja de escritorio, RouterOS L5, marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/CRS125-24G-1S-2HnD-IN_large_1.png" alt="CRS125-24G-1S-2HnD-IN" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">CRS125-24G-1S-2HnD-IN</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">Cloud Router Switch 125-24G-1S-2HnD, Layer 3, con 24 puertos Gigabit Ethernet, 01 puerto de fibra SFP, panel LCD, 802.11b/g/n Dual Chain wireless, 600MHz CPU, 128MB RAM, carcasa de escritorio de metal, RouterOS L5, marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/CRS212-1G-10S-1S+IN_large_1.png" alt="CRS212-1G-10S-1S+" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">CRS212-1G-10S-1S+IN</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">Cloud Router Switch 212-1G-10S-1S, con 10 puertos para fibra SFP, 01 puerto 10G para fibra SFP+, 01 puerto Gigabit LAN, panel LCD, CPU de 400 MHz, 64 MB de RAM, carcasa metálica para escritorio, RouterOS L5, marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/CRS304-4XG-IN_front_1.png" alt="CRS304-4XG-IN" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">CRS304-4XG-IN</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">Cloud Router Switch 304 Administrable, Capa 3, con 04 puertos Ethernet de 10 Gigabit, 01 puerto Gigabit, RAM 512MB, almacenamiento: 32 MB, soporta RIEL DIN, IP20, diseño sin ventilador, marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/CRS510-8XS-2XQ-IN_front_1.png" alt="CRS510-8XS-2XQ-IN" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">CRS510-8XS-2XQ-IN</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">Cloud Router Switch 510, con 02 puertos 100 Gigabit QSFP28, 08 puertos 25 Gigabit SFP28, 01 puerto de consola serial RJ-45, dos fuentes de alimentación intercambiables en caliente (dual hot-swap power supplies), CPU 650 MHz, RouterOS versión 7, RAM 128 MB, almacenamiento 32 MB, marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/CSS610-1Gi-7R-2S+OUT_side_1.png" alt="CSS610-1Gi-7R-2S+OUT" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">CSS610-1Gi-7R-2S+OUT</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">netPower Lite 7R outdoor con 07 puertos PoE inversos, el puerto Ethernet 08 puede alimentar otros dispositivos compatibles con PoE con el mismo voltaje, non-blocking throughput 28 Gbps, switching capacity 56 Gbps, forwarding rate 41.7 Mpps, SwitchOS Lite, Storage size 64 KB, marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/CRS520-4XS-16XQ-RM_front2_1.png" alt="CRS520-4XS-16XQ-RM" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">CRS520-4XS-16XQ-RM</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">Cloud Router Switch 520, con 16 puertos QSFP28 de 100 Gigabit, 04 puertos SFP28 de 25 Gigabit, 02 puertos Ethernet de 10 Gigabit, CPU ARM de 04 núcleos a 2 GHz, RAM 4GB, Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/CRS518-16XS-2XQ-RM_front_1.png" alt="CRS518-16XS-2XQ-RM" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">CRS518-16XS-2XQ-RM</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">Cloud Router Switch 518, con 16 puertos 25G SFP28, 02 puertos 100G QSFP28, rackount case, RouterOS L6, RAM 64 MB, Storage size 16 MB, CPU 650 MHz, marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/CRS326-24G-2S+IN_front_1.png" alt="CRS326-24G-2S+IN" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">CRS326-24G-2S+IN</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">Cloud Router Switch 326, Capa 3, con 24 puertos Gigabit, 02 puertos 10G para fibra SFP+, Dual boot (RouterOS o SwitchOS), RAM: 512 MB, almacenamiento: 16 MB, montaje en rack, Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/CRS309-1G-8S+IN_front_1.png" alt="CRS309-1G-8S+IN" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">CRS309-1G-8S+IN</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">Cloud Router Switch CRS309 con 08 puertos 10G SFP+, 01 puerto Gigabit, switching capacity of 162 Gbps, escritorio, Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/CRS305-1G-4S+OUT_front_1.png" alt="CRS305-1G-4S+OUT" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">CRS305-1G-4S+OUT</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">FiberBox Plus - Cloud Router Switch 305-1G-4S+OUT para exteriores con 04 puertos 10G para fibra SFP+, 01 puerto Gigabit 10/100/1000, 802.3af/en, 2 Core CPU 800MHz, Size of RAM 256 MB, Storage size 16 MB, Storage type FLASH, RouterOS L5, IP66, resistente al agua, marca MIKROTIK</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/CRS310-1G-5S-4S+IN_front_1.png" alt="CRS310-1G-5S-4S+IN" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">CRS310-1G-5S-4S+IN</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">Cloud Router Switch CRS310-1G-5S-4S con 05 puertos SFP, 04 puertos 10G SFP+, 01 puerto Gigabit Ethernet, 256 MB RAM, Storage size 16 MB, ARM 32bit, 800 MHz, marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/CRS312-4C+8XG-RM_front_1.png" alt="CRS312-4C+8XG-RM" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">CRS312-4C+8XG-RM</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">Cloud Router Switch 312-4C+8XG, con 08 puertos 10G Ethernet , 04 puertos 10G para fibra SFP+, CPU DualBot 650MHz, RAM 64MB, on-blocking throughput 120 Gbps, switching capacity of 240 Gbps, forwarding rate 178 Mpps, RouterOS L5,1U, marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/CRS317-1G-16S+RM_large_1.png" alt="CRS317-1G-16S+RM" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">CRS317-1G-16S+RM</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">Cloud Router Switch 317-1G-16S Administrable, Layer 3, con 01 puerto 10/100/1000 Gigabit LAN, 16 puertos para fibra 10 GbE SFP+, RAM: 1 GB, Tamaño de almacenamiento: 16 MB, RouterOS o SwitchOS, consumo: 44W, montable en rack, marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/CRS318-16P-2S+OUT_front_1.png" alt="CRS318-16P-2S+OUT" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">CRS318-16P-2S+OUT</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">Cloud Router Switch CRS318 , NetPower 16P , outdoor con 16 puertos Gigabit PoE, 02 puertos para fibra 10G SFP+, throughput 36 Gbps, switching capacity 72 Gbps, forwarding rate 53.6 Mpps, 800 MHz, RouterOS 5 / SwitchOSmarca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/CRS318-1Fi-15Fr-2S-OUT_front_1.png" alt="CRS318-1Fi-15Fr-2S-OUT" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">CRS318-1Fi-15Fr-2S-OUT</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">Cloud Router Switch CRS318 , NetPower 15Fr , outdoor con 16 puertos 10/100 (solo Eter15 son PoE), 02 puertos para fibra SFP, 800MHz CPU, 256MB RAM, throughput of 3.6 Gbps, switching capacity of 7.2 Gbps, forwarding rate 5.4 Mpps, RouterOS L5, no incluye fuente, marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/CRS326-24G-2S+RM_back_1.png" alt="CRS326-24G-2S+RM" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">CRS326-24G-2S+RM</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">Cloud Router Switch 326, Layer 3, con 24 puertos Gigabit 10/100/1000, 02 puertos para fibra SFP+ (10G), Dual boot para seleccionar entre: RouterOS o SwitchOS, RAM: 512 MB, almacenamiento: 16 MB, alimentación: Pasivo PoE (24W), montable en rack, marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/CRS326-24S+2Q+RM_large_1.png" alt="CRS326-24S+2Q+RM" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">CRS326-24S+2Q+RM</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">Cloud Router Switch 326, Layer 3, con 24 puertos para fibra SFP+ (10G), 02 puertos QSFP+ (40G), throughput 320 Gbps, switching capacity 640 Gbps, forwarding rate 252 Mpps, dual boot para seleccionar entre: RouterOS o SwitchOS, Nivel de licencia 5, RAM: 64 MB, CPU 650MHz, almacenamiento: 16 MB, montable en rack, marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/CSS326-24G-2S+RM_large_1.png" alt="CSS326-24G-2S+RM" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">CSS326-24G-2S+RM</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">Cloud Smart Switch 326-24G-2S+RM con 24 puertos Gigabit Ethernet, 02 puertos 10G para fibra SFP+ almacenamiento 2 MB, 1U, rackmount case, PSU, marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/CRS328-4C-20S-4S+RM_large_1.png" alt="CRS328-4C-20S-4S+RM" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">CRS328-4C-20S-4S+RM</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">Cloud Smart Switch 328 con 20 puertos para fibra SFP, 04 puertos para fibra SFP+ (10G), 04 puertos combo (Gigabit Ethernet o SFP), CPU de 800 MHz, RAM 512 MB, montaje en rack de 1U, fuentes de alimentación dobles, RouterOS L5 o SwitchOS (arranque dual), marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/CRS328-24P-4S+RM_large_1.png" alt="CRS328-24P-4S+RM" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">CRS328-24P-4S+RM</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">Cloud Router Switch 328, Layer 3, con 24 puertos Gigabit 10/100/1000 PoE/PoE+ (450W), 04 puertos para fibra SFP+ (10G), ARM 32bit, UPC DX3236, CPU 800 MHz, memoria RAM 512 MB, almacenamiento 16 MB, 802.3af/at (tipo1 “PoE” / tipo2 “PoE+”), 1U rackmount case, marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/CRS354-48G-4S+2Q+RM_large_1.png" alt="CRS354-48G-4S+2Q+RM" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">CRS354-48G-4S+2Q+RM</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">Cloud Smart Switch 354, con 48 puertos Gigabit, 04 puertos fibra SFP+ (10G), 02 puertos QSFP+ (40G), rendimiento total sin bloqueo es de 168 Gbps, capacidad de conmutación 336 Gbps, velocidad de reenvío alcanza 235 Mpps. Fuente Redundante, RAM 64 MB, size 16 MB, marca Mikrotik</p>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/CRS354-48P-4S+2Q+RM_large_1.png" alt="CRS354-48P-4S+2Q+RM" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">CRS354-48P-4S+2Q+RM</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">Cloud Smart Switch 326, con 48 puertos Gigabit 10/100/1000 PoE/PoE+ (750W), 04 puertos para fibra SFP+ (10G), 02 puertos QSFP+ (40G), rendimiento total sin bloqueo es de 168 Gbps, capacidad de conmutación 336 Gbps , velocidad de reenvío alcanza 235 Mpps. Fuente Redundante, RAM 64 MB, size 16 MB, 802.3af/at (tipo1 “PoE” / tipo2 “PoE+”), marca Mikrotik</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- FIN SECCIÓN SWITCH CRS -->
+    <!-- INICIO SECCIÓN ROUTERBOARD -->
+    <div class="rounded-2xl shadow-lg bg-white border border-gray-200 py-6 px-6 w-full mt-10">
+      <h2 id="routerboard" class="categoria-titulo">RouterBOARD MikroTik <a href="./routerboard/precios_routerboard.html" class="btn-ver-lista">VER PRECIOS</a></h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        <!-- PRODUCTOS ROUTERBOARD -->
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/L009UIGS-2HAXD-IN_top.png" alt="L009UIGS-2HAXD-IN" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">L009UIGS-2HAXD-IN</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">Router L009 con 08 puertos Gigabit con salida PoE , 01 puerto 2,5G SFP, doble cadena AX de 2.4 GHz, USB 3.0, CPU 800 MHz, RAM 512 MB, RouterOS L5, montaje en rack de 1U, MikroTik L009UiGS-RM</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/RB1100AHx4_Dude_Edition_front.jpg" alt="RB1100AHx4_Dude_Edition" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">RB1100AHx4_Dude_Edition</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">RouterBOARD 1100AHx4 Dude Edition con 13 puertos Gigabit Ethernet, con Annapurna Alpine AL21400 Cortex A15 CPU (4-cores, 1.4GHz per core), 1GB RAM, 13xGbit LAN, 60GB M.2 drive, RouterOS L6, 1U rackmount case, Dual PSU, marca MIKROTIK</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/RB1100AHx4_front.jpg" alt="RB1100AHx4" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">RB1100AHx4</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">RouterBOARD 1100AHx4 con 13 puertos Gigabit Ethernet, Annapurna Alpine AL21400 CPU con 4 Cortex A15 cores, 1.4GHz , maximum throughput 7.5Gbit, RAM 1GB, RouterOS L6, marca Mikrotik</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/RB5009UPr+S+IN_front.png" alt="RB5009UPr+S+IN" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">RB5009UPr+S+IN</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">RouterBOARD 5009UPr+ con 07 puertos PoE 10/100/1000, 01 puerto Ethernet 2.5G, 01 puerto para fibra 10G SFP+, 01 puerto USB 3.0, ARM 64bit, CPU 88F7040, RAM 1 GB, RouterOS 5, rackmount, marca Mikrotik</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/RB5009UG+S+IN_front.png" alt="RB5009UG+S+IN" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">RB5009UG+S+IN</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">RouterBOARD 5009UGS+ con 07 puertos 10/100/1000, 01 puerto Ethernet 2.5G, 01 puerto para fibra 10G SFP+, 01 puerto USB 3.0, ARM 64bit, CPU 88F7040, RAM 1 GB, RouterOS 5, rackmount, marca Mikrotik</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/RB4011iGS+5HacQ2HnD-IN_front.jpg" alt="RB4011iGS+5HacQ2HnD-IN" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">RB4011iGS+5HacQ2HnD-IN</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">RouterBOARD 4011iGS+5HacQ2HnD con 10 puertos Gigabit Ethernet 10/100/1000, 01 puerto para fibra 10G SFP+, Quad-core 1.4Ghz CPU, 1GB RAM, de doble banda 2,4 GHz/5 GHz 4x4 MIMO 802.11a/b/g/n/ac inalámbrica, carcasa de escritorio, marca Mikrotik</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/RB4011iGS+RM_side.png" alt="RB4011iGS+RM" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">RB4011iGS+RM</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">RouterBOARD 4011iGS+ con 10 puertos Gigabit 10/100/1000, 01 puerto para fibra SFP+ 10Gbps, Annapurna Alpine AL21400 Cortex A15 CPU (4-cores, 1.4GHz per core), 1GB RAM, RouterOS L5, desktop case, rackmount ears, PSU, marca Mikrotik</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/RB3011UiAS-RM_front.png" alt="RB3011UiAS-RM" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">RB3011UiAS-RM</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">RouterBOARD 3011UiAS con 10 puertos Gigabit 10/100/1000, 01 puerto para fibra SFP , 01 puerto USB 3.0 para internet móvil 3G/4G ó agregar almacenamiento, memoria RAM 1 GB Router OS Nivel 5, incluye un adaptador Power 24V 1.2 A. , marca Mikrotik</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/L009UiGS-RM_front.png" alt="L009UiGS-RM" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">L009UiGS-RM</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">Router L009 con 08 puertos Gigabit 10/100/1000, salida PoE en el puerto, 01 puertos para fibra SFP (2,5 G), es hasta 4 veces más rápida que RB2011, 01 puerto serie de consola RJ-45, 01 puerto USB 3.0 tipo A, CPU nominal frequency 800 MHz, RouterOS license 5, Operating System RouterOS v7, RAM 512 MB, Storage size 128 MB, Storage type NAND, montaje en rack de 1U, marca Mikrotik</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/RB960PGS-PB_front_large.png" alt="RB960PGS-PB" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">RB960PGS-PB</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">PowerBox Pro con 05 puertos Gigabit (04 puertos PoE Gigabit), 01 puerto para fibra SFP, Outdoor (Exterior), CPU 800MHz, memoria RAM 128MB, RouterOS L4, marca Mikrotik</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/RB960PGS_front.png" alt="RB960PGS" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">RB960PGS</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">RouterBOARD hEX PoE con 05 puertos Gigabit (04 puertos PoE Gigabit), 01 puerto para fibra SFP, CPU 800MHz, memoria RAM 128MB, RouterOS L4, marca Mikrotik</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/RB760iGS_front.png" alt="RB760iGS" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">RB760iGS</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">RouterBOARD hEX S con 05 puertos Gigabit 10/100/1000 Ethernet, 01 puerto de fribrs SFP, MMIPS, CPU MT7621A, CPU core 2, frequency 880 MHz, CPU Threads 4, Size of RAM 256 MB, Storage size 16 MB, RouterOS Level 4, soporta PoE, marca Mikrotik</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/RB750P-PBr2_top.jpg" alt="RB750P-PBr2" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">RB750P-PBr2</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">PowerBox con 05 puertos 10/100 (04 puertos PoE ), 650MHz CPU, 64MB RAM, RouterOS L4, marca Mikrotik</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/RB750UPr2_side.jpg" alt="RB750UPr2" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">RB750UPr2</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">RouterBOARD hEX PoE Lite con 05 puertos 10/100 (04 puertos PoE Gigabit), USB, CPU de 650 MHz, 64 MB de RAM, RouterOS L4, USB slot tipo A, IP 20, marca Mikrotik</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/RB750Gr3_front.png" alt="RB750Gr3" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">RB750Gr3</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">RouterBOARD hEX con 05 puertos Gigabit Ethernet , puerto USB , potente CPU dual core 880MHz , 256MB RAM , soporta PoE , Router OS Level 4 ,marca Mikrotik</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://www.ds3comunicaciones.com/mikrotik/images/RB750.jpg" alt="RB750" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">RB750</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">El RouterBOARD MIKROTIK RB750 es un pequeño router que viene con cinco puertos Ethernet, en una caja de plastico.</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/RB750r2_front_small.jpg" alt="RB750r2" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">RB750r2</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">hEX lite - RouterBOARD con 05 puertos 10/100, enrutador MPLS más asequible, CPU 850MHz, RAM 64MB, RouterOS L4, montaje rack, incluye fuente, MikroTik RB750r2</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/RB951Ui-2HnD_front.png" alt="RB951Ui-2HnD" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">RB951Ui-2HnD</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">RouterBOARD punto de acceso inalámbrico SOHO con 05 puertos Ethernet (salida PoE en el puerto 5), 01 puerto USB 2.0 (3G), WIFI 802.11 b/g/n potencia 1000mW 128 MB memoria RAM , puerto PoE , Router OS Level 4, marca Mikrotik</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/RB2011UiAS-2HnD-IN_front_small.jpg" alt="RB2011UiAS-2HnD-IN" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">RB2011UiAS-2HnD-IN</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">RouterBOARD 2011UiAS-2HnD WiFi 802.11b/g/n de 1,000 mW , 05 puertos Gigabit , 05 puertos 10/100 , 01 puerto para fibra SFP, 128 MB RAM, RouterOS Level 5 , marca Mikrotik</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/RB2011UiAS-RM_front_medium.jpg" alt="RB2011UiAS-RM" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">RB2011UiAS-RM</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">RouterBOARD 2011UiAS con 05 puertos Gigabit , 05 puertos 10/100 , 01 puerto para fibra SFP , 01 puerto serial RJ-45, salida PoE en el puerto 10, CPU de 600 MHz, 128 MB de RAM, RouterOS L5, Atheros 74K MIPS CPU, USB, LCD , montaje en rack 1U, marca Mikrotik</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/RB2011iLS-IN_front.png" alt="RB2011iLS-IN" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">RB2011iLS-IN</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">RouterBOARD 2011iLS con 05 puertos Gigabit , 05 puertos 10/100 , 01 puerto para fibra SFP), salida PoE en el puerto 10, 01 puerto serial RJ-45, CPU de 600 MHz, 64 MB de RAM, RouterOS L4,Atheros 74K MIPS CPU, Desktop metal case, marca Mikrotik</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/RB2011UiAS-IN_front.png" alt="RB2011UiAS-IN" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">RB2011UiAS-IN</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">RouterBOARD 2011UiAS con 05 puertos 10/100, 05 puertos Gigabit 10/100/1000, salida PoE en el puerto 10, CPU de 600 MHz, 128 MB de RAM, RouterOS L5 Desktop metal case, marca Mikrotik</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/RB951G-2HnD_front.jpg" alt="RB951G-2HnD" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">RB951G-2HnD</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">RouterBOARD 951G-2HnD con 05 puertos Gigabit Ethernet, potencia de 600 MHz ,un puerto USB 2.0 y un alto poder de 2.4GHz 1000mW 802.11b / g / n punto de acceso inalámbrico con antenas integradas,marca Mikrotik</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://www.ds3comunicaciones.com/mikrotik/images/RB2011UiAS-2HnD-IN_ds.jpg" alt="RB2011UAS-2HnD-IN" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">RB2011UAS-2HnD-IN</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">RouterBoard WiFi 802.11b/g/n de 1,000 mW , 05 puertos Gigabit , 05 puertos 10/100 , 01 puerto para fibra SFP, 128 MB RAM, RouterOS Level 5 ,marca Mikrotik .</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://www.ds3comunicaciones.com/mikrotik/images/RB2011iL-IN_small.jpg" alt="RB2011iL-IN" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">RB2011iL-IN</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">RouterBoard es un multi puerto , con 05 puertos Gigabit Ethernet , 05 puertos fast Ethernet, impulsado por el procesador de Red de 60MHz MIPS 74K Atheros CPU, 64MB RAM, Router OS Nivel 4,incluye un adaptador Power 24V 0.8 A,marca Mikrotik .</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://www.ds3comunicaciones.com/mikrotik/images/RB2011iL-RM_small.jpg" alt="RB2011iL-RM" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">RB2011iL-RM</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">RouterBoard es un multi puerto , con 05 puertos Gigabit Ethernet , 05 puertos fast Ethernet,64 MB RAM Procesador 60MHz MIPS 74K Atheros , Router OS Nivel 4,incluye un adaptador Power 24V 0.8 A. ,marca Mikrotik .</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://www.ds3comunicaciones.com/mikrotik/images/RB433L_small.jpg" alt="RB433L" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">RB433L</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">RouterBOARD con 03 slots miniPCI , 03 puertos 10/100 , soporta PoE memoria RAM de 64 MB Router OS Level 4,marca Mikrotik .</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://www.ds3comunicaciones.com/mikrotik/images/RB450G_small.jpg" alt="RB450G" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">RB450G</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">RouterBOARD con 05 puertos Gigabit , memoria RAM de 256 MB Router OS Level 5 , incluye case y fuente de poder,marca Mikrotik .</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://www.ds3comunicaciones.com/mikrotik/images/RB750UP_small.jpg" alt="RB750Gr2" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">RB750Gr2</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">RouterBOARD hEX con 05 puertos Gigabit Ethernet , CPU 720MHz , 64 MB RAM , soporta PoE , Router OS Level 4 ,marca Mikrotik .</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://www.ds3comunicaciones.com/mikrotik/images/RB750UP_small.jpg" alt="RB750UP" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">RB750UP</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">RouterBOARD con 05 puertos 10/100 (04 puertos PoE) , 01 puerto USB para modem 3G , 32 MB RAM Router OS Level 4 incluye case y fuente de poder,marca Mikrotik .</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://www.ds3comunicaciones.com/mikrotik/images/RB850GX2_small.jpg" alt="RB850GX2" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">RB850GX2</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">RouterBoard CPU1023, 500MHz , doble nucleo 512 MB,05 puertos GigabitAirOS level 5 RB/450 o RB/450G + FUENTE DE PODER 24V-2A,marca Mikrotik .</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://www.ds3comunicaciones.com/mikrotik/images/RB2011iLS-IN_small.jpg" alt="RB1100AHx2" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">RB1100AHx2</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">Router MikroTik de 13 puertos Gigabit Ethernet 10/100/1000 , montaje en Rack , CPU Dual Core 1066 MHz , memoria de 2 GB , Router OS Level 6,marca Mikrotik</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/E50UG_front.jpg" alt="E50UG" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">E50UG</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">RouterBOARD hEX con 05 puertos Gigabit Ethernet, RAM 512MB , almacenamiento 128MB, soporta PoE Mikrotik E50UG</p>
+        </div>
+      </div>
+      </div>
+    </div>
+    <!-- FIN SECCIÓN ROUTERBOARD -->
+    <!-- INICIO SECCIÓN NETMETAL -->
+    <div class="rounded-2xl shadow-lg bg-white border border-gray-200 py-6 px-6 w-full mt-10">
+      <h2 id="netmetal" class="categoria-titulo">NetMetal MikroTik <a href="./netmetal/precios_netmetal.html" class="btn-ver-lista">VER PRECIOS</a></h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        <!-- PRODUCTOS NETMETAL -->
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/RBMetal2SHPn_front.png" alt="RBMetal2SHPn" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">RBMetal2SHPn</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">AccessPoint de alta potencia para exteriores de 1.6W, 2.4GHz, Metal 2 RouterOS Level 4, PoE. marca Mikrotik</p>
+          </div>
+        </div>
+        <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+          <img src="https://web.netperu100.com/mikrotik/images/RBMetal5SHPn_top.jpg" alt="RBMetal5SHPn" class="h-32 object-contain mb-3 z-10">
+          <p class="font-bold text-center z-10">RBMetal5SHPn</p>
+          <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+            <p class="text-xs text-gray-600 text-center font-bold">AccessPoint de alta potencia para exteriores de 1.3W, 5.8Ghz, Metal 5 RouterOS Level 4, PoE. marca Mikrotik</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- FIN SECCIÓN NETMETAL -->
+    <!-- INICIO SECCIÓN CLOUD CORE ROUTER (CCR) -->
+    <div class="rounded-2xl shadow-lg bg-white border border-gray-200 py-6 px-6 w-full mt-10">
+      <h2 id="ccr" class="categoria-titulo">Cloud Core Router (CCR) MikroTik <a href="./crr/precios_ccr.html" class="btn-ver-lista">VER PRECIOS</a></h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        <!-- PRODUCTOS CCR -->
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/CCR2004-16G-2Smas_front.png" alt="CCR2004-16G-2S+" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">CCR2004-16G-2S+</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">Cloud Core Router 2004 con 16 puertos Gigabit , 04 puertos para fibra 10G SFP+, 4 núcleos 1,7 GHz, RAM 4 GB, almacenamiento 128MB, RouterOS v7, Mikrotik CCR2004-16G-2S+</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://www.ds3comunicaciones.com/mikrotik/images/CCR1009-8G-1S_small.jpg" alt="CCR1009-8G-1S" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">CCR1009-8G-1S</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">Cloud Core Router MikroTik CCR1009, 08 puertos Ethernet Gigabit, 01 puerto para fibra SFP, montaje en Rack, procesador TILERA 9 core CPU, memoria de 1 GB, Router OS Level 6,marca Mikrotik.</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://www.ds3comunicaciones.com/mikrotik/images/CCR1009-8G-1S-1S+PC_small.jpg" alt="CCR1009-8G-1S-1S+PC" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">CCR1009-8G-1S-1S+PC</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">Cloud Core Router MikroTik CCR1009, 08 puertos Ethernet Gigabit, 01 puerto para fibra SFP, montaje en Rack, procesador TILERA-GX9 core CPU, memoria de 2GB, Router OS Level 6,marca Mikrotik.</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://www.ds3comunicaciones.com/mikrotik/images/CCR1009-8G-1S-1S+_small.jpg" alt="CCR1009-8G-1S-1S+" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">CCR1009-8G-1S-1S+</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">Cloud Core Router MikroTik CCR1009, 08 puertos Ethernet Gigabit, 01 puerto para fibra SFP, montaje en Rack, procesador TILERA-GX9,8xGbit LAN,core CPU, memoria de 2GB,Panel LCD, Router OS Level 6,1U rackmount case, Dual PSU,marca Mikrotik.</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/CCR2004-16G-2Smas_front.png" alt="CCR2004-16G-2S+" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">CCR2004-16G-2S+</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">Cloud Core Router 2004 con 16 puertos Gigabit, 04 puertos para fibra 10G SFP+, 4 núcleos 1,7 GHz, RAM 4 GB, almacenamiento 128MB, RouterOS v7, Mikrotik CCR2004-16G-2S+</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/CCR1009-7G-1C-PC_front_medium.jpg" alt="CCR1009-7G-1C-PC" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">CCR1009-7G-1C-PC</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">Cloud Core Router 1009, con 07 puertos Gigabit, 01 puerto combo (Gigabit o SFP), CPU de 9 núcleos x 1 GHz, RAM 1GB, almacenamiento 128 MB, carcasa de refrigeración pasiva, MikroTik CCR1009-7G-1C-PC</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/CCR1009-7G-1C-1mas_front_medium.jpg" alt="CCR1009-7G-1C-1S+" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">CCR1009-7G-1C-1S+</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">Cloud Core Router 1009, con 07 puertos Gigabit, 01 puerto 10G SFP+, 01 puerto combo (Gigabit Ethernet o SFP), CPU de 9 núcleos a 1,2 GHz, panel LCD, fuentes de alimentación duales, L6, MikroTik CCR1009-7G-1C-1S+</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/CCR1009-7G-1C-1SmasPC_front_medium.jpg" alt="CCR1009-7G-1C-1S+PC" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">CCR1009-7G-1C-1S+PC</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">Cloud Core Router CCR1009, con 07 puertos Gigabit, 01 puerto 10G SFP+, 01 puerto combo (Gigabit o SFP), CPU de 9 núcleos x 1 GHz, panel LCD, carcasa de escritorio con refrigeración pasiva, Mikrotik CCR1009-7G-1C-1S+PC</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/CCR2004-1G-12Smas2XS_front.png" alt="CCR2004-1G-12S+2XS" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">CCR2004-1G-12S+2XS</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">Cloud Core Router 2004 con 12 puertos para fibra 10G SFP+, 02 puertos 25G SFP28, 01 puerto Gigabit, RAM 4 GB, almacenamiento 128 MB, RouterOS v7, Mikrotik CCR2004-1G-12S+2XS</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/CCR1016-12G_front_medium.jpg" alt="CCR1016-12G" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">CCR1016-12G</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">Cloud Core Router 1016, con 12 puertos Gigabit, CPU de 16 núcleos x 1.2 GHz, pantalla LCD táctil a color, fuente de alimentación dual, L6, montaje en rack, Mikrotik CCR1016-12G</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/CCR1016-12S-1Smas_front_medium.jpg" alt="CCR1016-12S-1S+" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">CCR1016-12S-1S+</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">Cloud Core Router 1016, con 12 puertos de fibra SFP, 01 puerto 10G SFP+, CPU de 16 núcleos x 1,2 GHz, RAM de 2 GB, panel LCD, fuentes de alimentación duales, L6, Mikrotik CCR1016-12S-1S+</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/CCR1036-12G-4S_front.png" alt="CCR1036-12G-4S" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">CCR1036-12G-4S</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">Cloud Core Router 1036, con 12 puertos Gigabit, 04 puertos SFP, CPU TILERA de 36 núcleos x 1,2 GHz por núcleo, L6, fuente de alimentación doble, montaje en Rack, Mikrotik CCR1036-12G-4S</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/CCR1036-8G-2Smas_front.png" alt="CCR1036-8G-2S+" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">CCR1036-8G-2S+</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">Cloud Core Router 1036 con 08 puertos Gigabit, 02 puertos 10G para fibra SFP+, LCD, CPU de 36 núcleos x 1,2 GHz, 4 GB de RAM, L6, fuente de alimentación doble, montaje en Rack 1U, Mikrotik CCR1036-8G-2S+</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/CCR1036-12G-4S-EM_front.png" alt="CCR1036-12G-4S-EM" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">CCR1036-12G-4S-EM</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">Cloud Core Router 12G-4S-EM con 12 puertos Gigabit Ethernet, 04 puertos para fibra SFP, LCD, CPU de 36 núcleos x 1,2 GHz, 8 GB de RAM, 24 Mpps, L6, fuente de alimentación doble, Mikrotik CCR1036-12G-4S-EM</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/CCR1036-8G-2SmasEM_front.png" alt="CCR1036-8G-2S+EM" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">CCR1036-8G-2S+EM</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">Cloud Core Router 1036-8G-2S+EM, con 08 puertos 10/100/1000 Gigabit Ethernet, 02 puertos para fibra SFP+ (10G), LCD, CPU de 36 núcleos x 1,2 GHz, 8 GB de RAM, ruta rápida de 41,5 Mpps, rendimiento de hasta 28 Gbit/s, RouterOS L6, fuente de alimentación doble, montaje en Rack 1U, marca Mikrotik</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/CCR2116-12G-4Smas_front.png" alt="CCR2116-12G-4S+" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">CCR2116-12G-4S+</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">Cloud Core Router 2116 con 13 puertos Gigabit, 04 puertos para fibra 10G SFP+, 16 cores x 2 GHz, RAM 16 GB, almacenamiento 128 MB, RouterOS v7, Mikrotik CCR2116-12G-4S+</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/CCR2216-1G-12XS-2XQ_front.png" alt="CCR2216-1G-12XS-2XQ" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">CCR2216-1G-12XS-2XQ</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">Cloud Core Router 2216 con 02 puertos para fibra QSFP28 de 100 Gigabit, 12 puertos para fibra SFP28 de 25 Gigabit, 01 puerto Gigabit Ethernet, LCD panel, CPU de 16 núcleos, 16 GB de RAM, 128 MB, almacenamiento NAND decente, 02 ranuras M.2 SATA, RouterOS Enrutador OS 7, marca Mikrotik</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/CCR1072-1G-8Smas_front.png" alt="CCR1072-1G-8S+" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">CCR1072-1G-8S+</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">Cloud Core Router 1072 con 08 puertos 10G para fibra SFP+, 01 puerto Gigabit, LCD, CPU de 72 núcleos x 1 GHz, RAM 16 GB, L6, montaje en Rack 1U, Mikrotik CCR1036-8G-2S+</p>
+        </div>
+      </div>
+      </div>
+    </div>
+    <!-- FIN SECCIÓN CLOUD CORE ROUTER (CCR) -->
+    <!-- INICIO SECCIÓN ACCESORIOS Y FIBRA -->
+    <div class="rounded-2xl shadow-lg bg-white border border-gray-200 py-6 px-6 w-full mt-10">
+      <h2 id="accesorios" class="categoria-titulo">Accesorios y Fibra MikroTik <a href="./accesorios/precios_accesorios.html" class="btn-ver-lista">VER PRECIOS</a></h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        <!-- PRODUCTOS ACCESORIOS Y FIBRA -->
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/K-79_1.png" alt="K-79" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">K-79</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">Rackmount kit para RB5009, marca Mikrotik</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/CA800_front.png" alt="CA800" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">CA800</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">Case indoor para serie RB800 y RB600A, marca Mikrotik</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/18POW.png" alt="18POW" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">18POW</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">Adaptador de corriente de 24V 0.8A , marca Mikrotik</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/24HPOW.png" alt="24HRPOW" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">24HRPOW</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">Fuente de alimentación de alta potencia 24V 2.5A + enchufe, marca Mikrotik</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/RBGPOE.png" alt="RBGPOE" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">RBGPOE</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">Inyector PoE, para productos LAN Gigabit, marca Mikrotik</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/ACGPSA_1.png" alt="ACGPSA" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">ACGPSA</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">Antena GPS activa para productos de la serie LtAP, espectro de 1575,4 MHz, IP67, el cable largo es de 5 metros con conector SMA, para conectar a LtAP o LtAP mini, mediante el pigtail ACSMAUFL (venta por separado), marca Mikrotik</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/ACSMAUFL_2.png" alt="ACSMAUFL" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">ACSMAUFL</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">Pigtail hembra U.fl-SMA, que puede usarse para conectar su Módem (LTE/LoRa/tarjeta inalámbrica) con conectores U.fl a una antena externa, marca Mikrotik</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/SMASMA.png" alt="SMASMA" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">SMASMA</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">Cable SMA macho a SMA macho de 1 metro, 50 ohm, para conectar su tarjeta LTE (con cable flexible ACSMAUFL), marca Mikrotik</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/ACRPSMA_1.png" alt="ACRPSMA" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">ACRPSMA</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">Flex-guide, cable RPSMA de pérdida súper baja de 50 cm, soldados en ambos extremos, con cobre plateado y pérdidas inferiores a 0,65 dB, ideal para BaseBox y otros productos con conectores RPSMA, y funciona con la mayoría de las antenas, marca Mikrotik</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/QMP_1.png" alt="QMP" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">QMP</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">Adaptador avanzado de montaje en pared para antenas pequeñas punto a punto y sectoriales, marca Mikrotik</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/QMP-LHG_1.png" alt="QMP-LHG" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">QMP-LHG</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">Adaptador avanzado de montaje en pared para antenas LHG, marca Mikrotik</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/RBFTC11_front.png" alt="RBFTC11" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">RBFTC11</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">Convertidor de fibra a cobre, con una carcasa resistente al agua para exteriores, con PoE de 12-57 V con soporte 802.3af/f, incluye inyector PoE y fuente de alimentación, marca Mikrotik</p>
+        </div>
+      </div>
+
+      <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden cursor-pointer group">
+        <img src="https://web.netperu100.com/mikrotik/images/CRS105-5S-FB_front.jpg" alt="CRS105-5S-FB" class="h-32 object-contain mb-3 z-10">
+        <p class="font-bold text-center z-10">CRS105-5S-FB</p>
+        <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <p class="text-xs text-gray-600 text-center font-bold">FiberBox , Switch exterior con 05 puertos para puertos fibra SFP, CPU 400 MHz, RouterOS license 5, Operating System RouterOS, Size of RAM 128 MB, Storage size 16 MBmarca Mikrotik</p>
+        </div>
+      </div>
+      </div>
+    </div> 
+  </section>
 
   <!-- FOOTER -->
   <footer class="footer-ds3 py-8 px-4">
@@ -1021,6 +2304,19 @@
       elements.modalImg = document.getElementById('modal-image');
       elements.mainImg = document.getElementById('img_main');
     });
+
+    document.addEventListener('DOMContentLoaded', function() {
+  var categoryMenu = document.getElementById('categoryMenu');
+  if (categoryMenu) {
+    categoryMenu.addEventListener('change', function() {
+      var sectionId = this.value;
+      var section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  }
+});
   </script>
 
 

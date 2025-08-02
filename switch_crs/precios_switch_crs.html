@@ -455,88 +455,15 @@
 </head>
 
 <body class="bg-gris-muy-claro">
-    <!-- HEADER SUPERIOR CON LOGO Y CONTACTO -->
-  <!-- HEADER RESPONSIVE: Mobile y Desktop -->
-  <header class="bg-white border-b border-gris-claro shadow-sm">
-    <!-- Mobile header -->
-    <div class="max-w-7xl w-full mx-auto flex items-center justify-between p-4 md:hidden">
-      <div class="flex gap-3 items-center">
-        <i class="cursor-pointer fa-solid fa-bars text-2xl btn_navi"></i>
-        <div class="flex flex-col">
-          <div class="flex items-end gap-3">
-            <img src="http://www.ds3comunicaciones.com/mikrotik/images/Logo1.jpg" alt="DS3 Comunicaciones" class="max-w-[150px] h-16 object-contain" />
-            <img src="https://www.ds3comunicaciones.com/mikrotik/images/mikrotik_logo.jpg" alt="MikroTik" class="max-w-[120px] h-14 object-contain" />
-          </div>
-          <div class="flex flex-col gap-1 mt-2 text-xs text-gris-oscuro md:hidden">
-            <div class="flex items-center gap-4">
-              <span class="flex items-center gap-2"><i class="fa-solid fa-phone icon-ds3"></i> <span class="contacto-tel-ds3">994-428-965</span></span>
-              <span class="flex items-center gap-2"><i class="fa-solid fa-phone icon-ds3"></i> <span class="contacto-tel-ds3">996-533-223</span></span>
-            </div>
-            <div class="flex items-center gap-2"><i class="fa-solid fa-envelope icon-ds3"></i> <span>netperu100@hotmail.com</span></div>
-          </div>
-        </div>
-      </div>
-      <div>
-        <i class="cursor-pointer fa-solid fa-magnifying-glass p-3 bg-gris-muy-claro rounded-md border hover:bg-gris-claro text-xl" id="active_search"></i>
-      </div>
-    </div>
-
-    <!-- Buscador móvil oculto por defecto -->
-<div id="sec_search" class="fixed top-0 left-0 w-full h-full z-[9999] flex flex-col items-center" style="backdrop-filter: blur(12px); background: rgba(255,255,255,0.5); display:none !important; z-index:9999 !important;">
-      <div class="w-full max-w-xs px-4 pt-8 relative">
-        <form action="https://www.ds3comunicaciones.com/find.html" method="GET" target="_blank" class="w-full">
-          <div class="relative flex items-center">
-            <span class="absolute left-3 text-gris-medio"><i class="fas fa-search"></i></span>
-            <input 
-              type="search" 
-              name="q" 
-              placeholder="Buscar" 
-              class="w-full px-10 py-3 pr-12 text-gris-oscuro bg-white/80 border border-gris-claro rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-md"
-              required
-            />
-            <button type="button" id="desactive_search" class="absolute right-2 text-gris-medio hover:text-red-500 text-2xl cursor-pointer flex items-center justify-center bg-transparent border-none p-0 h-8 w-8"><i class="fa-solid fa-xmark"></i></button>
-          </div>
-          <input type="hidden" name="cx" value="partner-pub-9265252540298851:f2549i3fi60" />
-          <input type="hidden" name="cof" value="FORID:10" />
-          <input type="hidden" name="ie" value="ISO-8859-1" />
-          <input type="hidden" name="sa" value="Buscar" />
-        </form>
-      </div>
-    </div>
-    <!-- Desktop header -->
-    <div class="max-w-7xl mx-auto px-4 py-3 hidden md:flex flex-row justify-between items-center gap-4">
-      <div class="flex items-end" style="min-height:80px;">
-        <img src="http://www.ds3comunicaciones.com/mikrotik/images/Logo1.jpg" alt="DS3 Comunicaciones" class="h-20 w-auto mr-6" style="max-height:80px;" fetchpriority="high" loading="eager" />
-      </div>
-      <div class="flex items-end" style="min-height:80px; margin-left:32px;">
-        <img src="https://www.ds3comunicaciones.com/mikrotik/images/mikrotik_logo.jpg" alt="MikroTik" class="h-20 w-auto mr-6" style="max-height:80px;" fetchpriority="high" loading="eager" />
-      </div>
-      <div class="flex flex-wrap justify-center md:justify-end items-start gap-6 text-sm">
-        <div class="flex flex-col gap-1 text-gris-medio min-w-[120px]">
-          <div class="flex items-center gap-2">
-            <i class="fas fa-phone" style="color:#087ead"></i>
-            <span style="color:#087ead">99653-3223</span>
-          </div>
-          <div class="flex items-center gap-2 ml-6">
-            <span style="color:#087ead">994-428-965</span>
-          </div>
-        </div>
-        <div class="flex flex-col gap-1 text-gris-medio min-w-[120px]">
-          <div class="flex items-center gap-2">
-            <i class="fas fa-envelope" style="color:#087ead"></i>
-            <span style="color:#087ead">netperu100@hotmail.com</span>
-          </div>
-        </div>
-        <div class="flex items-center gap-2 text-gris-medio">
-          <i class="fas fa-map-marker-alt" style="color:#087ead"></i>
-          <span style="color:#087ead">Lima, PERÚ</span>
-        </div>
-        <div class="flex items-center ml-4 order-last" style="margin-left:auto;">
-          <i class="cursor-pointer fa-solid fa-magnifying-glass p-3 bg-gris-muy-claro rounded-md border hover:bg-gris-claro text-xl" id="active_search"></i>
-        </div>
-      </div>
-    </div>
-  </header>
+  <!-- HEADER DINÁMICO -->
+  <div id="header-container"></div>
+  <script>
+    fetch('../header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('header-container').innerHTML = data;
+      });
+  </script>
 
    <!-- Nav Mobile lateral -->
   <section id="nav_mobile" class="fixed top-0 left-0 right-0 bg-gris-muy-claro h-screen w-full container-nav-mobile flex justify-between p-5 flex-col z-50 shadow-lg md:hidden" style="overflow-y: scroll; display:none;">
@@ -913,16 +840,292 @@
         </div>
       </div>
       <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-<a href="https://www.ds3comunicaciones.com/mikrotik/CRS125-24G-1S-2HnD-IN.html" class="block" data-price="346">
-  <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
-    <img src="https://www.ds3comunicaciones.com/mikrotik/images/CRS125-24G-1S-2HnD-IN_small.jpg" alt="CRS125-24G-1S-2HnD-IN" class="h-32 object-contain mb-3 z-10">
-    <p class="font-bold text-center z-10">CRS125-24G-1S-2HnD-IN</p>
-    <span class="font-medium text-sm mb-2 z-10">U$ 346</span>
-    <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
-      <p class="text-xs text-gray-600 text-center font-bold">Cloud Router Switch MikroTik CRS125-24G-1S-2HnD-IN con Atheros AR9344 CPU, 128MB RAM, M24xGigabit LAN, 1 puerto de fibra SFP, RouterOS Level 5, panel LCD, 2.4Ghz 802.11b/g/n wireless, desktop case, PSU, marca Mikrotik .</p>
-    </div>
-  </div>
-</a>
+        <a href="RB260GS.html" class="block" data-price="59">
+          <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
+            <img src="https://web.netperu100.com/mikrotik/images/RB260GS_front_1.png" alt="RB260GS" class="h-32 object-contain mb-3 z-10">
+            <p class="font-bold text-center z-10">RB260GS</p>
+            <span class="font-medium text-sm mb-2 z-10">U$ 59</span>
+            <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
+              <p class="text-xs text-gray-600 text-center font-bold">Cloud Smart Switch CSS106-5G-1S con 05 puertos Gigabit , 01 puerto SFP, 128 KB, plastic case, SwOS, marca Mikrotik</p>
+            </div>
+          </div>
+        </a>
+
+        <a href="RB260GSP.html" class="block" data-price="79">
+          <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
+            <img src="https://web.netperu100.com/mikrotik/images/RB260GSP_front_large_1.png" alt="RB260GSP" class="h-32 object-contain mb-3 z-10">
+            <p class="font-bold text-center z-10">RB260GSP</p>
+            <span class="font-medium text-sm mb-2 z-10">U$ 79</span>
+            <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
+              <p class="text-xs text-gray-600 text-center font-bold">Cloud Smart Switch CSS106-1G-4P-1S con 05 puertos Gigabit PoE, 01 puerto SFP, 128 KB, plastic case, SwOS, marca Mikrotik</p>
+            </div>
+          </div>
+        </a>
+
+        <a href="CRS106-1C-5S.html" class="block" data-price="89">
+          <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
+            <img src="https://web.netperu100.com/mikrotik/images/CRS106-1C-5S_front_1.png" alt="CRS106-1C-5S" class="h-32 object-contain mb-3 z-10">
+            <p class="font-bold text-center z-10">CRS106-1C-5S</p>
+            <span class="font-medium text-sm mb-2 z-10">U$ 89</span>
+            <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
+              <p class="text-xs text-gray-600 text-center font-bold">Cloud Router Switch 106-1C-5S con 05 puertos SFP , 01 puerto SFP o Gigabit Ethernet , QCA8511 400MHz CPU, 128MB RAM, RouterOS L5, desktop case, marca Mikrotik</p>
+            </div>
+          </div>
+        </a>
+
+        <a href="CRS112-8G-4S-IN.html" class="block" data-price="189">
+          <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
+            <img src="https://web.netperu100.com/mikrotik/images/CRS112-8G-4S-IN_large_1.png" alt="CRS112-8G-4S-IN" class="h-32 object-contain mb-3 z-10">
+            <p class="font-bold text-center z-10">CRS112-8G-4S-IN</p>
+            <span class="font-medium text-sm mb-2 z-10">U$ 189</span>
+            <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
+              <p class="text-xs text-gray-600 text-center font-bold">Cloud Router Switch 112-8G-4S, con 08 puertos Gigabit Ethernet, 04 puertos para fibra SFP, CPU de 400 MHz, 128 MB de RAM, caja de escritorio, RouterOS L5, marca Mikrotik</p>
+            </div>
+          </div>
+        </a>
+
+        <a href="CRS112-8P-4S-IN.html" class="block" data-price="289">
+          <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
+            <img src="https://web.netperu100.com/mikrotik/images/CRS112-8P-4S-IN_large_1.png" alt="CRS112-8P-4S-IN" class="h-32 object-contain mb-3 z-10">
+            <p class="font-bold text-center z-10">CRS112-8P-4S-IN</p>
+            <span class="font-medium text-sm mb-2 z-10">U$ 289</span>
+            <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
+              <p class="text-xs text-gray-600 text-center font-bold">Cloud Router Switch 112-8P-4S, con 08 puertos PoE 802.3af/at Gigabit Ethernet, 04 puertos para fibra SFP, CPU de 400 MHz, 128 MB de RAM, caja de escritorio, RouterOS L5, marca Mikrotik</p>
+            </div>
+          </div>
+        </a>
+
+        <a href="CRS125-24G-1S-2HnD-IN.html" class="block" data-price="289">
+          <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
+            <img src="https://web.netperu100.com/mikrotik/images/CRS125-24G-1S-2HnD-IN_large_1.png" alt="CRS125-24G-1S-2HnD-IN" class="h-32 object-contain mb-3 z-10">
+            <p class="font-bold text-center z-10">CRS125-24G-1S-2HnD-IN</p>
+            <span class="font-medium text-sm mb-2 z-10">U$ 289</span>
+            <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
+              <p class="text-xs text-gray-600 text-center font-bold">Cloud Router Switch 125-24G-1S-2HnD, Layer 3, con 24 puertos Gigabit Ethernet, 01 puerto de fibra SFP, panel LCD, 802.11b/g/n Dual Chain wireless, 600MHz CPU, 128MB RAM, carcasa de escritorio de metal, RouterOS L5, marca Mikrotik</p>
+            </div>
+          </div>
+        </a>
+
+        <a href="CRS212-1G-10S-1S+.html" class="block" data-price="289">
+          <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
+            <img src="https://web.netperu100.com/mikrotik/images/CRS212-1G-10S-1S+IN_large_1.png" alt="CRS212-1G-10S-1S+" class="h-32 object-contain mb-3 z-10">
+            <p class="font-bold text-center z-10">CRS212-1G-10S-1S+IN</p>
+            <span class="font-medium text-sm mb-2 z-10">U$ 289</span>
+            <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
+              <p class="text-xs text-gray-600 text-center font-bold">Cloud Router Switch 212-1G-10S-1S, con 10 puertos para fibra SFP, 01 puerto 10G para fibra SFP+, 01 puerto Gigabit LAN, panel LCD, CPU de 400 MHz, 64 MB de RAM, carcasa metálica para escritorio, RouterOS L5, marca Mikrotik</p>
+            </div>
+          </div>
+        </a>
+        <a href="CRS304-4XG-IN.html" class="block" data-price="259">
+          <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
+            <img src="https://web.netperu100.com/mikrotik/images/CRS304-4XG-IN_front_1.png" alt="CRS304-4XG-IN" class="h-32 object-contain mb-3 z-10">
+            <p class="font-bold text-center z-10">CRS304-4XG-IN</p>
+            <span class="font-medium text-sm mb-2 z-10">U$ 259</span>
+            <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
+              <p class="text-xs text-gray-600 text-center font-bold">Cloud Router Switch 304 Administrable, Capa 3, con 04 puertos Ethernet de 10 Gigabit, 01 puerto Gigabit, RAM 512MB, almacenamiento: 32 MB, soporta RIEL DIN, IP20, diseño sin ventilador, marca Mikrotik</p>
+            </div>
+          </div>
+        </a>
+        <a href="CRS510-8XS-2XQ-IN.html" class="block" data-price="1279">
+          <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
+            <img src="https://web.netperu100.com/mikrotik/images/CRS510-8XS-2XQ-IN_front_1.png" alt="CRS510-8XS-2XQ-IN" class="h-32 object-contain mb-3 z-10">
+            <p class="font-bold text-center z-10">CRS510-8XS-2XQ-IN</p>
+            <span class="font-medium text-sm mb-2 z-10">U$ 1,279</span>
+            <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
+              <p class="text-xs text-gray-600 text-center font-bold">Cloud Router Switch 510, con 02 puertos 100 Gigabit QSFP28, 08 puertos 25 Gigabit SFP28, 01 puerto de consola serial RJ-45, dos fuentes de alimentación intercambiables en caliente (dual hot-swap power supplies), CPU 650 MHz, RouterOS versión 7, RAM 128 MB, almacenamiento 32 MB, marca Mikrotik</p>
+            </div>
+          </div>
+        </a>
+        <a href="CSS610-1Gi-7R-2S+OUT.html" class="block" data-price="175">
+          <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
+            <img src="https://web.netperu100.com/mikrotik/images/CSS610-1Gi-7R-2S+OUT_side_1.png" alt="CSS610-1Gi-7R-2S+OUT" class="h-32 object-contain mb-3 z-10">
+            <p class="font-bold text-center z-10">CSS610-1Gi-7R-2S+OUT</p>
+            <span class="font-medium text-sm mb-2 z-10">U$ 175</span>
+            <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
+              <p class="text-xs text-gray-600 text-center font-bold">netPower Lite 7R outdoor con 07 puertos PoE inversos, el puerto Ethernet 08 puede alimentar otros dispositivos compatibles con PoE con el mismo voltaje, non-blocking throughput 28 Gbps, switching capacity 56 Gbps, forwarding rate 41.7 Mpps, SwitchOS Lite, Storage size 64 KB, marca Mikrotik</p>
+            </div>
+          </div>
+        </a>
+        <a href="CRS520-4XS-16XQ-RM.html" class="block" data-price="consultar">
+          <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
+            <img src="https://web.netperu100.com/mikrotik/images/CRS520-4XS-16XQ-RM_front2_1.png" alt="CRS520-4XS-16XQ-RM" class="h-32 object-contain mb-3 z-10">
+            <p class="font-bold text-center z-10">CRS520-4XS-16XQ-RM</p>
+            <span class="font-medium text-sm mb-2 z-10">Consultar</span>
+            <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
+              <p class="text-xs text-gray-600 text-center font-bold">Cloud Router Switch 520, con 16 puertos QSFP28 de 100 Gigabit, 04 puertos SFP28 de 25 Gigabit, 02 puertos Ethernet de 10 Gigabit, CPU ARM de 04 núcleos a 2 GHz, RAM 4GB, Mikrotik</p>
+            </div>
+          </div>
+        </a>
+        <a href="CRS518-16XS-2XQ-RM.html" class="block" data-price="1939">
+          <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
+            <img src="https://web.netperu100.com/mikrotik/images/CRS518-16XS-2XQ-RM_front_1.png" alt="CRS518-16XS-2XQ-RM" class="h-32 object-contain mb-3 z-10">
+            <p class="font-bold text-center z-10">CRS518-16XS-2XQ-RM</p>
+            <span class="font-medium text-sm mb-2 z-10">U$ 1,939</span>
+            <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
+              <p class="text-xs text-gray-600 text-center font-bold">Cloud Router Switch 518, con 16 puertos 25G SFP28, 02 puertos 100G QSFP28, rackount case, RouterOS L6, RAM 64 MB, Storage size 16 MB, CPU 650 MHz, marca Mikrotik</p>
+            </div>
+          </div>
+        </a>
+        <a href="CRS326-24G-2S+IN.html" class="block" data-price="275">
+          <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
+            <img src="https://web.netperu100.com/mikrotik/images/CRS326-24G-2S+IN_front_1.png" alt="CRS326-24G-2S+IN" class="h-32 object-contain mb-3 z-10">
+            <p class="font-bold text-center z-10">CRS326-24G-2S+IN</p>
+            <span class="font-medium text-sm mb-2 z-10">U$ 275</span>
+            <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
+              <p class="text-xs text-gray-600 text-center font-bold">Cloud Router Switch 326, Capa 3, con 24 puertos Gigabit, 02 puertos 10G para fibra SFP+, Dual boot (RouterOS o SwitchOS), RAM: 512 MB, almacenamiento: 16 MB, montaje en rack, Mikrotik</p>
+            </div>
+          </div>
+        </a>
+        <a href="CRS309-1G-8S+IN.html" class="block" data-price="379">
+          <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
+            <img src="https://web.netperu100.com/mikrotik/images/CRS309-1G-8S+IN_front_1.png" alt="CRS309-1G-8S+IN" class="h-32 object-contain mb-3 z-10">
+            <p class="font-bold text-center z-10">CRS309-1G-8S+IN</p>
+            <span class="font-medium text-sm mb-2 z-10">U$ 379</span>
+            <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
+              <p class="text-xs text-gray-600 text-center font-bold">Cloud Router Switch CRS309 con 08 puertos 10G SFP+, 01 puerto Gigabit, switching capacity of 162 Gbps, escritorio, Mikrotik</p>
+            </div>
+          </div>
+        </a>
+        <a href="CRS305-1G-4S+OUT.html" class="block" data-price="283">
+          <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
+            <img src="https://web.netperu100.com/mikrotik/images/CRS305-1G-4S+OUT_front_1.png" alt="CRS305-1G-4S+OUT" class="h-32 object-contain mb-3 z-10">
+            <p class="font-bold text-center z-10">CRS305-1G-4S+OUT</p>
+            <span class="font-medium text-sm mb-2 z-10">U$ 283</span>
+            <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
+              <p class="text-xs text-gray-600 text-center font-bold">FiberBox Plus - Cloud Router Switch 305-1G-4S+OUT para exteriores con 04 puertos 10G para fibra SFP+, 01 puerto Gigabit 10/100/1000, 802.3af/en, 2 Core CPU 800MHz, Size of RAM 256 MB, Storage size 16 MB, Storage type FLASH, RouterOS L5, IP66, resistente al agua, marca MIKROTIK</p>
+            </div>
+          </div>
+        </a>
+
+        <a href="CRS310-1G-5S-4S+.html" class="block" data-price="269">
+          <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
+            <img src="https://web.netperu100.com/mikrotik/images/CRS310-1G-5S-4S+IN_front_1.png" alt="CRS310-1G-5S-4S+IN" class="h-32 object-contain mb-3 z-10">
+            <p class="font-bold text-center z-10">CRS310-1G-5S-4S+IN</p>
+            <span class="font-medium text-sm mb-2 z-10">U$ 269</span>
+            <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
+              <p class="text-xs text-gray-600 text-center font-bold">Cloud Router Switch CRS310-1G-5S-4S con 05 puertos SFP, 04 puertos 10G SFP+, 01 puerto Gigabit Ethernet, 256 MB RAM, Storage size 16 MB, ARM 32bit, 800 MHz, marca Mikrotik</p>
+            </div>
+          </div>
+        </a>
+
+        <a href="CRS312-4C+8XG-RM.html" class="block" data-price="929">
+          <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
+            <img src="https://web.netperu100.com/mikrotik/images/CRS312-4C+8XG-RM_front_1.png" alt="CRS312-4C+8XG-RM" class="h-32 object-contain mb-3 z-10">
+            <p class="font-bold text-center z-10">CRS312-4C+8XG-RM</p>
+            <span class="font-medium text-sm mb-2 z-10">U$ 929</span>
+            <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
+              <p class="text-xs text-gray-600 text-center font-bold">Cloud Router Switch 312-4C+8XG, con 08 puertos 10G Ethernet , 04 puertos 10G para fibra SFP+, CPU DualBot 650MHz, RAM 64MB, on-blocking throughput 120 Gbps, switching capacity of 240 Gbps, forwarding rate 178 Mpps, RouterOS L5,1U, marca Mikrotik</p>
+            </div>
+          </div>
+        </a>
+
+        <a href="CRS317-1G-16S+RM.html" class="block" data-price="599">
+          <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
+            <img src="https://web.netperu100.com/mikrotik/images/CRS317-1G-16S+RM_large_1.png" alt="CRS317-1G-16S+RM" class="h-32 object-contain mb-3 z-10">
+            <p class="font-bold text-center z-10">CRS317-1G-16S+RM</p>
+            <span class="font-medium text-sm mb-2 z-10">U$ 599</span>
+            <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
+              <p class="text-xs text-gray-600 text-center font-bold">Cloud Router Switch 317-1G-16S Administrable, Layer 3, con 01 puerto 10/100/1000 Gigabit LAN, 16 puertos para fibra 10 GbE SFP+, RAM: 1 GB, Tamaño de almacenamiento: 16 MB, RouterOS o SwitchOS, consumo: 44W, montable en rack, marca Mikrotik</p>
+            </div>
+          </div>
+        </a>
+        <a href="CRS318-16P-2S+OUT.html" class="block" data-price="395">
+          <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
+            <img src="https://web.netperu100.com/mikrotik/images/CRS318-16P-2S+OUT_front_1.png" alt="CRS318-16P-2S+OUT" class="h-32 object-contain mb-3 z-10">
+            <p class="font-bold text-center z-10">CRS318-16P-2S+OUT</p>
+            <span class="font-medium text-sm mb-2 z-10">U$ 395</span>
+            <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
+              <p class="text-xs text-gray-600 text-center font-bold">Cloud Router Switch CRS318 , NetPower 16P , outdoor con 16 puertos Gigabit PoE, 02 puertos para fibra 10G SFP+, throughput 36 Gbps, switching capacity 72 Gbps, forwarding rate 53.6 Mpps, 800 MHz, RouterOS 5 / SwitchOSmarca Mikrotik</p>
+            </div>
+          </div>
+        </a>
+
+        <a href="CRS318-1Fi-15Fr-2S-OUT.html" class="block" data-price="215">
+          <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
+            <img src="https://web.netperu100.com/mikrotik/images/CRS318-1Fi-15Fr-2S-OUT_front_1.png" alt="CRS318-1Fi-15Fr-2S-OUT" class="h-32 object-contain mb-3 z-10">
+            <p class="font-bold text-center z-10">CRS318-1Fi-15Fr-2S-OUT</p>
+            <span class="font-medium text-sm mb-2 z-10">U$ 215</span>
+            <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
+              <p class="text-xs text-gray-600 text-center font-bold">Cloud Router Switch CRS318 , NetPower 15Fr , outdoor con 16 puertos 10/100 (solo Eter15 son PoE), 02 puertos para fibra SFP, 800MHz CPU, 256MB RAM, throughput of 3.6 Gbps, switching capacity of 7.2 Gbps, forwarding rate 5.4 Mpps, RouterOS L5, no incluye fuente, marca Mikrotik</p>
+            </div>
+          </div>
+        </a>
+
+        <a href="CRS326-24G-2S+RM.html" class="block" data-price="289">
+          <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
+            <img src="https://web.netperu100.com/mikrotik/images/CRS326-24G-2S+RM_back_1.png" alt="CRS326-24G-2S+RM" class="h-32 object-contain mb-3 z-10">
+            <p class="font-bold text-center z-10">CRS326-24G-2S+RM</p>
+            <span class="font-medium text-sm mb-2 z-10">U$ 289</span>
+            <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
+              <p class="text-xs text-gray-600 text-center font-bold">Cloud Router Switch 326, Layer 3, con 24 puertos Gigabit 10/100/1000, 02 puertos para fibra SFP+ (10G), Dual boot para seleccionar entre: RouterOS o SwitchOS, RAM: 512 MB, almacenamiento: 16 MB, alimentación: Pasivo PoE (24W), montable en rack, marca Mikrotik</p>
+            </div>
+          </div>
+        </a>
+
+        <a href="CRS326-24S+2Q+RM.html" class="block" data-price="815">
+          <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
+            <img src="https://web.netperu100.com/mikrotik/images/CRS326-24S+2Q+RM_large_1.png" alt="CRS326-24S+2Q+RM" class="h-32 object-contain mb-3 z-10">
+            <p class="font-bold text-center z-10">CRS326-24S+2Q+RM</p>
+            <span class="font-medium text-sm mb-2 z-10">U$ 815</span>
+            <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
+              <p class="text-xs text-gray-600 text-center font-bold">Cloud Router Switch 326, Layer 3, con 24 puertos para fibra SFP+ (10G), 02 puertos QSFP+ (40G), throughput 320 Gbps, switching capacity 640 Gbps, forwarding rate 252 Mpps, dual boot para seleccionar entre: RouterOS o SwitchOS, Nivel de licencia 5, RAM: 64 MB, CPU 650MHz, almacenamiento: 16 MB, montable en rack, marca Mikrotik</p>
+            </div>
+          </div>
+        </a>
+
+        <a href="CSS326-24G-2S+RM.html" class="block" data-price="219">
+          <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
+            <img src="https://web.netperu100.com/mikrotik/images/CSS326-24G-2S+RM_large_1.png" alt="CSS326-24G-2S+RM" class="h-32 object-contain mb-3 z-10">
+            <p class="font-bold text-center z-10">CSS326-24G-2S+RM</p>
+            <span class="font-medium text-sm mb-2 z-10">U$ 219</span>
+            <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
+              <p class="text-xs text-gray-600 text-center font-bold">Cloud Smart Switch 326-24G-2S+RM con 24 puertos Gigabit Ethernet, 02 puertos 10G para fibra SFP+ almacenamiento 2 MB, 1U, rackmount case, PSU, marca Mikrotik</p>
+            </div>
+          </div>
+        </a>
+        <a href="CRS328-4C-20S-4S+RM.html" class="block" data-price="559">
+          <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
+            <img src="https://web.netperu100.com/mikrotik/images/CRS328-4C-20S-4S+RM_large_1.png" alt="CRS328-4C-20S-4S+RM" class="h-32 object-contain mb-3 z-10">
+            <p class="font-bold text-center z-10">CRS328-4C-20S-4S+RM</p>
+            <span class="font-medium text-sm mb-2 z-10">U$ 559</span>
+            <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
+              <p class="text-xs text-gray-600 text-center font-bold">Cloud Smart Switch 328 con 20 puertos para fibra SFP, 04 puertos para fibra SFP+ (10G), 04 puertos combo (Gigabit Ethernet o SFP), CPU de 800 MHz, RAM 512 MB, montaje en rack de 1U, fuentes de alimentación dobles, RouterOS L5 o SwitchOS (arranque dual), marca Mikrotik</p>
+            </div>
+          </div>
+        </a>
+
+        <a href="CRS328-24P-4S+RM.html" class="block" data-price="729">
+          <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
+            <img src="https://web.netperu100.com/mikrotik/images/CRS328-24P-4S+RM_large_1.png" alt="CRS328-24P-4S+RM" class="h-32 object-contain mb-3 z-10">
+            <p class="font-bold text-center z-10">CRS328-24P-4S+RM</p>
+            <span class="font-medium text-sm mb-2 z-10">U$ 729</span>
+            <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
+              <p class="text-xs text-gray-600 text-center font-bold">Cloud Router Switch 328, Layer 3, con 24 puertos Gigabit 10/100/1000 PoE/PoE+ (450W), 04 puertos para fibra SFP+ (10G), ARM 32bit, UPC DX3236, CPU 800 MHz, memoria RAM 512 MB, almacenamiento 16 MB, 802.3af/at (tipo1 “PoE” / tipo2 “PoE+”), 1U rackmount case, marca Mikrotik</p>
+            </div>
+          </div>
+        </a>
+
+        <a href="CRS354-48G-4S+2Q+RM.html" class="block" data-price="759">
+          <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
+            <img src="https://web.netperu100.com/mikrotik/images/CRS354-48G-4S+2Q+RM_large_1.png" alt="CRS354-48G-4S+2Q+RM" class="h-32 object-contain mb-3 z-10">
+            <p class="font-bold text-center z-10">CRS354-48G-4S+2Q+RM</p>
+            <span class="font-medium text-sm mb-2 z-10">U$ 759</span>
+            <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
+              <p class="text-xs text-gray-600 text-center font-bold">Cloud Smart Switch 354, con 48 puertos Gigabit, 04 puertos fibra SFP+ (10G), 02 puertos QSFP+ (40G), rendimiento total sin bloqueo es de 168 Gbps, capacidad de conmutación 336 Gbps, velocidad de reenvío alcanza 235 Mpps. Fuente Redundante, RAM 64 MB, size 16 MB, marca Mikrotik</p>
+            </div>
+          </div>
+        </a>
+
+        <a href="CRS354-48P-4S+2Q+RM.html" class="block" data-price="1359">
+          <div class="bg-white border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col items-center relative group overflow-hidden ccr-card">
+            <img src="https://web.netperu100.com/mikrotik/images/CRS354-48P-4S+2Q+RM_large_1.png" alt="CRS354-48P-4S+2Q+RM" class="h-32 object-contain mb-3 z-10">
+            <p class="font-bold text-center z-10">CRS354-48P-4S+2Q+RM</p>
+            <span class="font-medium text-sm mb-2 z-10">U$ 1,359</span>
+            <div class="absolute inset-0 bg-white bg-opacity-95 flex items-center justify-center px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20 hidden sm:flex">
+              <p class="text-xs text-gray-600 text-center font-bold">Cloud Smart Switch 326, con 48 puertos Gigabit 10/100/1000 PoE/PoE+ (750W), 04 puertos para fibra SFP+ (10G), 02 puertos QSFP+ (40G), rendimiento total sin bloqueo es de 168 Gbps, capacidad de conmutación 336 Gbps , velocidad de reenvío alcanza 235 Mpps. Fuente Redundante, RAM 64 MB, size 16 MB, 802.3af/at (tipo1 “PoE” / tipo2 “PoE+”), marca Mikrotik</p>
+            </div>
+          </div>
+        </a>
       </div>
     </div>
 
