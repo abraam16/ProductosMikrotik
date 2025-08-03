@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     window.open("" + src, "_blank");
   }
   const btn_active_search = document.querySelectorAll('#active_search');
+  const btn_desactive_search = document.querySelector('#desactive_search');
   const sec_search = document.querySelector('#sec_search');
   if (btn_active_search.length && sec_search) {
     btn_active_search.forEach(lupa => {
@@ -17,16 +18,12 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   }
-  if (sec_search) {
-    // Cerrar con botón
-    const btn_desactive_search = document.querySelector('#desactive_search');
-    if (btn_desactive_search) {
-      btn_desactive_search.addEventListener('click', function(e) {
-        e.preventDefault();
-        sec_search.style.display = 'none';
-      });
-    }
-    // Cerrar con click fuera del formulario
+  if (btn_desactive_search && sec_search) {
+    btn_desactive_search.addEventListener("click", e => {
+      e.preventDefault();
+      sec_search.style.display = 'none';
+    });
+  }  if (sec_search) {
     sec_search.addEventListener('mousedown', function(e) {
       const form = sec_search.querySelector('form');
       if (form && !form.contains(e.target)) {
@@ -40,13 +37,13 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   }
-  // Usar ruta relativa para el menú móvil desde subcarpetas
-  fetch('../components/nav_mobile.html')
+fetch('../components/nav_mobile.html')
     .then(response => response.text())
     .then(html => {
       const tempDiv = document.createElement('div');
       tempDiv.innerHTML = html;
       document.body.appendChild(tempDiv.firstElementChild);
+
       // Inicializar eventos del menú móvil después de insertar
       const navMobile = document.querySelector('.container-nav-mobile');
       const btn_open = document.querySelector('.fa-bars');
@@ -54,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
         btn_open.addEventListener('click', (e) => {
           navMobile.classList.add('active-nav-mobile');
           navMobile.style.display = 'flex';
-          document.body.classList.add('body_y');
+          document.querySelector('body').classList.add('body_y');
         });
       }
       const btn_close_nav_mobile = document.getElementById('close_nav_mobile');
@@ -63,7 +60,41 @@ document.addEventListener('DOMContentLoaded', function() {
           if (navMobile) {
             navMobile.classList.remove('active-nav-mobile');
             navMobile.style.display = 'none';
-            document.body.classList.remove('body_y');
+            document.querySelector('body').classList.remove('body_y');
+          }
+        });
+      }
+      const btn_active_search = document.querySelectorAll('#active_search');
+      const btn_desactive_search = document.querySelector('#desactive_search');
+      const sec_search = document.querySelector('#sec_search');
+
+      if (btn_active_search.length && sec_search) {
+        btn_active_search.forEach(lupa => {
+          lupa.addEventListener("click", e => {
+            e.preventDefault();
+            sec_search.style.display = 'flex';
+            // Focus input
+            const input = sec_search.querySelector('input[type="search"]');
+            if (input) setTimeout(() => input.focus(), 100);
+          });
+        });
+      }
+      if (btn_desactive_search && sec_search) {
+        btn_desactive_search.addEventListener("click", e => {
+          e.preventDefault();
+          sec_search.style.display = 'none';
+        });
+      }
+      if (sec_search) {
+        sec_search.addEventListener('mousedown', function(e) {
+          const form = sec_search.querySelector('form');
+          if (form && !form.contains(e.target)) {
+            sec_search.style.display = 'none';
+          }
+        });
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && sec_search.style.display === 'flex') {
+            sec_search.style.display = 'none';
           }
         });
       }
