@@ -39,7 +39,13 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   // Ruta universal para nav_mobile.html según profundidad
   function getNavPath() {
-    const depth = window.location.pathname.split('/').length - 2;
+    // Si estamos en la raíz (ej: /master.html), usar ruta directa
+    const path = window.location.pathname;
+    if (path === '/' || path.match(/^\/[^\/]+\.html$/)) {
+      return 'components/nav_mobile.html';
+    }
+    // Si estamos en una subcarpeta, calcular profundidad
+    const depth = path.split('/').length - 2;
     let prefix = '';
     if (depth > 0) {
       prefix = '../'.repeat(depth);
