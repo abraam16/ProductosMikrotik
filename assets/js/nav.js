@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
   // Detectar ruta correcta para nav_mobile.html
-  let navPath = 'components/nav_mobile.html';
+  let navPath = './components/nav_mobile.html';
   if (window.location.pathname.split('/').length > 2) {
     navPath = '../components/nav_mobile.html';
   }
