@@ -40,9 +40,9 @@ document.addEventListener('DOMContentLoaded', function() {
   // Ruta universal para nav_mobile.html según profundidad
   function getNavPath() {
     const pathParts = window.location.pathname.split('/').filter(Boolean);
-    // Si el archivo HTML está en la raíz (solo hay un nombre de archivo después del último '/')
-    if (pathParts.length === 1 && pathParts[0].endsWith('.html')) {
-      return 'components/nav_mobile.html';
+    // Si estamos en la raíz del proyecto (ej: /repo/master.html)
+    if (pathParts.length === 2 && pathParts[1].endsWith('.html')) {
+      return `/${pathParts[0]}/components/nav_mobile.html`;
     }
     // Si está en subcarpeta, calcula profundidad
     const depth = pathParts.length - 1;
