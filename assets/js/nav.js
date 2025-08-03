@@ -37,9 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   }
-// Detectar ruta correcta para nav_mobile.html
-// Usar ruta absoluta para compatibilidad universal
-fetch('/components/nav_mobile.html')
+fetch('/ProductosMikrotik/components/nav_mobile.html')
     .then(response => response.text())
     .then(html => {
       const tempDiv = document.createElement('div');
