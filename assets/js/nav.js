@@ -38,11 +38,17 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
   // Ruta universal para nav_mobile.html según profundidad
+  // Función universal para obtener la ruta del menú móvil
   function getNavPath() {
     const pathParts = window.location.pathname.split('/').filter(Boolean);
-    // Si estamos en la raíz del proyecto (ej: /repo/master.html)
-    if (pathParts.length === 2 && pathParts[1].endsWith('.html')) {
-      return `/${pathParts[0]}/components/nav_mobile.html`;
+    // Si el HTML está en la raíz del proyecto (ej: /repo/master.html o /master.html)
+    if (
+      (pathParts.length === 1 && pathParts[0].endsWith('.html')) || // /master.html
+      (pathParts.length === 2 && pathParts[1].endsWith('.html'))     // /repo/master.html
+    ) {
+      // Si hay repo, úsalo; si no, ruta directa
+      const repo = pathParts.length === 2 ? `/${pathParts[0]}` : '';
+      return `${repo}/components/nav_mobile.html`;
     }
     // Si está en subcarpeta, calcula profundidad
     const depth = pathParts.length - 1;
