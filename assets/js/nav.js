@@ -1,4 +1,28 @@
 document.addEventListener('DOMContentLoaded', function() {
+  // Si estamos en master.html, no importar nav_mobile.html
+  if (window.location.pathname.endsWith('master.html')) {
+    // Solo inicializar eventos del menú móvil si ya está en el HTML
+    const navMobile = document.querySelector('.container-nav-mobile');
+    const btn_open = document.querySelector('.fa-bars');
+    if (btn_open && navMobile) {
+      btn_open.addEventListener('click', (e) => {
+        navMobile.classList.add('active-nav-mobile');
+        navMobile.style.display = 'flex';
+        document.querySelector('body').classList.add('body_y');
+      });
+    }
+    const btn_close_nav_mobile = document.getElementById('close_nav_mobile');
+    if (btn_close_nav_mobile) {
+      btn_close_nav_mobile.addEventListener('click', () => {
+        if (navMobile) {
+          navMobile.classList.remove('active-nav-mobile');
+          navMobile.style.display = 'none';
+          document.querySelector('body').classList.remove('body_y');
+        }
+      });
+    }
+    return;
+  }
   const chageURL = (url) => {
     location.href = url;
   }
