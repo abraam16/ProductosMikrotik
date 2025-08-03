@@ -40,8 +40,8 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   }
-  // Usar ruta absoluta para el menú móvil
-  fetch('/components/nav_mobile.html')
+  // Usar ruta relativa para el menú móvil (funciona en carpetas)
+  fetch('components/nav_mobile.html')
     .then(response => response.text())
     .then(html => {
       const tempDiv = document.createElement('div');
