@@ -37,7 +37,12 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   }
-fetch('../components/nav_mobile.html')
+  // Detectar ruta correcta para nav_mobile.html
+  let navPath = 'components/nav_mobile.html';
+  if (window.location.pathname.split('/').length > 2) {
+    navPath = '../components/nav_mobile.html';
+  }
+  fetch(navPath)
     .then(response => response.text())
     .then(html => {
       const tempDiv = document.createElement('div');
