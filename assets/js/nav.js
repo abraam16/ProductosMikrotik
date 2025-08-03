@@ -28,7 +28,38 @@ document.addEventListener('DOMContentLoaded', function() {
   fetch(navPath)
     .then(response => response.text())
     .then(html => {
-      sec_search.style.display = 'none';
+      const tempDiv = document.createElement('div');
+      tempDiv.innerHTML = html;
+      document.body.appendChild(tempDiv.firstElementChild);
+      // Actualizar los enlaces del menú móvil para usar el basePath
+      const navMobile = document.querySelector('.container-nav-mobile');
+      if (navMobile) {
+        navMobile.querySelectorAll('a').forEach(link => {
+          if (link.getAttribute('href') && !/^([a-z]+:|#|\/)/i.test(link.getAttribute('href'))) {
+            link.setAttribute('href', basePath + link.getAttribute('href'));
+          }
+        });
+        // Inicializar eventos del menú móvil
+        const btn_open = document.querySelector('.fa-bars');
+        if (btn_open) {
+          btn_open.addEventListener('click', (e) => {
+            navMobile.classList.add('active-nav-mobile');
+            navMobile.style.display = 'flex';
+            document.body.classList.add('body_y');
+          });
+        }
+        const btn_close_nav_mobile = document.getElementById('close_nav_mobile');
+        if (btn_close_nav_mobile) {
+          btn_close_nav_mobile.addEventListener('click', () => {
+            navMobile.classList.remove('active-nav-mobile');
+            navMobile.style.display = 'none';
+            document.body.classList.remove('body_y');
+          });
+        }
+      }
+    })
+    .catch(err => {
+      console.error('No se pudo cargar nav_mobile.html:', err);
     });
   if (sec_search) {
     sec_search.addEventListener('mousedown', function(e) {
