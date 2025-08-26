@@ -158,15 +158,29 @@ aside.sticky.overflow-y-auto.scrollbar-hide::-webkit-scrollbar {
   background-color: #087ead !important;
   color: #fff !important;
   border: none !important;
-  padding: 0.75rem 1.5rem !important;
-  border-radius: 0 0.01rem 0.01rem 0 !important;
+  padding: 12px 24px !important;
+  border-radius: 8px !important;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 2px 4px rgba(8, 126, 173, 0.3);
 }
 .btn-ds3:hover, .btn-ds3:focus {
   background-color: #066a91 !important;
+  color: #fff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(8, 126, 173, 0.4);
+}
+.btn-ds3::before {
+  content: "\f07a";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 1.1rem;
 }
 .titulo-ds3 {
   background-color: #087ead !important;
@@ -235,19 +249,32 @@ aside.sticky.overflow-y-auto.scrollbar-hide::-webkit-scrollbar {
   background-color: #087ead !important;
   color: #fff !important;
   border: none !important;
-  padding: 0.75rem 1.5rem !important;
-  border-radius: 0 0.4rem 0.4rem 0 !important;
+  padding: 12px 24px !important;
+  border-radius: 8px !important;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s;
-  box-shadow: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(8, 126, 173, 0.3);
   outline: none;
   position: relative;
   z-index: 1;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 .btn-ds3:hover, .btn-ds3:focus {
   background-color: #066a91 !important;
+  color: #fff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(8, 126, 173, 0.4);
+}
+.btn-ds3::before {
+  content: "\f07a";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 1.1rem;
 }
 #AAM,
 #ASA,
