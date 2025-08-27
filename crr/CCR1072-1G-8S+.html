@@ -330,6 +330,7 @@
 
   <!-- CONTENIDO PRINCIPAL -->
   <main class="mx-auto max-w-7xl">
+    <div class="flex flex-col lg:flex-row gap-6 p-4">
       <!-- SIDEBAR IZQUIERDO - Nuestras Marcas (componente) -->
       <aside class="hidden lg:block w-full lg:w-1/5 lg:w-1/6 bg-white p-4 rounded-lg shadow-md h-fit sticky top-4">
         <div id="nuestras-marcas"></div>
@@ -341,8 +342,9 @@
             });
         </script>
       </aside>
-        <!-- CONTENIDO PRINCIPAL DE PRODUCTOS -->
-        <div class="w-full lg:w-4/6 bg-white rounded-lg shadow">
+      
+      <!-- CONTENIDO PRINCIPAL DE PRODUCTOS -->
+      <div class="w-full lg:w-4/6 bg-white rounded-lg shadow">
           <div class="mx-auto max-w-[1200px] w-full p-6">
             
             <!-- Título del producto -->
@@ -367,7 +369,7 @@
               <div class="grid grid-cols-2 gap-3">
                 <div class="bg-white rounded-lg shadow-sm p-2 border cursor-pointer border-hover transition-all duration-200"
                   onclick="changeMainImageMobile('https://web.netperu100.com/mikrotik/images/CCR1072-1G-8S+_back.png', true)">
-                  <img src="https://web.netperu100.com/mikrotik/images/CCR1072-1G-8S+_back_1.png" 
+                  <img src="https://web.netperu100.com/mikrotik/images/CCR1072-1G-8S+_back.png" 
                     alt="CCR1072-1G-8S+ vista posterior mostrando conectores y ventilación" 
                     class="w-full h-24 object-contain scale-hover" 
                     loading="eager" 
@@ -376,7 +378,7 @@
                 </div>
                 <div class="bg-white rounded-lg shadow-sm p-2 border cursor-pointer border-hover transition-all duration-200"
                   onclick="changeMainImageMobile('https://web.netperu100.com/mikrotik/images/CCR1072-1G-8S+_large.png', true)">
-                  <img src="https://web.netperu100.com/mikrotik/images/CCR1072-1G-8S+_large_1.png" 
+                  <img src="https://web.netperu100.com/mikrotik/images/CCR1072-1G-8S+_large.png" 
                     alt="CCR1072-1G-8S+ imagen grande de alta resolución" 
                     class="w-full h-24 object-contain scale-hover" 
                     loading="eager" 
@@ -385,7 +387,7 @@
                 </div>
                 <div class="bg-white rounded-lg shadow-sm p-2 border cursor-pointer border-hover transition-all duration-200"
                   onclick="changeMainImageMobile('https://web.netperu100.com/mikrotik/images/CCR1072-1G-8Smas_box.jpg', true)">
-                  <img src="https://web.netperu100.com/mikrotik/images/CCR1072-1G-8Smas_box_1.png" 
+                  <img src="https://web.netperu100.com/mikrotik/images/CCR1072-1G-8Smas_box.jpg" 
                     alt="CCR1072-1G-8S+ empaque original MikroTik" 
                     class="w-full h-24 object-contain scale-hover" 
                     loading="eager" 
@@ -497,7 +499,7 @@
               <div class="grid grid-cols-2 gap-3">
                 <div class="bg-white rounded-lg shadow-sm p-2 border cursor-pointer border-hover transition-all duration-200"
                   onclick="changeMainImage('https://web.netperu100.com/mikrotik/images/CCR1072-1G-8S+_back.png')">
-                  <img src="https://web.netperu100.com/mikrotik/images/CCR1072-1G-8S+_back_1.png" 
+                  <img src="https://web.netperu100.com/mikrotik/images/CCR1072-1G-8S+_back.png" 
                     alt="CCR1072-1G-8S+ vista posterior mostrando conectores y ventilación" 
                     class="w-full h-24 object-contain scale-hover" 
                     loading="eager" 
@@ -506,7 +508,7 @@
                 </div>
                 <div class="bg-white rounded-lg shadow-sm p-2 border cursor-pointer border-hover transition-all duration-200"
                   onclick="changeMainImage('https://web.netperu100.com/mikrotik/images/CCR1072-1G-8S+_large.png')">
-                  <img src="https://web.netperu100.com/mikrotik/images/CCR1072-1G-8S+_large_1.png" 
+                  <img src="https://web.netperu100.com/mikrotik/images/CCR1072-1G-8S+_large.png" 
                     alt="CCR1072-1G-8S+ imagen grande de alta resolución" 
                     class="w-full h-24 object-contain scale-hover" 
                     loading="eager" 
@@ -515,7 +517,7 @@
                 </div>
                 <div class="bg-white rounded-lg shadow-sm p-2 border cursor-pointer border-hover transition-all duration-200"
                   onclick="changeMainImage('https://web.netperu100.com/mikrotik/images/CCR1072-1G-8Smas_box.jpg')">
-                  <img src="https://web.netperu100.com/mikrotik/images/CCR1072-1G-8Smas_box_1.png" 
+                  <img src="https://web.netperu100.com/mikrotik/images/CCR1072-1G-8Smas_box.jpg" 
                     alt="CCR1072-1G-8S+ empaque original MikroTik" 
                     class="w-full h-24 object-contain scale-hover" 
                     loading="eager" 
@@ -607,6 +609,7 @@
           </div>
         </div>
       </div>
+      
       <!-- SIDEBAR DERECHO - Lista de Precios de otras marcas (componente) -->
       <aside class="hidden lg:block w-full max-w-xs lg:w-1/4 xl:w-1/5 bg-white p-2 rounded-lg shadow-md h-[80vh] overflow-y-auto" style="scrollbar-width: none; -ms-overflow-style: none;">
         <div id="lista-precios-marcas"></div>
@@ -619,6 +622,7 @@
         </script>
       </aside>
     </div>
+    
     <div class="w-full">
       <div class="bg-ds3-blue rounded-none shadow-md py-4 px-6 w-full">
         <h2 class="text-2xl md:text-3xl font-bold text-white text-center">
@@ -634,7 +638,7 @@
         <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
           <div class="p-4 text-center">
             <div class="h-32 flex items-center justify-center mb-4 bg-gray-50 rounded">
-              <img src="https://web.netperu100.com/mikrotik/images/CCR2004-16G-2S+_large_1.png" 
+              <img src="https://web.netperu100.com/mikrotik/images/CCR2004-16G-2S+_large.png" 
                    alt="CCR2004-16G-2S+ Cloud Core Router" 
                    class="max-h-full max-w-full object-contain" 
                    loading="eager" 
@@ -653,7 +657,7 @@
         <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
           <div class="p-4 text-center">
             <div class="h-32 flex items-center justify-center mb-4 bg-gray-50 rounded">
-              <img src="https://web.netperu100.com/mikrotik/images/CCR1036-8G-2SmasEM_front_1.png" 
+              <img src="https://web.netperu100.com/mikrotik/images/CCR1036-8G-2SmasEM_front.png" 
                    alt="CCR1036-8G-2S+EM Cloud Core Router" 
                    class="max-h-full max-w-full object-contain" 
                    loading="eager" 
@@ -672,7 +676,7 @@
         <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
           <div class="p-4 text-center">
             <div class="h-32 flex items-center justify-center mb-4 bg-gray-50 rounded">
-              <img src="https://web.netperu100.com/mikrotik/images/CCR1036-12G-4S_front_1.png" 
+              <img src="https://web.netperu100.com/mikrotik/images/CCR1036-12G-4S_front.png" 
                    alt="CCR1036-12G-4S Cloud Core Router" 
                    class="max-h-full max-w-full object-contain" 
                    loading="eager" 
@@ -691,7 +695,7 @@
         <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
           <div class="p-4 text-center">
             <div class="h-32 flex items-center justify-center mb-4 bg-gray-50 rounded">
-              <img src="https://web.netperu100.com/mikrotik/images/CCR1036-12G-4S-EM_front_1.png" 
+              <img src="https://web.netperu100.com/mikrotik/images/CCR1036-12G-4S-EM_front.png" 
                    alt="CCR1036-12G-4S-EM Cloud Core Router" 
                    class="max-h-full max-w-full object-contain" 
                    loading="eager" 
@@ -740,6 +744,17 @@
         // Preload para UX instantáneo
         if (!elements.preloader) elements.preloader = new Image();
         elements.preloader.src = src;
+      }
+    }
+
+    // Función para cambiar imagen principal en móvil
+    function changeMainImageMobile(src, isThumb = false) {
+      const mainImg = document.getElementById('img_main_mobile');
+      if (mainImg) {
+        mainImg.src = src;
+        // Preload para UX instantáneo
+        const preloader = new Image();
+        preloader.src = src;
       }
     }
 
